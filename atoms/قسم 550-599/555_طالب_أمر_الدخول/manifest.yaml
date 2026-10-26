@@ -1,0 +1,103 @@
+id: 555
+name: "Entry Order Requester"
+version: "1.31.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "execution.order.requested"
+  - "execution.entry.state"
+
+subscribes:
+  - "decision.gate.passed"
+  - "risk.position_size.state"
+  - "platform.account.state"
+  - "platform.positions.state"
+  # ⚖️ ٢٠٢٦-٠٩-١٦ — أمرٌ رُفض ⇒ لا مركزَ في الطريق ⇒ يُحرَّر الرمز فورًا.
+  # كان `_inflight` يُمسح بظهور مركزٍ أو بانقضاء تسعين ثانية، والأمر
+  # المرفوض لا يصير مركزًا أبدًا — فيقعد الرمز تسعين ثانية على فشلٍ
+  # معروف، ونافذةُ السعر الطازج عشر ثوانٍ. ٥٥٥ كان الوحيد خارج مشتركي
+  # هذا الحدث الثلاثة عشر، وهو صاحب الحارس.
+  - "execution.order.rejected"
+  - "strategy.setup.proposed"
+  - "emergency.halt"
+  - "risk.kill_switch.reset_requested"
+  - "SYS_SECOND"
+  - "market_data.calendar.state"
+  - "platform.trade_event"
+  # 2026-10-25 (owner seal, law 21): "knowledge.levels.state" fed only the time-enough check, which is gone.
+  # 2026-10-23 (sealed red lines, laws 7-10): 509's account limits refuse entries.
+  - "risk.account_limits.state"
+
+startup_mode: auto
+
+health:
+  interval_ms: 10000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: true
+  max_restarts: 5
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    size_stale_after_s:
+      type: number
+      minimum: 0
+    target_stale_after_s:
+      type: number
+      minimum: 0
+    max_open_per_symbol:
+      type: integer
+      minimum: 0
+    inflight_ttl_s:
+      type: number
+      minimum: 0
+    min_reward_multiple:
+      type: number
+      minimum: 1
+    # 🔴 ٢٠٢٦-٠٩-٢٢ — أُضيف بعد أن أسقط غيابُه الذرّة من النواة.
+    #
+    # جاء `entry_cooldown_s` في `config` مع دمج المستودع، ولم يأتِ معه
+    # إلى `properties` — و`additionalProperties: false` أدناه يرفض كلّ
+    # مفتاحٍ غير معلَن. فسقط المانيفست في التحقّق عند التحميل الحارّ،
+    # وأُسقطت الذرّة بلا خطأٍ في السجلّ: لا فشلَ استيراد ولا استثناء،
+    # رفضٌ في المخطّط وحده.
+    #
+    # ومقيسٌ يومَها: ١٩١ ذرّةً حيّة و٥٥٥ وحدها غائبة، بينما تُستورد
+    # وتُهيَّأ وتبدأ وتبني شارتها إن شُغّلت بيدي. تشخيصُ جلسة ٤٠٠-٤٥٠،
+    # وتحقّقتُ منه بنفسي قبل الأخذ به.
+    #
+    # وليس مطلوبًا (`required`): غيابُه يعني لا مهلة، لا إقلاعًا فاشلًا.
+    entry_cooldown_s:
+      type: number
+      minimum: 0
+  required: [size_stale_after_s, target_stale_after_s, max_open_per_symbol, inflight_ttl_s, min_reward_multiple]
+
+  additionalProperties: false
+
+config:
+  # حجم أقدم من هذا لا يُبنى عليه أمر: اللوت محسوب على سعر مضى.
+  size_stale_after_s: 30.0
+  # هدف أقدم من هذا يُترك لـ551 (المضاعف الاحتياطيّ) بدل إرساله قديمًا.
+  target_stale_after_s: 30.0
+  # الدخول الأوّل وحده: صفر مركز مفتوح للرمز. رفعه يسمح بالإضافة على مركز
+  # قائم — وذلك شأن 581 لا هذه الذرّة.
+  max_open_per_symbol: 0
+  # الطلب الطائر يُعدّ مركزًا حتى يظهر أثره أو تنقضي مهلته — بين الإرسال
+  # ووصول المركز من الجسر ثوانٍ مرّ فيها أربعة قرارات على الرمز نفسه.
+  inflight_ttl_s: 90.0
+  # حكم المالك ٢٠٢٦-٠٩-١١: «إذا هدف أقلّ من ١/٣ نستعمل هدفًا صلبًا»
+  # و«صفقة ما معها ستوب وهدف لا تمشي أبدًا». نفس أرضيّة ٥٢٦.
+  min_reward_multiple: 3.0
+  # الكبح الفعلي موحّد مع بوابة 527؛ القيمة هنا توثيق العقد ولا تسمح بعيار ثانٍ.
+  entry_cooldown_s: 45.0
+
+metadata:
+  role: "entry"
+  upstream: "466 · 513 · 526"
+  downstream: "527 · 526 · 516 · 551 · 525 · 552 · 601"

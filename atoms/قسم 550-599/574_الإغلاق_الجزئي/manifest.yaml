@@ -1,0 +1,60 @@
+id: 574
+name: "Partial Close"
+version: "2.18.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "execution.manage.intent"
+  # ٢٠٢٦-١٠-٠٥ (ختم المالك «nq اعتمدناها»): التذاكر المُدارة على مستويات التحليل — يقرؤها ٥٧٢.
+  - "management.level_plan.state"
+
+subscribes:
+  # ٢٠٢٦-١٠-٠٥: سلّم البنية من ٢٠١ — مستويات الطريق، وقمم/قيعان الربع ساعة لتتبّع الثلث الأخير.
+  - "structure.levels.state"
+  # ٢٠٢٦-١٠-٠٢ (ختم المالك «صلح كامل nq»): التقدّم يُقاس بسعر التنفيذ في ميتاتريدر لا بمنتصف سي‑تريدر.
+  - "feed.mt5.tick"
+  - "platform.positions.state"
+  # ٢٠٢٦-٠٩-١٦ — تصحيح المالك «بروكر أصغر شي عنده 0.01، تحت هيك ما يقبل»:
+  # والحدّ ليس واحدًا — ناسداك والمؤشّرات أصغر لوتها 0.1 لا 0.01. فحدود كل
+  # رمز تُقرأ من الوسيط بدل رقمٍ واحد في الإعداد.
+  - "market.symbol_specs"
+
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    partial_at_r:
+      type: number
+      minimum: 0
+    partial_fraction:
+      type: number
+      minimum: 0
+      maximum: 1
+    min_partial_lot:
+      type: number
+      minimum: 0
+  required:
+    - partial_at_r
+    - partial_fraction
+    - min_partial_lot
+  additionalProperties: false
+
+config:
+  partial_at_r: 1.0
+  partial_fraction: 0.5
+  min_partial_lot: 0.01
+metadata:
+  max_idle_s: 3600

@@ -1,0 +1,75 @@
+id: 209
+name: "Dow Theory"
+version: "1.1.1"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "structure.dow.state"
+
+subscribes:
+  - "market_data.candle_closed"
+
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: true
+  max_restarts: 5
+  restart_backoff_ms: 3000
+
+config_schema:
+  type: object
+  properties:
+    symbols:
+      type: array
+      items:
+        type: string
+    confirmation_group:
+      type: array
+      items:
+        type: string
+    groups:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
+    ask_frame:
+      type: string
+    day_frame:
+      type: string
+    max_bars:
+      type: integer
+      minimum: 50
+    pivot_span:
+      type: integer
+      minimum: 1
+  required:
+    - symbols
+    - confirmation_group
+    - groups
+    - ask_frame
+    - day_frame
+    - max_bars
+    - pivot_span
+  additionalProperties: false
+
+config:
+  symbols: ["USTEC", "US500", "US30", "XAUUSD", "BTCUSD", "EURUSD", "GBPUSD"]
+  confirmation_group: ["USTEC", "US500", "US30"]
+  groups:
+    secondary: ["1m", "5m", "15m"]
+    sub: ["30m", "1h", "4h"]
+    primary: ["1d", "1w", "1mo"]
+  ask_frame: "15m"
+  day_frame: "1d"
+  max_bars: 450
+  pivot_span: 2
+metadata:
+  max_idle_s: 3600

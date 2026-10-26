@@ -1,0 +1,51 @@
+id: 117
+name: Time And Holidays Knowledge
+version: "1.0.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+# ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — المعرفة أوّلًا): حقائق خام عن الوقت — الجلسات بالتوقيت الصيفيّ الصحيح ·
+# النقديّ · نافذة المالك · العطل والإغلاق المبكّر · انتهاء الخيارات · نهايات الشهر والربع والسنة · يوم الوسيط.
+# تعرف ولا تقرّر — لا تدخل قرار الدخول. والتقويم يُقرأ للقراءة فقط.
+publishes:
+- knowledge.time.state
+subscribes:
+- SYS_5MIN
+startup_mode: auto
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    db_path:
+      type: string
+    server_offset_s:
+      type: integer
+    boot_delay_s:
+      type: number
+      minimum: 0
+    symbol:
+      type: string
+  required:
+  - db_path
+  additionalProperties: false
+config:
+  # تقويم ميتاتريدر المحفوظ (يكتبه السكربت مرّةً عند تشغيله) — ويسبقه متغيّر البيئة NQ_CALENDAR_HISTORY_DB
+  # إن ضُبط. يُفتح للقراءة فقط (mode=ro) في خيطٍ منفصل.
+  db_path: '%APPDATA%\MetaQuotes\Terminal\Common\Files\nq_calendar_history.db'
+  # وقت التقويم = غرينتش + 3 ساعات ثابتة (مقيس على قرار الفائدة والوظائف، وتشهد به export_meta).
+  server_offset_s: 10800
+  # النشر الأوّل بعد اكتمال الإقلاع كلّه (مقيس ~7 ث) — كنسق 153.
+  boot_delay_s: 30.0
+  # الرمز الذي تُختم عليه الحقائق في دفتر البطاقات 465.
+  symbol: USTEC
+metadata:
+  # النبضة كلّ 5 دقائق؛ ثلاث نبضات بلا غذاء = جوع.
+  max_idle_s: 900
+  name_ar: "معرفة الوقت والعطل"

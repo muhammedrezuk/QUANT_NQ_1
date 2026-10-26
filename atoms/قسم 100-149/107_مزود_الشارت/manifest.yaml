@@ -1,0 +1,66 @@
+id: 602
+name: "Chart Provider"
+version: "1.3.2"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "market_data.candle_closed"
+
+subscribes:
+  - "market.tick.validated"
+  - "SYS_SECOND"
+
+startup_mode: auto
+
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    db_path:
+      type: string
+    symbols:
+      type: array
+      items:
+        type: string
+    bars_per_frame:
+      type: integer
+      minimum: 1
+    replay_bars_per_pulse:
+      type: integer
+      minimum: 1
+    max_attempts:
+      type: integer
+      minimum: 1
+    replay_wait_s:
+      type: number
+      minimum: 0
+    fetch_every_s:
+      type: number
+      minimum: 0
+    fetch_timeout_s:
+      type: number
+      minimum: 1
+  additionalProperties: false
+
+config:
+  symbols: ["USTEC", "US30", "US500", "XAUUSD", "BTCUSD", "EURUSD", "GBPUSD"]
+  bars_per_frame: 450
+  replay_bars_per_pulse: 100
+  max_attempts: 3
+  replay_wait_s: 600
+  fetch_every_s: 3600
+  fetch_timeout_s: 1800
+metadata:
+  max_idle_s: 300
+  name_ar: "مزوّد الشارت"

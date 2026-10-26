@@ -1,0 +1,55 @@
+14:42:13 دقائق 3081146
+14:42:16 لحظات 162719
+14:42:16 حقائق 151_1d_base ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:16 حقائق 151_1d_f20s50 ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:16 حقائق 151_1d_f50s200 ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:17 حقائق 151_1h_base ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:18 حقائق 151_1h_f20s50 ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:18 حقائق 151_1h_f50s200 ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:18 حقائق 151_4h_base ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:18 حقائق 151_4h_f20s50 ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:19 حقائق 151_4h_f50s200 ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:19 حقائق 152_1d_roc10 ['m.pattern', 'm.roc']
+14:42:19 حقائق 152_1d_roc20 ['m.pattern', 'm.roc']
+14:42:19 حقائق 152_1d_roc5 ['m.pattern', 'm.roc']
+14:42:19 حقائق 152_1h_roc10 ['m.pattern', 'm.roc']
+14:42:19 حقائق 152_1h_roc20 ['m.pattern', 'm.roc']
+14:42:20 حقائق 152_1h_roc5 ['m.pattern', 'm.roc']
+14:42:20 حقائق 152_4h_roc10 ['m.pattern', 'm.roc']
+14:42:20 حقائق 152_4h_roc20 ['m.pattern', 'm.roc']
+14:42:20 حقائق 152_4h_roc5 ['m.pattern', 'm.roc']
+14:42:20 حقائق 153_1d_base ['m.pattern', 'm.ratio']
+14:42:21 حقائق 153_1h_base ['m.pattern', 'm.ratio']
+14:42:21 حقائق 153_4h_base ['m.pattern', 'm.ratio']
+14:42:21 حقائق 165_1d_base ['m.pattern']
+14:42:21 حقائق 165_1h_base ['m.pattern']
+14:42:22 حقائق 165_4h_base ['m.pattern']
+14:42:23 حقائق 151_15m ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:28 حقائق 151_5m ['m.pattern', 'm.ema_distance', 'm.ema_slope', 'm.price_position']
+14:42:30 حقائق 152_15m ['m.pattern', 'm.roc']
+14:42:34 حقائق 152_5m ['m.pattern', 'm.roc']
+14:42:35 حقائق 153_15m ['m.pattern', 'm.ratio']
+14:42:40 حقائق 153_5m ['m.pattern', 'm.ratio']
+14:42:41 حقائق 154_15m ['m.pattern', 'm.ratio']
+14:42:45 حقائق 154_5m ['m.pattern', 'm.ratio']
+14:42:47 حقائق 156_15m ['m.pattern', 'm.body_ratio']
+14:42:50 حقائق 156_5m ['m.pattern', 'm.body_ratio']
+14:42:52 حقائق 165_15m ['m.pattern']
+14:42:55 حقائق 165_5m ['m.pattern']
+14:42:58 بنية 5m
+14:42:59 بنية 15m
+14:42:59 بنية 1h
+14:42:59 بنية 4h
+14:43:01 سيولة 5m
+14:43:02 سيولة 15m
+14:43:03 قمم/قيعان s5
+14:43:03 قمم/قيعان s15
+14:43:07 قمم/قيعان s1
+14:43:09 حقائق الجلسة
+14:43:16 صفقات ممكنة 186794
+14:43:27 دقائق 3081146
+14:43:27 دقائق 3081146
+14:43:27 دقائق 3081146
+14:43:27 دقائق 3081146
+14:43:27 دقائق 3081146
+14:43:40 حُفظ (162719, 178) · شراء 98171 · بيع 88623 · متوسّط R شراء -0.0301 · بيع -0.0673

@@ -1,0 +1,61 @@
+id: 508
+name: "Exposure Manager"
+version: "3.4.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "risk.exposure.state"
+  - "risk.halt.requested"
+  # 🔴 ٢٠٢٦-٠٩-١٨ — سحبُ الخرق عند زواله. كانت هذه الذرّة توقف ولا تُفرج،
+  # فيبقى قفل ٥١٦ قائمًا وإن عاد التعرّض صفرًا — ولا يفكّه إلّا يد المالك.
+  # ونظيرُها ٥٠٦ يسحب خرقه بهذا الحدث نفسه منذ اليوم: توأمان، أُصلح أحدهما.
+  - "risk.release.requested"
+  # ٢٠٢٦-٠٩-١٨ — تنشره الذرّة فعلًا عند نقص حقيقةٍ ماليّة ولم يكن معلَنًا.
+  - "financial.truth.shortage"
+
+subscribes:
+  - "platform.positions.state"
+  - "platform.account.state"
+  - "market.symbol_specs"
+  - "execution.order.built"
+  - "execution.order.rejected"
+  - "platform.trade_event"
+
+startup_mode: auto
+
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 2000
+
+config_schema:
+  type: object
+  properties:
+    max_exposure_pct:
+      type: number
+      minimum: 0
+    specs_max_age_s:
+      type: number
+      minimum: 1
+  required:
+    - max_exposure_pct
+    - specs_max_age_s
+  additionalProperties: false
+
+config:
+  # ٢٠٢٦-١٠-٠٥ (أمر المالك «ارفع 5000 الى مليون» وختمه «nq»): كان 5000.0 — رقمٌ أقدم من
+  # سجلّ المشروع (أوّل التزام ٢٠٢٦-٠٨-٢٧) بلا أمرٍ من المالك في أيّ جلسةٍ أو ورقة، وصنّفه
+  # تدقيق ٠٢-١٠ «عيار اختبار». وكان يقصّ صفقة الذهب على حسابٍ 750$ إلى 0.09 لوت (حدّ 0.0905):
+  # مخاطرة 80$ لا 100$، وهدفٌ 257$ لا 300$. وهو الحدّ نفسه الذي يقرؤه 552 قبل الإرسال
+  # (`order_gates.py` — سقف التعرّض من حالة 508 المنشورة) ويرفع به 508 القاطع بعده.
+  max_exposure_pct: 1000000.0
+  specs_max_age_s: 600.0
+metadata:
+  max_idle_s: 3600

@@ -1,0 +1,88 @@
+id: 411
+name: News Strategic Regime
+version: "2.3.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+publishes:
+- strategy.news.state
+- news.trading_window.state
+subscribes:
+- market.tick.validated
+- market_data.news_received
+- decision.settings.command
+startup_mode: auto
+health:
+  interval_ms: 10000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    weight:
+      type: number
+      minimum: 0
+      maximum: 100
+    required_depth:
+      type: number
+      minimum: 0
+      maximum: 100
+    confidence_threshold:
+      type: number
+      minimum: 0
+      maximum: 100
+    strength_threshold:
+      type: number
+      minimum: 0
+      maximum: 100
+    required_ticks:
+      type: integer
+      minimum: 2
+      maximum: 10000
+    recent_window_s:
+      type: integer
+      minimum: 1
+    high_window_before_min:
+      type: number
+      minimum: 0
+    high_window_after_min:
+      type: number
+      minimum: 0
+    medium_window_min:
+      type: number
+      minimum: 0
+    light_window_min:
+      type: number
+      minimum: 0
+  required:
+  - weight
+  - required_depth
+  - confidence_threshold
+  - strength_threshold
+  - required_ticks
+  - recent_window_s
+  - high_window_before_min
+  - high_window_after_min
+  - medium_window_min
+  - light_window_min
+  additionalProperties: false
+config:
+  weight: 0.0
+  required_depth: 60.0
+  confidence_threshold: 45.0
+  strength_threshold: 0.0
+  required_ticks: 24
+  recent_window_s: 3600
+  high_window_before_min: 15.0
+  high_window_after_min: 15.0
+  # ٢٠٢٦-٠٩-٠٤ (ختم NQ): مفتاحان يعلنهما عيارا NEWS_MEDIUM/LIGHT_WINDOW_MIN
+  # ولم يكونا موجودين هنا، فبقي العياران بلا مفتاح يستقبلهما. صفر = بلا حظر،
+  # وهي القيمة نفسها المسجَّلة في سجلّ المُعامِلات — لا مدّة تُخترع (ق٧).
+  medium_window_min: 0.0
+  light_window_min: 0.0
+metadata:
+  max_idle_s: 64

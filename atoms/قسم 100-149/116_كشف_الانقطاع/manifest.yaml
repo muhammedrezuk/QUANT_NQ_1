@@ -1,0 +1,58 @@
+id: 116
+name: "Feed Interruption Detector"
+version: "4.1.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "market_data.feed_interrupted"
+  - "market_data.feed_recovered"
+  - "market_data.feed.state"
+
+subscribes:
+  - "feed.mt5.tick"
+  - "feed.ctrader.raw"
+  - "SYS_SECOND"
+
+startup_mode: auto
+
+health:
+  interval_ms: 5000
+  timeout_ms: 2000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    max_silence_seconds:
+      type: number
+      minimum: 1
+    dead_after_seconds:
+      type: number
+      minimum: 2
+    state_heartbeat_s:
+      type: number
+      minimum: 0
+  required:
+    - max_silence_seconds
+    - dead_after_seconds
+  additionalProperties: false
+
+# ٢٠٢٦-٠٩-١٦ — `state_heartbeat_s`: نبض إعادة بثّ الحالة بالثانية.
+# صفر = لا نبض (السلوك قبل 4.1.0).
+# حدثُ حالةٍ يُنشر عند التغيّر وحده يترك كلّ مشترِك يُعاد تحميله ساخنًا
+# أعمى حتى التغيّر التالي. وقع ذلك لـ454 (فلتر القرار) اليوم: حجب
+# 1,199 قرارًا من 1,199 بسبب `feed_unknown`. والنبض يعيد بثّ ما تعرفه
+# الذرّة الآن — لا حالةً محفوظة قد تكون بائتة.
+config:
+  max_silence_seconds: 10
+  dead_after_seconds: 30.0
+  state_heartbeat_s: 30.0
+metadata:
+  max_idle_s: 60

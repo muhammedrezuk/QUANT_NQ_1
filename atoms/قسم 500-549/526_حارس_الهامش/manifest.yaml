@@ -1,0 +1,57 @@
+id: 526
+name: "Margin Guard"
+version: "1.4.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "risk.margin.validation.completed"
+  - "financial.truth.shortage"
+
+subscribes:
+  - "execution.order.resolved"
+  - "platform.account.state"
+  - "market.symbol_specs"
+  - "risk.validation.completed"
+  - "execution.order.rejected"
+  - "execution.command.failed"
+  - "platform.trade_event"
+  - "portfolio.equity.state"
+  - "portfolio.free_margin.state"
+
+startup_mode: auto
+
+health:
+  interval_ms: 10000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    margin_buffer_pct:
+      type: number
+      minimum: 0
+    hold_ttl_s:
+      type: number
+      exclusiveMinimum: 0
+  required:
+    - margin_buffer_pct
+  additionalProperties: false
+
+config:
+  margin_buffer_pct: 0.1
+  # ٢٠٢٦-٠٩-١٨ — عمرُ حجز الهامش. الحجز يُحرَّر بحدثٍ يحمل `request_id`
+  # بعينه، وأمرٌ مات مع إقلاعٍ لا يصله حدثٌ أبدًا: المقيس ٢٥ حجزًا =
+  # ‎304.79$‎ محجوزة من هامش حسابٍ رصيدُه ‎8,367.75$‎، وكلّ إقلاعٍ يضيف.
+  # والقيمة مشتقّة: دورةُ طلبِ ٥٥٥ دقيقتان والحسم بثوانٍ، فـ٩٠٠ ثانية
+  # سبعُ دوراتٍ كاملة — أوسعُ من أيّ حسمٍ حيّ بفارقٍ كبير.
+  hold_ttl_s: 900.0
+metadata:
+  max_idle_s: 3600

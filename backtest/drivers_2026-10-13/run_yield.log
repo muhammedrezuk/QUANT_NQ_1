@@ -1,0 +1,117 @@
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-13 00:18 غ أسابيع مسجّلة: 0 · العائد: حديث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-13 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-14 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-16 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-17 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-18 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-19 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-21 20:55 غ أسابيع مسجّلة: 0 · العائد: تعذّر التحديث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-22 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-23 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-24 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-25 20:55 غ أسابيع مسجّلة: 0 · العائد: حُدِّث
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:67: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  out[dt.datetime.utcfromtimestamp(t + DAY_SHIFT_S).date()] = c
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:86: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = dt.datetime.utcnow().date()
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:109: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), state), "",
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\yield_forward.py:119: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M غ"), "أسابيع مسجّلة:", len(done), "· العائد:", state, flush=True)
+2026-10-26 20:55 غ أسابيع مسجّلة: 1 · العائد: حُدِّث

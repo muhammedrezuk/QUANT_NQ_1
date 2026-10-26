@@ -1,0 +1,8 @@
+[
+ {"name": "تحقّق_المرجع", "b": 0.0, "n": 2.0, "c": 1.5, "filter": "True", "verdict": true, "cost": "fixed", "min_stop_bps": 0.0},
+ {"name": "الحاليّة", "b": 0.0, "n": 2.0, "c": 1.5, "filter": "True", "verdict": true, "cost": "fixed", "min_stop_bps": 3.0},
+ {"name": "بلا_حكم_الإرسال", "b": 0.0, "n": 2.0, "c": 1.5, "filter": "True", "verdict": false, "cost": "fixed", "min_stop_bps": 0.0},
+ {"name": "بلا_حكم_الإرسال_وقف3", "b": 0.0, "n": 2.0, "c": 1.5, "filter": "True", "verdict": false, "cost": "fixed", "min_stop_bps": 3.0},
+ {"name": "كلفة_نسبيّة", "b": 0.0, "n": 2.0, "c": 1.5, "filter": "True", "verdict": true, "cost": "prop", "min_stop_bps": 3.0},
+ {"name": "كلفة_نسبيّة_بلا_حكم", "b": 0.0, "n": 2.0, "c": 1.5, "filter": "True", "verdict": false, "cost": "prop", "min_stop_bps": 3.0}
+]

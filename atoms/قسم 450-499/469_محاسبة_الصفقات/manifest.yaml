@@ -1,0 +1,80 @@
+id: 469
+name: "Trade Accountability"
+version: "1.0.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+# ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — المعرفة أوّلًا): «إذا خسر، عنده جواب حقيقيّ مفصّل ليش خسرنا؟ وإذا ربح
+# ليش ربح؟» و«مين … عم يعطي قرارات خاسرة؟». حقائق خام من دفتر البطاقات (465) قراءةً فقط — لا تدخل القرار.
+publishes:
+  - "knowledge.accountability.state"
+
+subscribes:
+  - "SYS_HOUR"
+  # يعلنه 465 لحظة إغلاق البطاقة بنتيجتها — فيُعاد الحساب بعد مهلة الاستقرار.
+  - "decision.card.closed"
+
+# ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — المعرفة أوّلًا): كانت يدويّة حتّى التوصيل (الفحص الدوريّ للنواة يُقلع أيّ
+# بيانٍ جديد `auto` فورًا)؛ وُصلت بعد نجاح اختباراتها والمدقّق، فصارت تلقائيّة.
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    store_path:
+      type: string
+      minLength: 1
+    bridge_db_path:
+      type: string
+      minLength: 1
+    boot_delay_s:
+      type: number
+      minimum: 0
+    close_settle_s:
+      type: number
+      minimum: 0
+    min_sample:
+      type: integer
+      minimum: 1
+    top_gaps:
+      type: integer
+      minimum: 1
+  required:
+    - store_path
+    - bridge_db_path
+    - boot_delay_s
+    - close_settle_s
+    - min_sample
+    - top_gaps
+  additionalProperties: false
+
+config:
+  # دفتر 465 نفسه — نسبةً إلى جذر التشغيل (`forex_runtime`)، ويُفتح `mode=ro`.
+  store_path: "var/store/trade_cards.db"
+  # ٢٠٢٦-١٠-٠٩ (ختم المالك «NQ» — الصفقة صافيةً بأجزائها): سجلّ الوسيط نفسه (trade_events_v2) — منه صافي كلّ صفقة
+  # بأجزائها. يُفتح mode=ro في خيط، ومرسى البيئة NQ_BRIDGE_DB يسبقه (كما 118 و121). بلا رفع رقم النسخة بأمر الوكيل
+  # الرئيس — يسري بالإقلاع التالي.
+  bridge_db_path: '%APPDATA%\MetaQuotes\Terminal\Common\Files\nq_brain.db'
+  # بعد اكتمال الإقلاع كلّه (نمط 153).
+  boot_delay_s: 30.0
+  # 465 يدفع ذروة الصفقة وجملتها مع نبضه (كلّ ٥ ث) بعد إعلان الإغلاق.
+  close_settle_s: 15.0
+  # أمر المالك: ما دون 10 صفقات في الفئة «عيّنة صغيرة» ولا يُرتَّب.
+  min_sample: 10
+  top_gaps: 10
+
+metadata:
+  # نبض الساعة يصل كلّ 3600 ث — ساعتان وهامش بلا غذاء = انقطاع.
+  max_idle_s: 7300
+  name_ar: "محاسبة الصفقات"

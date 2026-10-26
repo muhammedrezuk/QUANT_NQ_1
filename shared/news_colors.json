@@ -1,0 +1,434 @@
+{
+ "built_at": "2026-10-17T12:18:18+00:00",
+ "source": "ForexFactory colors (latest seen) + MetaTrader codes mapped by hand",
+ "currency": "USD",
+ "ff_titles": 95,
+ "known_added": [
+  "Advance GDP q/q",
+  "Prelim GDP q/q",
+  "Fed Chair Testifies"
+ ],
+ "mt5_codes_mapped": 59,
+ "mt5_high_unmapped": [],
+ "red": [
+  "Advance GDP q/q",
+  "Average Hourly Earnings m/m",
+  "CPI m/m",
+  "CPI y/y",
+  "Core CPI m/m",
+  "Core CPI y/y",
+  "Core PCE Price Index m/m",
+  "Core PPI m/m",
+  "Core Retail Sales m/m",
+  "FOMC Economic Projections",
+  "FOMC Meeting Minutes",
+  "FOMC Press Conference",
+  "FOMC Statement",
+  "Fed Chair Testifies",
+  "Fed Chairman Warsh Speaks",
+  "Federal Funds Rate",
+  "Final GDP q/q",
+  "Non-Farm Employment Change",
+  "PPI m/m",
+  "Prelim GDP q/q",
+  "Retail Sales m/m",
+  "Unemployment Rate"
+ ],
+ "by_name": {
+  "10-y Bond Auction": "yellow",
+  "30-y Bond Auction": "yellow",
+  "ADP Non-Farm Employment Change": "orange",
+  "ADP Weekly Employment Change": "yellow",
+  "API Weekly Statistical Bulletin": "yellow",
+  "Advance GDP q/q": "red",
+  "Average Hourly Earnings m/m": "red",
+  "Bank Holiday": "none",
+  "Beige Book": "yellow",
+  "Building Permits": "yellow",
+  "Business Inventories m/m": "yellow",
+  "CB Consumer Confidence": "orange",
+  "CB Leading Index m/m": "yellow",
+  "CPI m/m": "red",
+  "CPI y/y": "red",
+  "Capacity Utilization Rate": "yellow",
+  "Challenger Job Cuts y/y": "yellow",
+  "Chicago PMI": "yellow",
+  "Construction Spending m/m": "yellow",
+  "Consumer Credit m/m": "yellow",
+  "Core CPI m/m": "red",
+  "Core CPI y/y": "red",
+  "Core Durable Goods Orders m/m": "yellow",
+  "Core PCE Price Index m/m": "red",
+  "Core PPI m/m": "red",
+  "Core Retail Sales m/m": "red",
+  "Crude Oil Inventories": "yellow",
+  "Current Account": "yellow",
+  "Durable Goods Orders m/m": "yellow",
+  "Empire State Manufacturing Index": "yellow",
+  "Existing Home Sales": "yellow",
+  "FOMC Economic Projections": "red",
+  "FOMC Meeting Minutes": "red",
+  "FOMC Member Barkin Speaks": "yellow",
+  "FOMC Member Barr Speaks": "yellow",
+  "FOMC Member Bowman Speaks": "yellow",
+  "FOMC Member Collins Speaks": "yellow",
+  "FOMC Member Cook Speaks": "yellow",
+  "FOMC Member Goolsbee Speaks": "yellow",
+  "FOMC Member Hammack Speaks": "yellow",
+  "FOMC Member Jefferson Speaks": "yellow",
+  "FOMC Member Kashkari Speaks": "orange",
+  "FOMC Member Logan Speaks": "yellow",
+  "FOMC Member Musalem Speaks": "yellow",
+  "FOMC Member Paulson Speaks": "yellow",
+  "FOMC Member Schmid Speaks": "yellow",
+  "FOMC Member Waller Speaks": "yellow",
+  "FOMC Member Williams Speaks": "yellow",
+  "FOMC Press Conference": "red",
+  "FOMC Statement": "red",
+  "Factory Orders m/m": "yellow",
+  "Fed Chair Testifies": "red",
+  "Fed Chairman Warsh Speaks": "red",
+  "Federal Budget Balance": "yellow",
+  "Federal Funds Rate": "red",
+  "Final GDP Price Index q/q": "orange",
+  "Final GDP q/q": "red",
+  "Final Manufacturing PMI": "yellow",
+  "Final Services PMI": "yellow",
+  "Final Wholesale Inventories m/m": "yellow",
+  "Flash Manufacturing PMI": "yellow",
+  "Flash Services PMI": "yellow",
+  "Goods Trade Balance": "yellow",
+  "HPI m/m": "yellow",
+  "Housing Starts": "yellow",
+  "ISM Manufacturing PMI": "orange",
+  "ISM Manufacturing Prices": "yellow",
+  "ISM Services PMI": "orange",
+  "Import Prices m/m": "yellow",
+  "Industrial Production m/m": "yellow",
+  "JOLTS Job Openings": "orange",
+  "Juneteenth National Independence Day": "none",
+  "NAHB Housing Market Index": "yellow",
+  "NFIB Small Business Index": "yellow",
+  "Natural Gas Storage": "yellow",
+  "New Home Sales": "yellow",
+  "Non-Farm Employment Change": "red",
+  "Omdia Total Vehicle Sales": "yellow",
+  "PPI m/m": "red",
+  "Pending Home Sales m/m": "yellow",
+  "Personal Income m/m": "yellow",
+  "Personal Spending m/m": "yellow",
+  "Philly Fed Manufacturing Index": "orange",
+  "Prelim GDP q/q": "red",
+  "Prelim UoM Consumer Sentiment": "orange",
+  "Prelim UoM Inflation Expectations": "orange",
+  "Prelim Wholesale Inventories m/m": "yellow",
+  "President Trump Speaks": "orange",
+  "RCM/TIPP Economic Optimism": "yellow",
+  "Retail Sales m/m": "red",
+  "Revised UoM Consumer Sentiment": "orange",
+  "Revised UoM Inflation Expectations": "orange",
+  "Richmond Manufacturing Index": "yellow",
+  "S&P/CS Composite-20 HPI y/y": "yellow",
+  "TIC Long-Term Purchases": "yellow",
+  "Trade Balance": "yellow",
+  "Treasury Sec Bessent Speaks": "orange",
+  "Unemployment Claims": "orange",
+  "Unemployment Rate": "red",
+  "التغيير في مخزون النفط الخام لإدارة معلومات الطاقة": "yellow",
+  "التوقعات الاقتصادية للجنة الفيدرالية للسوق المفتوحة": "red",
+  "المؤتمر الصحفي للجنة السوق الفيدرالية المفتوحة": "red",
+  "الناتج الإجمالي المحلي على أساس ربع سنوي": "red",
+  "بيان اللجنة الفيدرالية للسوق المفتوحة": "red",
+  "توقعات تضخم ميشيغان": "orange",
+  "ثقة مستهلك ميشيغان": "orange",
+  "خطاب بويل رئيس مجلس بنك الاحتياطي الفيدرالي": "red",
+  "خطاب كاشكاري عضو اللجنة الفيدرالية للسوق المفتوحة": "orange",
+  "خطاب يلين رئيس بنك الإحتياطي الفيدرالي": "red",
+  "رأس السنة الميلادية الجديدة": "none",
+  "رقم مؤشر أسعار المستهلك": "yellow",
+  "شهادة بويل رئيس مجلس بنك الاحتياطي الفيدرالي": "red",
+  "شهادة يلين رئيس بنك الإحتياطي الفيدرالي": "red",
+  "طلبيات السلع المعمرة على أساس شهري": "yellow",
+  "عيد الاستقلال": "none",
+  "عيد الشكر": "none",
+  "عيد العمال": "none",
+  "عيد الميلاد": "none",
+  "عيد ميلاد مارتن لوثر كينغ": "none",
+  "عيد ميلاد واشنطن": "none",
+  "فرص عمل استطلاع فرص العمل ودوران العمالة": "orange",
+  "قرار سعر فائدة بنك الإحتياطي الفيدرالي": "red",
+  "قوائم الرواتب غير الزراعية": "red",
+  "مؤشر أسعار المستهلك الأساسي على أساس شهري": "red",
+  "مؤشر أسعار المستهلك الأساسي غير معدل موسميًا على أساس شهري": "yellow",
+  "مؤشر أسعار المستهلك على أساس سنوي": "red",
+  "مؤشر أسعار المنتجين الأساسيين على أساس شهري": "red",
+  "مؤشر أسعار المنتجين على أساس شهري": "red",
+  "مؤشر أيه دي بي لدراسات التغير في معدلات العمالة غير الزراعية": "orange",
+  "مؤشر اسعار المستهلك على أساس شهري": "red",
+  "مؤشر ثقة المستهلك لمجلس المؤتمر": "orange",
+  "مؤشر سعر المستهلك الرئيسي على أساس سنوي": "red",
+  "مؤشر سعر الناتج الإجمالي المحلي على أساس ربع سنوي": "orange",
+  "مؤشر سعر نفقات الاستهلاك الشخصي الأساسي على أساس سنوي": "yellow",
+  "مؤشر سعر نفقات الاستهلاك الشخصي الأساسي على أساس شهري": "red",
+  "مؤشر فيلادلفيا التصنيعي لبنك الإحتياطي الفيدرالي": "orange",
+  "مؤشر مدراء المشتريات التصنيعية لإس أند بي جلوبال": "yellow",
+  "مؤشر مدراء مشتريات الخدمات لإس أند بي جلوبال": "yellow",
+  "مؤشر معهد إدارة التوريد للأسعار التصنيعية المدفوعة": "yellow",
+  "مؤشر معهد إدارة التوريد للأسعار غير التصنيعية": "yellow",
+  "مؤشر معهد إدارة التوريد لمدراء المشتريات النصنيعيين": "orange",
+  "مؤشر معهد إدارة التوريد لمدراء المشتريات غير النصنيعيين": "orange",
+  "مبيعات إجمالي الناتج المحلي على أساس ربع سنوي": "yellow",
+  "مبيعات التجزئة الأساسية على أساس شهري": "red",
+  "مبيعات التجزئة على أساس شهري": "red",
+  "مبيعات المنازل الجديدة": "yellow",
+  "مبيعات المنازل الفعلية": "yellow",
+  "متوسط الدخل بالساعة على أساس أساس شهري": "red",
+  "محضر اجتماع اللجنة الفيدرالية للسوق المفتوحة": "red",
+  "مزاد السندات 10 أعوام": "yellow",
+  "مزاد السندات 30 عام": "yellow",
+  "مطالبات البطالة الأولية": "orange",
+  "معدل البطالة": "red",
+  "مقياس إم إن أي شيكاغو للأعمال": "yellow",
+  "يوم الذكرى": "none",
+  "يوم المحاربين القدامى": "none",
+  "يوم كولومبوس": "none"
+ },
+ "mt5_codes": {
+  "10-year-note-auction": {
+   "ff_title": "10-y Bond Auction",
+   "color": "yellow"
+  },
+  "30-year-bond-auction": {
+   "ff_title": "30-y Bond Auction",
+   "color": "yellow"
+  },
+  "adp-nonfarm-employment-change": {
+   "ff_title": "ADP Non-Farm Employment Change",
+   "color": "orange"
+  },
+  "average-hourly-earnings-mm": {
+   "ff_title": "Average Hourly Earnings m/m",
+   "color": "red"
+  },
+  "birthday-of-martin-luther-king": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "chicago-pmi": {
+   "ff_title": "Chicago PMI",
+   "color": "yellow"
+  },
+  "christmas-day": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "columbus-day": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "consumer-confidence-index": {
+   "ff_title": "CB Consumer Confidence",
+   "color": "orange"
+  },
+  "consumer-price-index": {
+   "ff_title": null,
+   "color": "yellow"
+  },
+  "consumer-price-index-ex-food-energy-mm": {
+   "ff_title": "Core CPI m/m",
+   "color": "red"
+  },
+  "consumer-price-index-ex-food-energy-nsa-mm": {
+   "ff_title": null,
+   "color": "yellow"
+  },
+  "consumer-price-index-ex-food-energy-yy": {
+   "ff_title": "Core CPI y/y",
+   "color": "red"
+  },
+  "consumer-price-index-mm": {
+   "ff_title": "CPI m/m",
+   "color": "red"
+  },
+  "consumer-price-index-yy": {
+   "ff_title": "CPI y/y",
+   "color": "red"
+  },
+  "core-pce-price-index-mm": {
+   "ff_title": "Core PCE Price Index m/m",
+   "color": "red"
+  },
+  "core-pce-price-index-yy": {
+   "ff_title": null,
+   "color": "yellow"
+  },
+  "durable-goods-orders": {
+   "ff_title": "Durable Goods Orders m/m",
+   "color": "yellow"
+  },
+  "eia-crude-oil-stocks-change": {
+   "ff_title": "Crude Oil Inventories",
+   "color": "yellow"
+  },
+  "existing-home-sales": {
+   "ff_title": "Existing Home Sales",
+   "color": "yellow"
+  },
+  "fed-chair-powell-speech": {
+   "ff_title": "Fed Chairman Warsh Speaks",
+   "color": "red"
+  },
+  "fed-chair-powell-testimony": {
+   "ff_title": "Fed Chair Testifies",
+   "color": "red"
+  },
+  "fed-chair-yellen-speech": {
+   "ff_title": "Fed Chairman Warsh Speaks",
+   "color": "red"
+  },
+  "fed-chair-yellen-testimony": {
+   "ff_title": "Fed Chair Testifies",
+   "color": "red"
+  },
+  "fed-interest-rate-decision": {
+   "ff_title": "Federal Funds Rate",
+   "color": "red"
+  },
+  "fomc-economic-projections": {
+   "ff_title": "FOMC Economic Projections",
+   "color": "red"
+  },
+  "fomc-meeting-statement": {
+   "ff_title": "FOMC Statement",
+   "color": "red"
+  },
+  "fomc-member-kashkari-speech": {
+   "ff_title": "FOMC Member Kashkari Speaks",
+   "color": "orange"
+  },
+  "fomc-minutes": {
+   "ff_title": "FOMC Meeting Minutes",
+   "color": "red"
+  },
+  "fomc-press-conference": {
+   "ff_title": "FOMC Press Conference",
+   "color": "red"
+  },
+  "gdp-sales-qq": {
+   "ff_title": null,
+   "color": "yellow"
+  },
+  "gross-domestic-product-price-index": {
+   "ff_title": "Final GDP Price Index q/q",
+   "color": "orange"
+  },
+  "gross-domestic-product-qq": {
+   "ff_title": "Final GDP q/q",
+   "color": "red"
+  },
+  "independence-day": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "initial-jobless-claims": {
+   "ff_title": "Unemployment Claims",
+   "color": "orange"
+  },
+  "ism-manufacturing-pmi": {
+   "ff_title": "ISM Manufacturing PMI",
+   "color": "orange"
+  },
+  "ism-non-manufacturing-pmi": {
+   "ff_title": "ISM Services PMI",
+   "color": "orange"
+  },
+  "ism-non-manufacturing-prices": {
+   "ff_title": null,
+   "color": "yellow"
+  },
+  "ism-prices-paid": {
+   "ff_title": "ISM Manufacturing Prices",
+   "color": "yellow"
+  },
+  "jolts-job-openings": {
+   "ff_title": "JOLTS Job Openings",
+   "color": "orange"
+  },
+  "juneteenth-national-independence-day": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "labor-day": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "markit-manufacturing-pmi": {
+   "ff_title": "Flash Manufacturing PMI",
+   "color": "yellow"
+  },
+  "markit-services-pmi": {
+   "ff_title": "Flash Services PMI",
+   "color": "yellow"
+  },
+  "memorial-day": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "michigan-consumer-sentiment": {
+   "ff_title": "Prelim UoM Consumer Sentiment",
+   "color": "orange"
+  },
+  "michigan-inflation-expectations": {
+   "ff_title": "Prelim UoM Inflation Expectations",
+   "color": "orange"
+  },
+  "new-home-sales": {
+   "ff_title": "New Home Sales",
+   "color": "yellow"
+  },
+  "new-years-day": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "nonfarm-payrolls": {
+   "ff_title": "Non-Farm Employment Change",
+   "color": "red"
+  },
+  "philadelphia-fed-manufacturing-index": {
+   "ff_title": "Philly Fed Manufacturing Index",
+   "color": "orange"
+  },
+  "producer-price-index-ex-food-energy-mm": {
+   "ff_title": "Core PPI m/m",
+   "color": "red"
+  },
+  "producer-price-index-mm": {
+   "ff_title": "PPI m/m",
+   "color": "red"
+  },
+  "retail-sales-ex-autos-mm": {
+   "ff_title": "Core Retail Sales m/m",
+   "color": "red"
+  },
+  "retail-sales-mm": {
+   "ff_title": "Retail Sales m/m",
+   "color": "red"
+  },
+  "thanksgiving-day": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "unemployment-rate": {
+   "ff_title": "Unemployment Rate",
+   "color": "red"
+  },
+  "veterans-day": {
+   "ff_title": null,
+   "color": "none"
+  },
+  "washingtons-birthday": {
+   "ff_title": null,
+   "color": "none"
+  }
+ }
+}

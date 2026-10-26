@@ -1,0 +1,67 @@
+id: 577
+name: "Stop Maintenance"
+version: "1.14.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "execution.manage.command"
+
+subscribes:
+  # ٢٠٢٦-١٠-٠٢ (ختم المالك «صلح كامل nq»): التقدّم يُقاس بسعر التنفيذ في ميتاتريدر لا بمنتصف سي‑تريدر.
+  - "feed.mt5.tick"
+  # ٢٠٢٦-١٠-٠٢: مواصفات الرمز (stops_level/freeze_level) لفحص الوقف قبل إرساله.
+  - "market.symbol_specs"
+  # ٢٠٢٦-٠٩-٢٣ (ختم nq): رُفع `perpetual.plan.state` — ناشره ٥٧١ أُرشف.
+  - "platform.positions.state"
+  # ٢٠٢٦-٠٩-٠٧ — كان الاشتراك قائمًا في الكود وغائبًا هنا:
+  # يقرؤه الكود عبر `EVENT_SIZE` (atom.py:19). تغذية غير معلنة لا تظهر في أيّ خريطة، ولو حُذف
+  # الحدث يومًا لما نبّه شيء.
+  - "risk.position_size.state"
+  # ٢٠٢٦-٠٩-١٨ — النمط نفسه تكرّر: الاشتراك قائمٌ في الكود وغائبٌ هنا.
+  # منه تُقرأ مستويات الإعداد التحليليّ التي يبني عليها مضاعفَ الهدف.
+  - "strategy.setup.proposed"
+  # ٢٠٢٦-١٠-٢٦ (ختم المالك «NQ» على إصلاح فحص المشروع، البند ٧): نتيجة كلّ تضييقٍ للوقف — نجاحه وفشله من ٦٠١، وما لم
+  # يُكتب من ٥٧٥ — كي يُعاد ما ردّه الوسيط (`stop_maintenance_guard.py`).
+  - "execution.command.ack"
+  - "execution.command.failed"
+
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    min_sl_change:
+      type: number
+      minimum: 0
+    trailing_enabled:
+      type: boolean
+    reward_risk:
+      type: number
+      minimum: 0
+  additionalProperties: false
+
+# ⛔ ٢٠٢٦-٠٩-١٦ — أمر المالك بختم `NQ`: «ترييلنج وقفه».
+# المقيس قبله: خمس صفقات من ستّ أُغلقت بالوقف، أربعٌ منها بأرباح تافهة،
+# وخمسة أوامر `MODIFY_SL` على تذكرة واحدة في تسع دقائق. الوقف كان يلاحق
+# السعر فيُقفل الصفقة عند أوّل ارتداد قبل أن تبلغ هدفها.
+# وخطّة المالك تنقل الوقف مرّةً واحدة إلى سعر الدخول عند الهدف الأوّل
+# (٥٧٢ التعادل) ثمّ لا يُمَسّ. رجوعه كلمةٌ: `true`.
+config:
+  min_sl_change: 0.000000001
+  trailing_enabled: false
+  # مضاعف الهدف — يطابق المضاعف نفسه في ٥٥١ (٣٫٠ بأمر المالك).
+  reward_risk: 3.0
+metadata:
+  max_idle_s: 3600

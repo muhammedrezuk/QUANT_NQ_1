@@ -1,0 +1,71 @@
+id: 712
+name: "Analysis Store"
+version: "2.10.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "storage.analysis_saved"
+
+subscribes:
+  # ٢٠٢٦-١٠-٠٧ (ختم المالك «NQ»): خرج الاشتراك في analysis.raw.completed — ناشره أُرشف مع فكّ الأقسام عن القرار.
+  - "SYS_DAY"
+  - "SYS_SECOND"
+
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 10000
+  failure_threshold: 3
+  restart_on_failure: true
+  max_restarts: 5
+  restart_backoff_ms: 3000
+
+config_schema:
+  type: object
+  properties:
+    db_path:
+      type: string
+    flush_size:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    retention_days:
+      type: integer
+      minimum: 0
+    flush_interval_s:
+      type: number
+      minimum: 0.1
+    max_rows:
+      type: integer
+      minimum: 1
+    max_db_bytes: {type: integer, minimum: 1}
+    archive_db_path:
+      type: string
+  required:
+    - db_path
+    - flush_size
+    - retention_days
+    - flush_interval_s
+    - max_rows
+    - max_db_bytes
+  additionalProperties: false
+
+config:
+  db_path: 'var/store\analysis.db'
+  flush_size: 20
+  flush_interval_s: 30
+  max_rows: 1000000
+  max_db_bytes: 2000000000
+  retention_days: 90
+  # ⚠️ `archive_db_path` **غائب عمدًا — حكم المالك ٢٠٢٦-٠٩-١٠: «إتلاف».**
+  # ليس سهوًا ولا نقصًا: ما يخرجه سقف هذا المخزن يُمحى ولا يُرحَّل. السبب
+  # المقيس: نموّه ~٢٫٢ جيجا/يوم (٦٦ جيجا شهريًّا لو أُرشف)، ومحتواه تحليلات
+  # لحظيّة تُعاد من السوق ولا تُبنى عليها قرارات لاحقة — بخلاف تاريخ القرارات
+  # في ٧٠٧ الذي يُرحَّل بأمره نفسه. الذرّة تدعم الترحيل: أضف المفتاح ليعمل.
+metadata:
+  max_idle_s: 301

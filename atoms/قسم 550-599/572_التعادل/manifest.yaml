@@ -1,0 +1,56 @@
+id: 572
+name: "Breakeven"
+version: "1.8.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "execution.manage.intent"
+
+subscribes:
+  # ٢٠٢٦-١٠-٠٢ (ختم المالك «صلح كامل nq»): التقدّم يُقاس بسعر التنفيذ في ميتاتريدر لا بمنتصف سي‑تريدر.
+  - "feed.mt5.tick"
+  - "platform.positions.state"
+
+  # ٢٠٢٦-٠٩-١٨: قيمة وحدة السعر (`tick_value/tick_size`) لازمة
+  # لترجمة عمولة الدورة إلى مسافةٍ سعريّة — بها يصير التعادل صافيًا.
+  - "market.symbol_specs"
+  # ٢٠٢٦-١٠-٠٥ (ختم المالك «nq اعتمدناها»): تذاكر ٥٧٤ المُدارة على مستويات التحليل — يتنحّى عنها.
+  - "management.level_plan.state"
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    breakeven_at_r:
+      type: number
+      minimum: 0
+  required:
+    - breakeven_at_r
+  additionalProperties: false
+
+config:
+  # ٢٠٢٦-٠٩-١٨ — أمر المالك، وهو صاحب هذا العيار: «انا امرت يتحرك ستوب
+  # بعد 1R الى سعر دخول، 13 مره. هي نقطة الى عليك».
+  #
+  # وكانت 1.0 فخفضتُها **بيدي** إلى 0.5 في ٢٠٢٦-٠٩-١٠ استنادًا إلى قياسي
+  # («الحماية عند 1R ولم تبلغها صفقةٌ من ٩٤») — والقياس كان صحيحًا،
+  # والقرار لم يكن لي. تُعاد إلى أمره.
+  #
+  # وللسجلّ لا للاحتجاج، ما أنتجه العيار المخفَّض مقيسًا على ٩٠ صفقة:
+  # ٣٥ خرجت عند التعادل (٣٨٫٩٪) بصافي ‎-6.81$‎، منها ٢٦ بوقفٍ منقول،
+  # وصفرٌ بلغت 3R المصمَّمة. ويبقى قرار العتبة قراره وحده.
+  breakeven_at_r: 1.0
+metadata:
+  max_idle_s: 3600

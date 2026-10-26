@@ -1,0 +1,80 @@
+id: 121
+name: Fed Decision Pricing
+version: "1.0.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+# ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — المعرفة أوّلًا، و«تسعير الفائدة حيًّا يحتاج ياهو NQ»): ما يسعّره سوق عقود
+# الفائدة الفيدراليّة لثلاثين يومًا للاجتماعات الثلاثة القادمة. حقائق خام: سعر سوقٍ لا حكم ذرّة ولا توقّع
+# النظام — لا تدخل قرار الدخول.
+# ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — «الأخبار من مكانٍ واحد … تحت سقفٍ واحد»): الذرّة لا تتّصل بالإنترنت؛ بوت
+# الأخبار يجلب العقود من ياهو إلى جدول الجسر fed_futures، والذرّة تقرؤه للقراءة فقط.
+publishes:
+- knowledge.fed_pricing.state
+subscribes:
+- SYS_5MIN
+- knowledge.monetary.state
+startup_mode: auto
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    boot_delay_s:
+      type: number
+      minimum: 0
+    bridge_db_path:
+      type: string
+    fomc_schedule_source:
+      type: string
+    fomc_decision_days:
+      type: array
+      items:
+        type: string
+        pattern: '^\d{4}-\d{2}-\d{2}$'
+    fomc_tentative_days:
+      type: array
+      items:
+        type: string
+        pattern: '^\d{4}-\d{2}-\d{2}$'
+  required:
+  - bridge_db_path
+  - fomc_decision_days
+  additionalProperties: false
+config:
+  # القراءة الأولى بعد اكتمال الإقلاع كلّه (مقيس ~7 ث) — كما 118 و153؛ ثمّ مع كلّ SYS_5MIN.
+  boot_delay_s: 30.0
+  # قاعدة الجسر (جدول fed_futures يكتبه بوت الأخبار كلّ 15 دقيقة: الشهر الجاري وخمسة بعده) — يسبقها متغيّر
+  # البيئة NQ_BRIDGE_DB إن ضُبط (كما 118). تُفتح للقراءة فقط (mode=ro) بمهلة قفلٍ قصيرة.
+  bridge_db_path: '%APPDATA%\MetaQuotes\Terminal\Common\Files\nq_brain.db'
+  # أيّام القرار (اليوم الثاني للاجتماع؛ القرار 14:00 بتوقيت نيويورك ويسري من اليوم التالي) — قُرئت من موقع
+  # الفيدراليّ ٢٠٢٦-١٠-٠٨. 2027 مبدئيّة حتّى تُؤكَّد.
+  fomc_schedule_source: 'https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm (read 2026-10-08)'
+  fomc_decision_days:
+  - '2026-01-28'
+  - '2026-03-18'
+  - '2026-04-29'
+  - '2026-06-17'
+  - '2026-07-29'
+  - '2026-09-16'
+  - '2026-10-28'
+  - '2026-12-09'
+  fomc_tentative_days:
+  - '2027-01-27'
+  - '2027-03-17'
+  - '2027-04-28'
+  - '2027-06-09'
+  - '2027-07-28'
+  - '2027-09-15'
+  - '2027-10-27'
+  - '2027-12-08'
+metadata:
+  # النبضة كلّ 5 دقائق؛ ثلاث نبضات بلا غذاء = جوع (كما 118).
+  max_idle_s: 900
+  name_ar: "تسعير قرار الفائدة"

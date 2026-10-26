@@ -1,0 +1,711 @@
+{
+ "plan": {
+  "352": {
+   "weight": {
+    "live": 14.285714285714286,
+    "grid": [
+     3.571429,
+     7.142857,
+     10.714286,
+     21.428571,
+     28.571429,
+     42.857143
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_depth": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "confidence_threshold": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "strength_threshold": {
+    "live": 0.0,
+    "grid": [
+     -0.001,
+     0.001
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_ticks": {
+    "live": 24,
+    "grid": [
+     6,
+     12,
+     18,
+     36,
+     48,
+     72
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "tick_window": {
+    "live": 200,
+    "grid": [
+     5,
+     10,
+     20,
+     30,
+     50,
+     100,
+     300,
+     500,
+     1000,
+     2000,
+     3200,
+     6000
+    ],
+    "alive": true,
+    "changes": [
+     "mean",
+     "std",
+     "z_score"
+    ]
+   },
+   "z_threshold": {
+    "live": 1.5,
+    "grid": [
+     0.375,
+     0.75,
+     1.125,
+     2.25,
+     3.0,
+     4.5
+    ],
+    "alive": false,
+    "changes": []
+   }
+  },
+  "355": {
+   "weight": {
+    "live": 14.285714285714286,
+    "grid": [
+     3.571429,
+     7.142857,
+     10.714286,
+     21.428571,
+     28.571429,
+     42.857143
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_depth": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "confidence_threshold": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "strength_threshold": {
+    "live": 0.0,
+    "grid": [
+     -0.001,
+     0.001
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_ticks": {
+    "live": 24,
+    "grid": [
+     6,
+     12,
+     18,
+     36,
+     48,
+     72
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "tick_window": {
+    "live": 200,
+    "grid": [
+     5,
+     10,
+     20,
+     30,
+     50,
+     100,
+     300,
+     500,
+     1000,
+     2000,
+     3200,
+     6000
+    ],
+    "alive": true,
+    "changes": [
+     "negative",
+     "net_return",
+     "persistence",
+     "positive"
+    ]
+   }
+  },
+  "356": {
+   "weight": {
+    "live": 14.285714285714286,
+    "grid": [
+     3.571429,
+     7.142857,
+     10.714286,
+     21.428571,
+     28.571429,
+     42.857143
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_depth": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "confidence_threshold": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "strength_threshold": {
+    "live": 0.0,
+    "grid": [
+     -0.001,
+     0.001
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_ticks": {
+    "live": 24,
+    "grid": [
+     6,
+     12,
+     18,
+     36,
+     48,
+     72
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "tick_window": {
+    "live": 200,
+    "grid": [
+     5,
+     10,
+     20,
+     30,
+     50,
+     100,
+     300,
+     500,
+     1000,
+     2000,
+     3200,
+     6000
+    ],
+    "alive": true,
+    "changes": [
+     "^signal",
+     "efficiency",
+     "net",
+     "path"
+    ]
+   },
+   "max_range_efficiency": {
+    "live": 0.35,
+    "grid": [
+     0.0875,
+     0.175,
+     0.2625,
+     0.525,
+     0.7,
+     1.05
+    ],
+    "alive": true,
+    "changes": [
+     "^signal"
+    ]
+   }
+  },
+  "351": {
+   "weight": {
+    "live": 14.285714285714286,
+    "grid": [
+     3.571429,
+     7.142857,
+     10.714286,
+     21.428571,
+     28.571429,
+     42.857143
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_depth": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "confidence_threshold": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "strength_threshold": {
+    "live": 0.0,
+    "grid": [
+     -0.001,
+     0.001
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_ticks": {
+    "live": 24,
+    "grid": [
+     6,
+     12,
+     18,
+     36,
+     48,
+     72
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "ema_fast": {
+    "live": 60,
+    "grid": [
+     5,
+     10,
+     20,
+     30,
+     50,
+     100,
+     200,
+     300,
+     500,
+     1000,
+     2000,
+     3200,
+     6000
+    ],
+    "alive": true,
+    "changes": [
+     "distance",
+     "ema_fast"
+    ]
+   },
+   "ema_slow": {
+    "live": 50,
+    "grid": [
+     5,
+     10,
+     20,
+     30,
+     100,
+     200,
+     300,
+     500,
+     1000,
+     2000,
+     3200,
+     6000
+    ],
+    "alive": true,
+    "changes": [
+     "distance",
+     "ema_fast",
+     "ema_slow",
+     "fast",
+     "slow"
+    ]
+   }
+  },
+  "353": {
+   "weight": {
+    "live": 14.285714285714286,
+    "grid": [
+     3.571429,
+     7.142857,
+     10.714286,
+     21.428571,
+     28.571429,
+     42.857143
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_depth": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "confidence_threshold": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "strength_threshold": {
+    "live": 0.0,
+    "grid": [
+     -0.001,
+     0.001
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_ticks": {
+    "live": 24,
+    "grid": [
+     6,
+     12,
+     18,
+     36,
+     48,
+     72
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "tick_window": {
+    "live": 60,
+    "grid": [
+     5,
+     10,
+     20,
+     30,
+     50,
+     100,
+     200,
+     300,
+     500,
+     1000,
+     2000,
+     3200,
+     6000
+    ],
+    "alive": true,
+    "changes": [
+     "distance",
+     "lower",
+     "upper"
+    ]
+   },
+   "breakout_buffer_pct": {
+    "live": 0.0,
+    "grid": [
+     -0.001,
+     0.001
+    ],
+    "alive": true,
+    "changes": [
+     "distance"
+    ]
+   }
+  },
+  "354": {
+   "weight": {
+    "live": 14.285714285714286,
+    "grid": [
+     3.571429,
+     7.142857,
+     10.714286,
+     21.428571,
+     28.571429,
+     42.857143
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_depth": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "confidence_threshold": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "strength_threshold": {
+    "live": 0.0,
+    "grid": [
+     -0.001,
+     0.001
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_ticks": {
+    "live": 20,
+    "grid": [
+     5,
+     10,
+     15,
+     30,
+     40,
+     60
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "tick_window": {
+    "live": 20,
+    "grid": [
+     5,
+     10,
+     30,
+     50,
+     100,
+     200,
+     300,
+     500,
+     1000,
+     2000,
+     3200,
+     6000
+    ],
+    "alive": true,
+    "changes": [
+     "deviation",
+     "mean",
+     "trend"
+    ]
+   },
+   "pullback_min_pct": {
+    "live": 0.01,
+    "grid": [
+     0.0025,
+     0.005,
+     0.0075,
+     0.015,
+     0.02,
+     0.03
+    ],
+    "alive": false,
+    "changes": []
+   }
+  },
+  "358": {
+   "weight": {
+    "live": 14.285714285714286,
+    "grid": [
+     3.571429,
+     7.142857,
+     10.714286,
+     21.428571,
+     28.571429,
+     42.857143
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_depth": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "confidence_threshold": {
+    "live": 60.0,
+    "grid": [
+     15.0,
+     30.0,
+     45.0,
+     90.0,
+     120.0,
+     180.0
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "strength_threshold": {
+    "live": 0.0,
+    "grid": [
+     -0.001,
+     0.001
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "required_ticks": {
+    "live": 24,
+    "grid": [
+     6,
+     12,
+     18,
+     36,
+     48,
+     72
+    ],
+    "alive": false,
+    "changes": []
+   },
+   "window": {
+    "live": 60,
+    "grid": [
+     5,
+     10,
+     20,
+     30,
+     50,
+     100,
+     200,
+     300,
+     500,
+     1000,
+     2000,
+     3200,
+     6000
+    ],
+    "alive": true,
+    "changes": [
+     "^signal",
+     "hurst"
+    ]
+   },
+   "band": {
+    "live": 0.05,
+    "grid": [
+     0.0125,
+     0.025,
+     0.0375,
+     0.075,
+     0.1,
+     0.15
+    ],
+    "alive": true,
+    "changes": [
+     "^signal",
+     "band"
+    ]
+   }
+  }
+ },
+ "names": {
+  "352": "352_نموذج_الانعكاس",
+  "355": "355_نموذج_الزخم",
+  "356": "356_نموذج_المدى",
+  "351": "351_نموذج_الاتجاه",
+  "353": "353_نموذج_الاختراق",
+  "354": "354_نموذج_الارتداد",
+  "358": "358_معامل_هيرست"
+ }
+}

@@ -1,0 +1,73 @@
+id: 516
+name: "Per-Account Risk Authority"
+version: "5.12.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+dependencies: []
+publishes:
+- risk.validation.completed
+- emergency.halt
+- risk.kill_switch.reset_requested
+- risk.account.state
+- risk.audit.state
+# ٢٠٢٦-٠٩-١٨ — تنشره الذرّة فعلًا عند نقص حقيقةٍ ماليّة ولم يكن معلَنًا.
+- financial.truth.shortage
+subscribes:
+- risk.margin.validation.completed
+- risk.loss_reported
+- SYS_MARKET_DAY
+- SYS_SECOND
+- risk.halt.requested
+- risk.release.requested
+- platform.positions.state
+- platform.account.state
+- platform.terminal_state
+- risk.asset_ledger.state
+- execution.order.rejected
+- platform.trade_event
+# ٢٠٢٦-١٠-٢٦ (جواب المالك «NQ»): الرصيد الابتدائيّ من حدود الحساب ٥٠٩ — مقام نسبة الخسارة اليوميّة.
+- risk.account_limits.state
+startup_mode: auto
+health:
+  interval_ms: 5000
+  timeout_ms: 2000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    max_daily_loss_pct: {type: number, minimum: 0}
+    max_consecutive_losses: {type: integer, minimum: 1}
+    max_daily_trades: {type: integer, minimum: 1}
+    max_open_trades: {type: integer, minimum: 1}
+    max_reserved_risk_pct: {type: number, exclusiveMinimum: 0, maximum: 100}
+    consumer_db_path: {type: string}
+    reservation_ttl_s: {type: number, exclusiveMinimum: 0}
+  required: [max_daily_loss_pct, max_consecutive_losses, max_daily_trades, max_open_trades]
+  additionalProperties: false
+config:
+  # ٢٠٢٦-٠٩-١٨ — أمر المالك: «max_daily_loss_pct هاد من 5 لا 30 رفعو».
+  # الثلاثون المقصودة نسبةُ الخسارة اليوميّة لا عددُ الصفقات. وعلى رصيدٍ
+  # مقيس 8,367.75$ يصير سقف اليوم 2,510.33$ بدل 418.39$.
+  # ٢٠٢٦-٠٩-٢٤ ١٢:٢x — أمر المالك (ختم nQ): «حط بدك ياه ديمو عم نختبر … فك قاطع».
+  # الحساب تجريبيّ والتداول اختبارٌ متواصل ⇒ 30 ⟵ 90. وتبقى تحت 999 التي
+  # تعدّها بوّابة سلامة التنفيذ «قاطعًا بلا أسنان» فترفض الإقلاع.
+  # ٢٠٢٦-١٠-٢٣ (ختم المالك «NQ» على القانون 9 من ورقة «خطوط حمراء»): الحدّ اليوميّ الشامل 4٪ يحلّ محلّ 90٪ — والحاكم الأوّل
+  # ذرّة حدود الحساب 509 (بالحقوق مع المفتوح، وتُغلق المفتوح)، وهذا القاطع حارسٌ ثانٍ بخسائر الصفقات المغلقة.
+  max_daily_loss_pct: 4.0
+  max_consecutive_losses: 10
+  # ٢٠٢٦-٠٩-١٨ — أمر المالك: «الحد رجعه 200». عدد الصفقات اليوميّ يعود
+  # كما كان؛ الحاكمُ اليوميّ صار الخسارةَ لا العدّ.
+  max_daily_trades: 200
+  max_open_trades: 20
+  max_reserved_risk_pct: 100.0
+  consumer_db_path: "var/store/risk_guard_consumer_516.db"
+  # ٢٠٢٦-٠٩-٢٤ — أمر المالك (ختم «Nq»): عمر الحجز. كان لا يُفكّ إلّا بحدث الردّ أو
+  # الصفقة بالهويّة نفسها، فعلق 13 حجزًا (7 على الذهب = 700$ من 740$) وردّ هذا الحارس
+  # كلّ طلب `RISK_BUDGET_EXCEEDED`. رحلة الأمر كاملةً 1.47ث، والإكسبرت يردّه بعد ثانيتين.
+  reservation_ttl_s: 120
+metadata:
+  max_idle_s: 60

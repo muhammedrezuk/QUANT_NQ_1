@@ -1,0 +1,87 @@
+id: 115
+name: "Raw Data Quality Monitor"
+version: "4.3.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "market_data.quality_alert"
+  - "market_data.quality.state"
+
+subscribes:
+  - "market.tick"
+  - "platform.account.state"
+
+startup_mode: auto
+
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: true
+  max_restarts: 3
+  restart_backoff_ms: 2000
+
+config_schema:
+  type: object
+  properties:
+    gap_threshold_s:
+      type: number
+      minimum: 0
+    spike_pct:
+      type: number
+      minimum: 0
+    spread_pct:
+      type: number
+      minimum: 0
+    quality_window_s:
+      type: number
+      minimum: 0
+    book_max_pct:
+      type: number
+      minimum: 0
+    shape_max_pct:
+      type: number
+      minimum: 0
+    min_sample:
+      type: number
+      minimum: 0
+  required:
+    - gap_threshold_s
+    - spike_pct
+    - spread_pct
+  additionalProperties: false
+
+config:
+  gap_threshold_s: 5.0
+  spike_pct: 5.0
+  spread_pct: 1.0
+  # ٢٠٢٦-٠٩-١٨ — ثلاثة عيارات تحكم **الشارة** لا التنبيهات.
+  #
+  # كانت الشارة DEGRADED متى وُجدت تكّةٌ فاسدة واحدة منذ الإقلاع،
+  # وهي حالةٌ لا رجعة منها. ومقيس من `timeline.db` على ثلاثين ساعة
+  # متّصلة: `crossed_spread` حاضرٌ في **كلّ** ساعة (198,777 من 200,000
+  # رفضة = 99.4%)، فالشارة لم تكن تستطيع أن تخضرّ أبدًا — ولو انهارت
+  # التغذية فعلًا لبدا الأمر نفسه على اللوحة.
+  #
+  # والعدد المطلق لا يصف شيئًا: 141 رفضة في ساعةٍ هادئة و9,948 في ساعة
+  # 14:00 من اليوم نفسه. فالحكم بالنسبة داخل نافذة.
+  quality_window_s: 300.0
+  # نسبة «الدفتر» (`crossed_spread`): حالةُ سوقٍ يحرسها 112 أصلًا.
+  # الخلفيّة المقيسة لحظة الكتابة 1.3% عند 112 و106 معًا — والعتبة
+  # أربعةُ أضعافها. شدّها إلى 2.0 يجعل الشارة أشدّ حساسيّة.
+  book_max_pct: 5.0
+  # نسبة «الشكل»: تكّة بلا رمزٍ أو حسابٍ أو وسيطٍ أو وقت — تغذيةٌ
+  # مشوّهة لا سوق. خلفيّتها المقيسة أقلّ من 0.05%، فنصفُ الواحد بالمئة
+  # يحتمل الضجيج ويشتعل قبل أن تصير التغذية غير صالحة.
+  shape_max_pct: 0.5
+  # أصغر عيّنةٍ تُقرأ منها نسبة. النافذة الجارية ما دامت أرقّ من هذا
+  # الرقم تُضمّ إليها السابقة — وإلّا ارتجفت الشارة عند كلّ دوران
+  # (تكّةٌ فاسدة واحدة في نافذةٍ فُتحت للتوّ = 100%). ومقيس: نحو أربع
+  # عشرة تكّة في الثانية، فمئتان ≈ خمس عشرة ثانية.
+  min_sample: 200
+metadata:
+  max_idle_s: 151

@@ -1,0 +1,52 @@
+id: 560
+name: "Scoped Execution Quality"
+version: "2.3.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+dependencies: []
+publishes:
+- execution.quality.state
+subscribes:
+- trading.final_decision
+- platform.trade_event
+- execution.order.rejected
+- platform.brain_signal.write_failed
+- market.symbol_specs
+- platform.account.state
+startup_mode: auto
+health:
+  interval_ms: 10000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    max_adverse_points: {type: number, minimum: 0}
+    max_adverse_frac: {type: number, minimum: 0}
+    max_reject_rate: {type: number, minimum: 0, maximum: 1}
+    min_samples: {type: integer, minimum: 1}
+    recent_window: {type: integer, minimum: 1}
+  required: [max_adverse_points, max_reject_rate, min_samples]
+  additionalProperties: false
+config:
+  # ٢٠٢٦-٠٩-١٧ — الحدّ صار نسبةً من السعر لا نقاطًا ثابتة.
+  # المقيس على تنفيذاتٍ حقيقيّة (مئين ٨٠): بتكوين 992 نقطة = 0.01271٪ ·
+  # ناسداك 90 = 0.00309٪ · ذهب 23 = 0.00529٪. فحدّ الخمسين الموحّد كان
+  # يحجب بتكوين ٥٧٪ من صفقاته والذهب ٩٪ — تبعًا لحجم النقطة لا للسوء.
+  # والرقم مشتقّ من `TAIL_SLIPPAGE_FRAC` في ٥٥١ (أقصى انزلاق مرصود على
+  # ٤٥ صفقة)، فيستوي ما يحتاط له بانٍ الأمر بما يحجبه قائس الجودة.
+  max_adverse_frac: 0.00035
+  # يبقى أرضيّةً لو صُفِّرت النسبة — ولا يُستعمل ما دامت فوق الصفر.
+  max_adverse_points: 50.0
+  max_reject_rate: 0.25
+  min_samples: 1
+  # ٢٠٢٦-٠٩-٢٤ — ختم المالك «Nq على كلهم»: الحكم على آخر عشرين تنفيذًا مقيسًا.
+  # كان أسوأَ انزلاقٍ منذ البداية لا يتقادم، فبقي الذهب «محجوبًا» على لوحة الصحّة
+  # بتنفيذٍ واحد (158.5 من 149.1) — ولا مشترك يقرأ هذا الحجب أصلًا.
+  recent_window: 20
+metadata:
+  max_idle_s: 3600

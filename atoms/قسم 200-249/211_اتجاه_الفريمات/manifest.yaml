@@ -1,0 +1,61 @@
+id: 211
+name: "Frame Direction"
+version: "1.0.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "structure.direction.state"
+
+subscribes:
+  - "market_data.candle_closed"
+
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: true
+  max_restarts: 5
+  restart_backoff_ms: 3000
+
+config_schema:
+  type: object
+  properties:
+    symbols:
+      type: array
+      items:
+        type: string
+    frames:
+      type: array
+      items:
+        type: string
+    day_frame:
+      type: string
+    max_bars:
+      type: integer
+      minimum: 50
+    run:
+      type: integer
+      minimum: 1
+      maximum: 10
+  required:
+    - symbols
+    - frames
+    - day_frame
+    - max_bars
+    - run
+  additionalProperties: false
+
+config:
+  symbols: ["USTEC", "US500", "US30", "XAUUSD", "BTCUSD", "EURUSD", "GBPUSD"]
+  frames: ["1m", "5m", "15m", "30m", "1h", "4h", "1d", "1w", "1mo"]
+  day_frame: "1d"
+  max_bars: 450
+  run: 3
+metadata:
+  max_idle_s: 3600

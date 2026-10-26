@@ -1,0 +1,104 @@
+CREATE TABLE econ_calendar ( id TEXT PRIMARY KEY, event_date TEXT, time_et TEXT, scheduled_at REAL, country TEXT, event_name TEXT, actual TEXT, consensus TEXT, previous TEXT, fetched_at REAL, source TEXT)
+rows (30354, '2024-10-08', '2026-10-22')
+countries [('United States', 9654), ('United Kingdom', 2291), ('Euro Zone', 2021), ('Japan', 1995), ('Germany', 1847), ('Canada', 1471), ('Brazil', 1248), ('France', 1244), ('Australia', 1183), ('Italy', 968), ('India', 897), ('New Zealand', 869), ('Spain', 782), ('South Africa', 696), ('South Korea', 647)]
+US names: 255
+Atlanta Fed GDPNow                                      n=165  cons=155  act=162  2024-10-08..2026-10-20  t=11:30,10:00,11:00,10:30,10:20,09:50,12:0
+U.S. Baker Hughes Oil Rig Count                         n=108  cons=31   act=105  2024-10-11..2026-10-16  t=13:00,13:20,13:30,13:10
+Initial Jobless Claims                                  n=105  cons=99   act=104  2024-10-10..2026-10-15  t=08:30,08:24,08:25,08:26,08:27,08:28,08:2
+Gasoline Inventories                                    n=105  cons=99   act=105  2024-10-09..2026-10-07  t=10:30,12:00,17:00,09:30,10:00,11:00
+EIA Weekly Distillates Stocks                           n=105  cons=98   act=105  2024-10-09..2026-10-07  t=10:30,12:00,17:00,09:30,10:00,11:00
+Crude Oil Inventories                                   n=105  cons=105  act=105  2024-10-09..2026-10-07  t=10:30,12:00,17:00,09:30,10:00,11:00
+Continuing Jobless Claims                               n=105  cons=92   act=104  2024-10-10..2026-10-15  t=08:30,08:23,08:24,08:26,08:27,08:28,03:1
+API Weekly Crude Oil Stock                              n=105  cons=81   act=104  2024-10-08..2026-10-14  t=16:30,17:00,16:50,17:30,13:00,18:00
+Natural Gas Storage                                     n=103  cons=102  act=102  2024-10-10..2026-10-15  t=10:30,12:00,14:00
+Building Permits                                        n=92   cons=64   act=90   2024-10-18..2026-10-20  t=08:30,08:00,08:31,08:29,07:59,07:50,08:1
+House Price Index                                       n=69   cons=22   act=69   2024-10-29..2026-09-29  t=09:00
+Retail Sales                                            n=50   cons=24   act=48   2024-10-17..2026-10-15  t=08:30
+Michigan Current Conditions                             n=50   cons=45   act=48   2024-10-11..2026-10-09  t=10:00
+Michigan Consumer Sentiment                             n=50   cons=49   act=48   2024-10-11..2026-10-09  t=10:00
+Michigan Consumer Expectations                          n=50   cons=45   act=48   2024-10-11..2026-10-09  t=10:00
+Michigan 5-Year Inflation Expectations                  n=50   cons=43   act=48   2024-10-11..2026-10-09  t=10:00
+Michigan 1-Year Inflation Expectations                  n=50   cons=42   act=48   2024-10-11..2026-10-09  t=10:00
+Industrial Production                                   n=50   cons=24   act=48   2024-10-17..2026-10-16  t=09:15,09:14
+Import Price Index                                      n=50   cons=29   act=48   2024-10-16..2026-10-16  t=08:30
+Housing Starts                                          n=50   cons=22   act=48   2024-10-18..2026-10-20  t=08:30,08:29
+Export Price Index                                      n=50   cons=25   act=48   2024-10-16..2026-10-16  t=08:30
+Core PCE Price Index                                    n=50   cons=48   act=50   2024-10-31..2026-09-30  t=08:30,09:59,10:00
+S&P Global Services PMI                                 n=48   cons=48   act=48   2024-10-24..2026-10-05  t=09:45
+PPI ex. Food/Energy/Transport                           n=48   cons=5    act=46   2024-10-11..2026-10-15  t=08:30,08:29
+PPI                                                     n=48   cons=44   act=46   2024-10-11..2026-10-15  t=08:30,08:29
+Existing Home Sales                                     n=48   cons=25   act=46   2024-10-23..2026-10-13  t=10:00
+Durables Excluding Defense                              n=48   cons=15   act=48   2024-10-25..2026-10-02  t=10:00,08:30
+Core PPI                                                n=48   cons=44   act=46   2024-10-11..2026-10-15  t=08:30,08:29
+Core CPI                                                n=47   cons=45   act=45   2024-10-10..2026-10-14  t=08:30
+CPI                                                     n=47   cons=45   act=45   2024-10-10..2026-10-14  t=08:30
+S&P/CS HPI Composite - 20 n.s.a.                        n=46   cons=24   act=46   2024-10-29..2026-09-29  t=09:00
+New Home Sales                                          n=46   cons=20   act=46   2024-10-24..2026-09-24  t=10:00,09:59
+Retail Inventories Ex Auto                              n=44   cons=21   act=43   2024-10-17..2026-10-15  t=10:00,08:30
+Wholesale Inventories                                   n=43   cons=43   act=43   2024-10-09..2026-10-08  t=10:00,08:30
+S&P Global Manufacturing PMI                            n=41   cons=41   act=41   2025-02-21..2026-10-01  t=09:45
+S&P Global Composite PMI                                n=41   cons=29   act=41   2025-02-21..2026-10-05  t=09:45
+Durables Excluding Transport                            n=28   cons=5    act=28   2024-11-04..2026-10-02  t=10:00,08:30
+Pending Home Sales                                      n=26   cons=25   act=25   2024-10-30..2026-10-20  t=10:00
+Trade Balance                                           n=25   cons=25   act=25   2024-10-08..2026-10-06  t=08:30
+Total Vehicle Sales                                     n=25   cons=21   act=25   2024-11-05..2026-10-01  t=15:00,18:00,16:40,04:00,10:30,08:00,20:0
+Retail Sales Ex Gas/Autos                               n=25   cons=6    act=24   2024-10-17..2026-10-15  t=08:30
+Retail Control                                          n=25   cons=23   act=24   2024-10-17..2026-10-15  t=08:30
+Personal Spending                                       n=25   cons=24   act=25   2024-10-31..2026-09-30  t=08:30,09:59,10:00
+Personal Income                                         n=25   cons=24   act=25   2024-10-31..2026-09-30  t=08:30,09:59,10:00
+PCE price index                                         n=25   cons=24   act=25   2024-10-31..2026-09-30  t=08:30,09:59,10:00
+PCE Price index                                         n=25   cons=24   act=25   2024-10-31..2026-09-30  t=08:30,09:59,10:00
+NY Empire State Manufacturing Index                     n=25   cons=24   act=24   2024-10-15..2026-10-15  t=08:30
+NFIB Small Business Optimism                            n=25   cons=24   act=24   2024-10-08..2026-10-13  t=06:00
+NAHB Housing Market Index                               n=25   cons=24   act=24   2024-10-17..2026-10-19  t=10:00
+Manufacturing Production                                n=25   cons=21   act=24   2024-10-17..2026-10-16  t=09:15,09:14
+IBD/TIPP Economic Optimism                              n=25   cons=25   act=25   2024-10-08..2026-10-06  t=10:00,10:10,11:00,10:30,10:05
+Goods Orders Non Defense Ex Air                         n=25   cons=15   act=25   2024-10-25..2026-09-25  t=08:30
+Federal Budget Balance                                  n=25   cons=24   act=24   2024-10-18..2026-10-13  t=14:00,16:00
+Durable Goods Orders                                    n=25   cons=25   act=25   2024-10-25..2026-09-25  t=08:30
+Core Retail Sales                                       n=25   cons=24   act=24   2024-10-17..2026-10-15  t=08:30
+Core Durable Goods Orders                               n=25   cons=24   act=25   2024-10-25..2026-09-25  t=08:30
+Consumer Credit                                         n=25   cons=25   act=25   2024-11-07..2026-10-07  t=15:00
+Chicago PMI                                             n=25   cons=25   act=25   2024-10-31..2026-09-30  t=09:45,09:30
+Capacity Utilization Rate                               n=25   cons=23   act=24   2024-10-17..2026-10-16  t=09:15,09:14
+Business Inventories                                    n=25   cons=24   act=24   2024-10-17..2026-10-15  t=10:00
+TIC Net Long-Term Transactions including Swaps          n=24   cons=7    act=23   2024-10-17..2026-10-16  t=16:00,16:01
+TIC Net Long-Term Transactions                          n=24   cons=15   act=23   2024-10-17..2026-10-16  t=16:00,16:01
+Private Nonfarm Payrolls                                n=24   cons=23   act=24   2024-11-01..2026-10-02  t=08:30,08:29
+Philadelphia Fed Manufacturing Index                    n=24   cons=23   act=23   2024-10-17..2026-10-15  t=08:30
+Nonfarm Payrolls                                        n=24   cons=23   act=24   2024-11-01..2026-10-02  t=08:30,08:29
+Manufacturing Payrolls                                  n=24   cons=23   act=24   2024-11-01..2026-10-02  t=08:30,08:29
+JOLTS Job Openings                                      n=24   cons=23   act=24   2024-10-29..2026-09-29  t=10:00,10:01
+ISM Manufacturing Prices                                n=24   cons=24   act=24   2024-11-01..2026-10-01  t=10:00
+ISM Manufacturing PMI                                   n=24   cons=24   act=24   2024-11-01..2026-10-01  t=10:00
+ISM Manufacturing New Orders Index                      n=24   cons=12   act=24   2024-11-01..2026-10-01  t=10:00
+ISM Manufacturing Employment                            n=24   cons=14   act=24   2024-11-01..2026-10-01  t=10:00
+Core CPI Index                                          n=24   cons=5    act=23   2024-10-10..2026-10-14  t=08:30
+Construction Spending                                   n=24   cons=21   act=24   2024-11-01..2026-10-01  t=10:00,09:59
+CPI Index, n.s.a.                                       n=24   cons=20   act=23   2024-10-10..2026-10-14  t=08:30
+Average Weekly Hours                                    n=24   cons=23   act=24   2024-11-01..2026-10-02  t=08:30,08:29
+Average Hourly Earnings (YoY)                           n=24   cons=22   act=24   2024-11-01..2026-10-02  t=08:30,08:29
+Average Hourly Earnings                                 n=24   cons=23   act=24   2024-11-01..2026-10-02  t=08:30,08:29
+Unemployment Rate                                       n=23   cons=23   act=23   2024-11-01..2026-10-02  t=08:30
+US Leading Index                                        n=23   cons=22   act=22   2024-10-21..2026-10-22  t=10:00,10:59,11:00
+Richmond Manufacturing Index                            n=23   cons=23   act=23   2024-10-22..2026-09-22  t=10:00
+Real Consumer Spending                                  n=23   cons=16   act=23   2024-10-30..2026-09-30  t=08:30
+PCE Prices                                              n=23   cons=18   act=23   2024-10-30..2026-09-30  t=08:30
+ISM Non-Manufacturing Prices                            n=23   cons=22   act=23   2024-11-05..2026-10-05  t=10:00
+ISM Non-Manufacturing PMI                               n=23   cons=23   act=23   2024-11-05..2026-10-05  t=10:00
+ISM Non-Manufacturing New Orders                        n=23   cons=18   act=23   2024-11-05..2026-10-05  t=10:00
+ISM Non-Manufacturing Employment                        n=23   cons=18   act=23   2024-11-05..2026-10-05  t=10:00
+GDP Sales                                               n=23   cons=15   act=23   2024-10-30..2026-09-30  t=08:30
+GDP Price Index                                         n=23   cons=23   act=23   2024-10-30..2026-09-30  t=08:30
+GDP                                                     n=23   cons=23   act=23   2024-10-30..2026-09-30  t=08:30
+Factory Orders                                          n=23   cons=22   act=23   2024-11-04..2026-10-02  t=10:00
+Core PCE Prices                                         n=23   cons=23   act=23   2024-10-30..2026-09-30  t=08:30
+CB Consumer Confidence                                  n=23   cons=23   act=23   2024-10-29..2026-09-29  t=10:00
+ADP Nonfarm Employment Change                           n=23   cons=23   act=23   2024-10-30..2026-09-30  t=08:15
+Goods Trade Balance                                     n=21   cons=19   act=21   2024-10-29..2026-09-30  t=08:30
+Unit Labor Costs                                        n=16   cons=16   act=16   2024-11-07..2026-09-03  t=08:30
+Nonfarm Productivity                                    n=16   cons=16   act=16   2024-11-07..2026-09-03  t=08:30
+Fed Interest Rate Decision                              n=16   cons=16   act=16   2024-11-07..2026-09-16  t=14:00
+Corporate Profits                                       n=14   cons=7    act=14   2024-11-26..2026-09-30  t=08:30
+Employment Cost Index                                   n=8    cons=8    act=8    2024-10-31..2026-07-31  t=08:30
+Current Account                                         n=8    cons=8    act=8    2024-12-18..2026-09-24  t=08:30

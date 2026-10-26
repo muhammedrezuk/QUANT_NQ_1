@@ -1,0 +1,49 @@
+id: 820
+name: "Measurement Engine"
+version: "1.0.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "measurement.health.state"
+  - "measurement.latency.state"
+
+subscribes:
+  - "market.tick.validated"
+  # ٢٠٢٦-١٠-٠٧ (ختم المالك «NQ»): خرج الاشتراك في structure/liquidity/stats/probability/strategy/analysis
+  # .section.live — ناشروها أُرشفوا مع فكّ الأقسام عن القرار؛ الذرّة تبقى حيّة على التِّكّة وصحّتها DEGRADED معلنة.
+
+startup_mode: auto
+health:
+  interval_ms: 30000
+  timeout_ms: 10000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 3000
+
+config_schema:
+  type: object
+  properties:
+      window:
+        type: integer
+        minimum: 0
+      stale_after_s:
+        type: number
+        minimum: 0
+      warming_min:
+        type: integer
+        minimum: 0
+  additionalProperties: false
+
+config:
+  window: 200
+  stale_after_s: 30
+  warming_min: 10
+
+metadata:
+  max_idle_s: 300
+  note: "ثلاثة مستويات صحة لكل قسم (تقنيّ/تحليليّ/منفعة تداول) بلا خلط، وكامن انتشار التكة→البطاقة — والمنفعة UNKNOWN معلنة بالاسم لا صفرًا."

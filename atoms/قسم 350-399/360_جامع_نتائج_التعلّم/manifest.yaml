@@ -1,0 +1,45 @@
+id: 360
+name: Learning Outcome Collector
+version: "1.8.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+publishes:
+- learning.outcome.recorded
+subscribes:
+# ٢٠٢٦-١٠-٠٧ (ختم المالك «NQ»): خرج الاشتراك في decision.evaluated.state وdecision.scored.state
+# وdecision.resolved.state — ناشروها (٤٥٢/٤٥٣/٤٥٨) أُرشفوا مع فكّ الأقسام عن القرار. سلسلة التعلّم
+# تبقى ساكنة حتّى تُبنى على بطاقات الصفقات؛ ومعالجة النتائج (market.outcome.realized …) باقية كما هي.
+- trading.final_decision
+- market.outcome.realized
+- execution.command.ack
+- execution.manage.intent
+- market.tick.validated
+startup_mode: auto
+health:
+  interval_ms: 10000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    max_pending_per_scope:
+      type: integer
+      minimum: 1
+    max_pending_age_s:
+      type: integer
+      minimum: 60
+  required:
+  - max_pending_per_scope
+  - max_pending_age_s
+  additionalProperties: false
+config:
+  max_pending_per_scope: 2000
+  max_pending_age_s: 21600
+metadata:
+  name_ar: "جامع نتائج التعلّم"
+  max_idle_s: 86400

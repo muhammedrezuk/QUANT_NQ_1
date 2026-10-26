@@ -1,0 +1,48 @@
+id: 118
+name: Monetary Policy Knowledge
+version: "1.0.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+# ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — المعرفة أوّلًا): حقائق خام عن الفيدراليّ والأخبار الأمريكيّة الكبرى من تقويم
+# ميتاتريدر المحفوظ (قراءةً فقط). تعرف ولا تقرّر — لا تدخل قرار الدخول.
+publishes:
+- knowledge.monetary.state
+subscribes:
+- SYS_5MIN
+startup_mode: auto
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    db_path:
+      type: string
+    bridge_db_path:
+      type: string
+    boot_delay_s:
+      type: number
+      minimum: 0
+  required:
+  - db_path
+  additionalProperties: false
+config:
+  # قاعدة التقويم المحفوظة (ملأها أوّلًا السكربت mt5/NQ_CalendarHistory.mq5 مرّةً) — ويسبقها متغيّر البيئة
+  # NQ_CALENDAR_HISTORY_DB إن ضُبط. تُفتح للقراءة فقط (mode=ro).
+  db_path: '%APPDATA%\MetaQuotes\Terminal\Common\Files\nq_calendar_history.db'
+  # ٢٠٢٦-١٠-٠٨: صارت القاعدة تُزامَن كلّ ساعة بالإكسبرت mt5/NQ_CalendarSync.mq5 (30 يومًا ماضية و180 قادمة).
+  # وجدول calendar في قاعدة الجسر (يكتبه الإكسبرت الحيّ) مصدر القيمة الفعليّة لحظة صدورها لما صدر في الأيّام
+  # الثلاثة الأخيرة ولم تبلغه المزامنة — قراءةً فقط بمهلة قفلٍ ثانية. ومرسى NQ_BRIDGE_DB يسبقه إن ضُبط.
+  bridge_db_path: '%APPDATA%\MetaQuotes\Terminal\Common\Files\nq_brain.db'
+  # القراءة الأولى بعد اكتمال الإقلاع كلّه (مقيس ~7 ث) — كما إعادة نشر 153.
+  boot_delay_s: 30.0
+metadata:
+  # النبضة كلّ 5 دقائق؛ ثلاث نبضات بلا غذاء = جوع.
+  max_idle_s: 900
+  name_ar: "معرفة السياسة النقديّة"

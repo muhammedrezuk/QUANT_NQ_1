@@ -1,0 +1,44 @@
+id: 414
+name: Trend Continuation Card
+version: "1.1.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+publishes:
+- strategy.card.state
+- strategy.setup.proposed
+- decision.approved.state
+subscribes:
+- market_data.candle_closed
+- analysis.trend.state
+- analysis.volatility.state
+- structure.levels.state
+- strategy.session.state
+- news.trading_window.state
+- platform.account.state
+- platform.positions.state
+startup_mode: auto
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    symbols:
+      type: array
+      items:
+        type: string
+  required:
+  - symbols
+  additionalProperties: false
+config:
+  symbols:
+  - USTEC
+metadata:
+  max_idle_s: 900
+  name_ar: "بطاقة استمرار الاتّجاه"

@@ -1,0 +1,30 @@
+tables: ['candles_history', 'fetch_progress', 'fetch_meta', 'ticks_history', 'tick_progress']
+schema: ('CREATE TABLE candles_history (\n    symbol TEXT NOT NULL,\n    period TEXT NOT NULL,\n    period_seconds INTEGER NOT NULL,\n    period_start INTEGER NOT NULL,          -- ثواني يونكس UTC: وقت فتح الشمعة\n    open REAL NOT NULL, high REAL NOT NULL, low REAL NOT NULL, close REAL NOT NULL,\n    tick_volume INTEGER NOT NULL,\n    PRIMARY KEY (symbol, period, period_start)\n) WITHOUT ROWID',)
+indexes: [None, None, None]
+USTEC  M1  كلّه: 2014-07-17 09:54 → 2026-10-05 22:58 n=4224892 | الفترة+التحمية: n=1758488 أوّلها=2019-09-30 00:00
+USTEC  M5  كلّه: 2014-07-17 09:50 → 2026-10-08 12:10 n=857506 | الفترة+التحمية: n=357498 أوّلها=2019-09-01 22:00
+USTEC  H1  كلّه: 2012-12-20 08:00 → 2026-10-08 11:00 n=81940 | الفترة+التحمية: n=31430 أوّلها=2019-06-03 00:00
+USTEC  H4  كلّه: 2012-12-20 06:00 → 2026-10-08 05:00 n=21296 | الفترة+التحمية: n=8960 أوّلها=2018-12-05 02:00
+USTEC  D1  كلّه: 2012-12-19 22:00 → 2026-10-06 21:00 n=3660 | الفترة+التحمية: n=1575 أوّلها=2018-08-27 21:00
+US500  M1  كلّه: 2014-06-11 18:51 → 2026-10-07 16:20 n=3856490 | الفترة+التحمية: n=1706384 أوّلها=2019-09-30 00:00
+US500  M5  كلّه: 2014-06-11 18:50 → 2026-10-08 12:10 n=848418 | الفترة+التحمية: n=357100 أوّلها=2019-09-01 22:00
+US500  H1  كلّه: 2012-12-20 04:00 → 2026-10-08 11:00 n=81942 | الفترة+التحمية: n=31434 أوّلها=2019-06-03 00:00
+US500  H4  كلّه: 2012-12-20 02:00 → 2026-10-08 05:00 n=21293 | الفترة+التحمية: n=8960 أوّلها=2018-12-05 02:00
+US500  D1  كلّه: 2012-12-19 22:00 → 2026-10-06 21:00 n=3659 | الفترة+التحمية: n=1575 أوّلها=2018-08-27 21:00
+US30   M1  كلّه: 2014-07-16 22:58 → 2026-10-07 16:24 n=4176954 | الفترة+التحمية: n=1756650 أوّلها=2019-09-30 00:00
+US30   M5  كلّه: 2014-07-16 22:55 → 2026-10-08 12:10 n=850695 | الفترة+التحمية: n=357580 أوّلها=2019-09-01 22:00
+US30   H1  كلّه: 2012-12-20 07:00 → 2026-10-08 11:00 n=81362 | الفترة+التحمية: n=31439 أوّلها=2019-06-03 00:00
+US30   H4  كلّه: 2012-12-20 06:00 → 2026-10-08 05:00 n=21156 | الفترة+التحمية: n=8962 أوّلها=2018-12-05 02:00
+US30   D1  كلّه: 2012-12-19 22:00 → 2026-10-06 21:00 n=3635 | الفترة+التحمية: n=1575 أوّلها=2018-08-27 21:00
+cal tables: ['calendar_history', 'export_meta']
+cal schema: ('CREATE TABLE calendar_history (value_id INTEGER PRIMARY KEY, event_id INTEGER, event_code TEXT, event_name TEXT, country_code TEXT, currency TEXT, importance INTEGER, type INTEGER, sector INTEGER, frequency INTEGER, time_mode INTEGER, unit INTEGER, multiplier INTEGER, digits INTEGER, time_server INTEGER, period INTEGER, revision INTEGER, actual REAL, forecast REAL, prev REAL, revised_prev REAL, impact_type INTEGER, source_url TEXT, exported_at INTEGER)',)
+أخبار US عالية: 2014-01-02 16:30 → 2026-10-21 17:30 n=6670
+  2018: 521
+  2019: 540
+  2020: 539
+  2021: 544
+  2022: 530
+  2023: 531
+  2024: 504
+  2025: 477
+  2026: 408

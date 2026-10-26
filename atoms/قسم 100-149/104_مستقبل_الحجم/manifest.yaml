@@ -1,0 +1,39 @@
+id: 104
+name: "Volume Receiver"
+version: "2.2.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "market_data.volume_received"
+
+subscribes:
+  - "market.volume"
+
+startup_mode: auto
+
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    source_has_volume: {type: boolean}
+  additionalProperties: false
+
+config:
+  # ٢٠٢٦-٠٩-٢٤ — ختم المالك «Nq كل إصلاحات»: مصدر الأسعار (سي‑تريدر) لا يرسل حجمًا.
+  # مقيس: حقل الحجم فارغٌ في كلّ تِكّة (13,146 مرفوضة و2,000 مقبولة في ثلاث ساعات)،
+  # و103 أغلق 277,627 شمعة بحجم صفر. فغياب الحجم طبيعةُ المصدر لا علّته. يُرفع
+  # هذا السطر إن أُضيف مصدرٌ يرسل حجمًا — والذرّة تصفرّ إن وصل حجمٌ رغم الإعلان.
+  source_has_volume: false
+metadata:
+  max_idle_s: 3600

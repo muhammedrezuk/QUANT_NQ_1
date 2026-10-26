@@ -1,0 +1,58 @@
+id: 119
+name: Nasdaq Seasonal Memory
+version: "1.0.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+publishes:
+- knowledge.seasonal.state
+subscribes:
+- SYS_HOUR
+- SYS_DAY
+startup_mode: auto
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    symbol:
+      type: string
+    history_db:
+      type: string
+    calendar_db:
+      type: string
+    history_from:
+      type: string
+    recent_years:
+      type: integer
+      minimum: 1
+    boot_delay_s:
+      type: number
+      minimum: 0
+  required:
+  - symbol
+  - history_db
+  - calendar_db
+  - history_from
+  - recent_years
+  - boot_delay_s
+  additionalProperties: false
+# ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — المعرفة أوّلًا): القاعدتان تُقرآن قراءةً فقط. `history_db` نسبيٌّ إلى جذر المشروع،
+# و`calendar_db` يوسَّع فيه %APPDATA%. و`history_from` = أوّل يوم وسيطٍ مستقيم في قاعدة سي‑تريدر — قبله شمعة يومٍ
+# سادسة كلّ أسبوع وطوابع ساعاتٍ مزاحة ثلاث ساعات (مقيس؛ الشرح في seasonal_memory.py).
+config:
+  symbol: USTEC
+  history_db: 'forex_runtime\var\history\ctrader_history.db'
+  calendar_db: '%APPDATA%\MetaQuotes\Terminal\Common\Files\nq_calendar_history.db'
+  history_from: "2014-09-22"
+  recent_years: 3
+  boot_delay_s: 30
+metadata:
+  max_idle_s: 7200
+  name_ar: "ذاكرة الناسداك الموسميّة"

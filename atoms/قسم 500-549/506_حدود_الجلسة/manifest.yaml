@@ -1,0 +1,76 @@
+id: 506
+name: Session Limits
+version: "1.7.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+publishes:
+- risk.session_limits.state
+- risk.halt.requested
+- risk.release.requested
+# ٢٠٢٦-٠٩-١٨ — تنشره الذرّة فعلًا عند نقص حقيقةٍ ماليّة ولم يكن معلَنًا.
+- financial.truth.shortage
+subscribes:
+- analysis.session.state
+- platform.account.state
+- risk.loss_reported
+- platform.trade_event
+- SYS_MARKET_DAY
+- SYS_SECOND
+- core.atom.started
+- risk.kill_switch.reset_requested
+startup_mode: auto
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 2000
+config_schema:
+  type: object
+  properties:
+    max_session_loss_pct:
+      type: number
+      minimum: 0
+    max_session_trades:
+      type: integer
+      minimum: 0
+    max_equity_drawdown_pct:
+      type: number
+      minimum: 0
+  required:
+  - max_session_loss_pct
+  - max_session_trades
+  - max_equity_drawdown_pct
+  additionalProperties: false
+config:
+  # ٢٠٢٦-٠٩-٢٤ ٠٠:٠٣ — المالك من اللوحة (حساب تجريبيّ، تداولٌ متواصل بأمره):
+  # خسارة الجلسة 50٪ · صفقات الجلسة 200 · السحب 50٪. والشروح التالية تاريخُ
+  # القيم السابقة (10٪ · 60 · 10٪) — أُرجعت بعد أن مسحها حفظ اللوحة.
+  # ٢٠٢٦-٠٩-١٨ — أمر المالك: «ارفع لا 10». وكانت الثلاثةُ هي الحاكمَ
+  # الفعليّ بعد رفع حدّ اليوم إلى 30٪: ثلاث جلساتٍ في اليوم ⇒ سقفٌ
+  # عمليّ 9٪ لا 30٪. والعشرة تجعل الجلسات الثلاث (30٪) تساوي حدّ
+  # اليوم بالضبط، فلا يسبق حارسُ الجلسة حارسَ اليوم ولا يتخطّاه.
+  # وعلى الرصيد المقيس 8,367.75$ يصير سقف الجلسة 836.78$ بدل 251.03$.
+  # ويبقى سقف السحب من الذروة 10٪ بجانبه حارسًا ثانيًا لم يُمَسّ.
+  max_session_loss_pct: 50
+  # ٢٠٢٦-٠٩-٠٦ (حكم المالك: «ولا صفقة» — مقيسًا: ثلاث ساعات بلا أمر).
+  # بلغت جلسة آسيا عشر صفقات، فرفع 506 خرق MAX_SESSION_TRADES ⇒ 516
+  # كسر المفتاح ⇒ 519 جمّد **الرموز الثمانية كلّها**. وخسارة الجلسة
+  # وقتها 0.2514٪ فقط، والمتتاليات صفر، والخسارة اليومية سالبة (ربح):
+  # القاطع رُفع على **العدّ** لا على الخطر. والأسوأ أن المزلاج أحاديّ:
+  # 506 يمسح خرقه عند تبدّل الجلسة، لكن kill في 516 وhalted في 519 لا
+  # يُفكّان إلا بحدث إعادة تعيين صريح — فتوقّف التداول بلا أجل.
+  #
+  # العدد يُرفع كي تبقى حرّاس **الخطر** هي المُلزِمة أوّلًا، لا العدّاد:
+  #   خطر الصفقة المقيس 20→27$ على 10,251$ = 0.20→0.27٪
+  #   سقف خسارة الجلسة 3٪ ⇒ يلزم ~15 خسارة كاملة ليُرفع
+  # فأي سقف عدّ فوق ١٥ يجعل حارس الخسارة يسبق حارس العدّ. و60 تُبقي
+  # الجلسات الثلاث (180) تحت سقف 516 اليومي (200) — فيبقى برَحان
+  # اثنان قائمين: خسارة الجلسة 3٪، والعدّ اليومي 200. لا حارس أُلغي.
+  max_session_trades: 200
+  max_equity_drawdown_pct: 50
+metadata:
+  max_idle_s: 3600
