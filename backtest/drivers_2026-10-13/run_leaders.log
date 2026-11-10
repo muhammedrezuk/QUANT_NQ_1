@@ -1,0 +1,3 @@
+C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\leaders.py:103: RuntimeWarning: Mean of empty slice
+  basket = np.where(count >= MIN_STOCKS, np.nanmean(S, axis=0), np.nan)
+الحكم: لا تقود بما يتجاوز التكلفة | 5.7 ث

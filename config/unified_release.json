@@ -1,0 +1,31 @@
+{
+  "release": "QUANT_NQ_COMPLETE_FULL",
+  "build_id": "QUANT_NQ_COMPLETE_FULL",
+  "release_state": "SEALED",
+  "sealed_at": "2026-09-19",
+  "created_at": "2026-09-19",
+  "forex_atoms": 211,
+  "core_version": "1.41.0",
+  "manual_storage_atoms": [
+    2702,
+    2707,
+    2720
+  ],
+  "official_launch_mode": "separate_market_buttons",
+  "official_launchers": {
+    "forex": "أزرار التشغيل/تشغيل الفوركس الموحد.bat"
+  },
+  "dashboard_mode": "separate_market_dashboards",
+  "dashboard_ports": {
+    "forex": 8090
+  },
+  "internal_governance_ports": {
+    "forex": 8092
+  },
+  "core_ports": {
+    "forex": 8010
+  },
+  "removed_markets": {
+    "crypto": "removed-2026-09-07-independent-project"
+  }
+}

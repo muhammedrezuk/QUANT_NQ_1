@@ -1,0 +1,71 @@
+id: 122
+name: Companies And Markets Knowledge
+version: "1.0.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+# ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — المعرفة أوّلًا): حقائق خام عن أكبر شركات الناسداك (حركتها منذ إغلاق أمس ومن الافتتاح ·
+# كم صاعدة وكم هابطة · الخوف والدولار · حركة الناسداك نفسه) ومواعيد أرباحها وحركة الناسداك في أيّام إعلاناتها.
+# تعرف ولا تقرّر — لا تدخل قرار الدخول. ولا تتّصل بالإنترنت (أمر المالك «الأخبار من مكانٍ واحد»): مواعيد الأرباح
+# يكتبها بوت الأخبار في قاعدة الجسر.
+publishes:
+- knowledge.companies.state
+subscribes:
+- SYS_SECOND
+- SYS_5MIN
+- market_data.candle_closed
+startup_mode: auto
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    symbol:
+      type: string
+    tickers:
+      type: array
+      items:
+        type: string
+    stocks_db:
+      type: string
+    bridge_db:
+      type: string
+    history_db:
+      type: string
+    quotes_every_s:
+      type: number
+      minimum: 1
+    boot_delay_s:
+      type: number
+      minimum: 0
+  required:
+  - symbol
+  - tickers
+  - stocks_db
+  - bridge_db
+  - history_db
+  additionalProperties: false
+config:
+  symbol: USTEC
+  # أكبر أوزان الناسداك — كما في إكسبرت القراءة mt5/NQ_StocksSync.mq5 (ومعها VIX وDXY تُقرأ باسميهما دائمًا).
+  tickers: [NVDA, MSFT, AAPL, AMZN, AVGO, META, GOOGL, GOOG, TSLA, COST, NFLX, AMD, PLTR, CSCO, TMUS]
+  # يكتبها الإكسبرت كلّ دقيقة — تُفتح للقراءة فقط (mode=ro)، ويسبقها متغيّر البيئة NQ_STOCKS_DB إن ضُبط.
+  stocks_db: '%APPDATA%\MetaQuotes\Terminal\Common\Files\nq_stocks.db'
+  # جدولا earnings_calendar وearnings_history يكتبهما بوت الأخبار مرّةً في اليوم — قراءةً كلّ 5 دقائق بمهلة قفلٍ ثانية؛
+  # ويسبقها NQ_BRIDGE_DB إن ضُبط.
+  bridge_db: '%APPDATA%\MetaQuotes\Terminal\Common\Files\nq_brain.db'
+  # شموع D1 وM1 للناسداك (قراءةً فقط) عند الإقلاع وكلّ يوم وسيطٍ جديد؛ ويسبقها QUANT_HISTORY_DB (كما 153).
+  history_db: 'forex_runtime\var\history\ctrader_history.db'
+  quotes_every_s: 60.0
+  # القراءة الأولى بعد اكتمال الإقلاع كلّه (مقيس ~7 ث) — كما 118 و153.
+  boot_delay_s: 30.0
+metadata:
+  # نبضة الثانية تغذّيها دائمًا؛ وربع ساعةٍ بلا غذاء = جوع.
+  max_idle_s: 900
+  name_ar: "معرفة الشركات والأسواق"

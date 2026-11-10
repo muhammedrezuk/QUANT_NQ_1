@@ -1,0 +1,56 @@
+id: 158
+name: "Session Analyzer"
+version: "2.5.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "analysis.session.state"
+  - "analysis.setting.changed"
+
+subscribes:
+  - "market_data.candle_closed"
+
+  - "market.tick.validated"
+  - "analysis.settings.command"
+  - "SYS_SECOND"
+
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+# ٢٠٢٦-١٠-٠٩ (ختم المالك «NQ» — الوقت من مصدرٍ واحد): نُزعت ساعات الجلسات الثابتة بغرينتش وفرق الساعة
+# (آسيا 0–9 · لندن 7–16 · نيويورك 12–21 · فرق 0) — كانت تخطئ ساعةً نصف السنة وتعارض الذرّة 117. الجلسات
+# تُقرأ الآن من `shared/market_clock` بالتوقيت الصيفيّ الصحيح، ولا رقم ساعةٍ هنا. بقيت قائمتا الرموز وحدهما.
+config_schema:
+  type: object
+  properties:
+    round_clock_symbols:
+      type: array
+      items:
+        type: string
+    always_open_symbols:
+      type: array
+      items:
+        type: string
+  required:
+    - round_clock_symbols
+    - always_open_symbols
+  additionalProperties: false
+
+config:
+  round_clock_symbols:
+    - "BTCUSD"
+  always_open_symbols:
+    - "XAUUSD"
+metadata:
+  max_idle_s: 301

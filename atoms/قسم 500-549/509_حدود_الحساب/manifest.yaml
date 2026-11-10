@@ -1,0 +1,75 @@
+id: 509
+name: "Account Limits"
+version: "1.2.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "execution.manage.intent"
+  - "risk.account_limits.state"
+
+subscribes:
+  - "SYS_SECOND"
+  - "kernel.clock.heartbeat"
+  - "platform.positions.state"
+  - "platform.trade_event"
+  - "risk.account_limits.command"
+  - "portfolio.balance.state"
+  - "portfolio.equity.state"
+
+startup_mode: auto
+
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: true
+  max_restarts: 5
+  restart_backoff_ms: 3000
+
+config_schema:
+  type: object
+  properties:
+    initial_balance:
+      type: number
+      exclusiveMinimum: 0
+    pair_risk_pct:
+      type: number
+      exclusiveMinimum: 0
+      maximum: 100
+    pair_daily_pct:
+      type: number
+      exclusiveMinimum: 0
+      maximum: 100
+    daily_pct:
+      type: number
+      exclusiveMinimum: 0
+      maximum: 100
+    total_pct:
+      type: number
+      exclusiveMinimum: 0
+      maximum: 100
+    magic:
+      type: integer
+      minimum: 1
+    resend_after_s:
+      type: number
+      minimum: 5
+  required: [initial_balance, pair_risk_pct, pair_daily_pct, daily_pct, total_pct, magic, resend_after_s]
+  additionalProperties: false
+
+# The owner's first values (sealed red lines 2026-10-23); the owner changes them by hand on the Control page, through 901.
+config:
+  initial_balance: 10000.0
+  pair_risk_pct: 0.5
+  pair_daily_pct: 1.5
+  daily_pct: 4.0
+  total_pct: 8.0
+  magic: 20260801
+  resend_after_s: 30.0
+metadata:
+  role: "risk"
+  max_idle_s: 60

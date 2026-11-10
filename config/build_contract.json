@@ -1,0 +1,21 @@
+{
+  "build_id": "QUANT_NQ_COMPLETE_FULL",
+  "status": "approved",
+  "release_state": "SEALED",
+  "approved_at": "2026-08-27",
+  "sealed_at": "2026-09-19",
+  "core_version": "1.41.0",
+  "forex_atoms": 211,
+  "legacy_build_ids": [
+    "QUANT_NQ_FULL_212"
+  ],
+  "roots": {
+    "forex": "atoms",
+    "shared": "shared",
+    "governance": "governance"
+  },
+  "removed_roots": {
+    "crypto": "atoms_crypto (removed 2026-09-07)"
+  },
+  "decision": "owner-approved-release-contract"
+}

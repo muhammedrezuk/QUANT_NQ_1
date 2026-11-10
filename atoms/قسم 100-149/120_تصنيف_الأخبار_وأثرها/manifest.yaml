@@ -1,0 +1,68 @@
+id: 120
+name: "News Category Knowledge"
+version: "1.0.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: "atom:Atom"
+dependencies: []
+
+# ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — المعرفة أوّلًا): حقائق خام عن الأخبار — أصنافها بالكلمات وحركة الناسداك بعدها.
+# لا تدخل قرار الدخول. حدٌّ معلَن: تصنيفٌ بالكلمات وقياسُ أثر، لا فهمٌ للمضمون.
+publishes:
+  - "knowledge.news.state"
+
+subscribes:
+  - "market_data.news_received"
+  - "market_data.candle_closed"
+  - "SYS_5MIN"
+
+startup_mode: auto
+
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    symbol:
+      type: string
+    price_timeframe:
+      type: string
+      enum: ["1m", "5m"]
+    keep_news:
+      type: integer
+      minimum: 1
+      maximum: 1000
+    recent_per_category:
+      type: integer
+      minimum: 1
+      maximum: 20
+    price_buffer_candles:
+      type: integer
+      minimum: 60
+      maximum: 10000
+  required:
+    - symbol
+    - price_timeframe
+    - keep_news
+    - recent_per_category
+    - price_buffer_candles
+  additionalProperties: false
+
+config:
+  symbol: "USTEC"
+  price_timeframe: "1m"
+  # آخر 200 خبر تُحفظ وتُستعاد (أمر المالك)، وآخر 3 لكلّ صنف تُنشر.
+  keep_news: 200
+  recent_per_category: 3
+  # مخزون شموع الدقيقة: يومٌ وساعة. الجسر يُدخل الخبر متأخّرًا حتّى 22630 ث (مقيس ١٠-٠٨)، فسعره عند نشره
+  # وبعده يُقرأ من شموعٍ أُغلقت قبل وصوله.
+  price_buffer_candles: 1500
+metadata:
+  max_idle_s: 900
+  name_ar: "تصنيف الأخبار وأثرها"

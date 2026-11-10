@@ -1,0 +1,18 @@
+الاتّصال بـ wss://live.ctraderapi.com:5036 …
+✓ تفويض التطبيق نجح (المعرّف والسرّ صحيحان)
+   الصلاحيّة: عرضٌ فقط
+✓ عُرِّف الحساب 6175701 للقراءة
+   ✘ الرمز AAPL غير موجود؛ القريب: لا شيء
+   ✘ الرمز MSFT غير موجود؛ القريب: لا شيء
+   ✘ الرمز NVDA غير موجود؛ القريب: لا شيء
+   ✘ الرمز AMZN غير موجود؛ القريب: لا شيء
+   ✘ الرمز GOOGL غير موجود؛ القريب: لا شيء
+   ✘ الرمز META غير موجود؛ القريب: لا شيء
+   ✘ الرمز TSLA غير موجود؛ القريب: لا شيء
+   ✘ الرمز AVGO غير موجود؛ القريب: لا شيء
+   ✘ الرمز USDX غير موجود؛ القريب: EURUSD, BTCUSD, XNGUSD, XAGUSD, BCHUSD, USDCAD, XBRUSD, ETHUSD, USDCHF, XTIUSD
+   ✘ الرمز DXY غير موجود؛ القريب: DXYU6, DXYZ6, DXYH6, DXYM6
+   ✘ الرمز VIX غير موجود؛ القريب: VIXF6, VIXG6, VIXH6, VIXJ6, VIXK6, VIXM6, VIXN6, VIXQ6, VIXU6, VIXV6
+   ✘ الرمز US10Y غير موجود؛ القريب: لا شيء
+   ✘ الرمز UST10Y غير موجود؛ القريب: USTEC, UST10YH6, UST10YM6, UST10YU6, UST10YZ6, UST05YH6, UST05YM6, UST05YU6, UST05YZ6, UST30YH6
+✓ انتهى. القاعدة: C:\Users\NQ\QUANT_NQ\backtest\drivers_2026-10-13\drivers.db

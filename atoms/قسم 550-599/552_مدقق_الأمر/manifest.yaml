@@ -1,0 +1,112 @@
+id: 552
+name: Order Validator
+version: "5.15.1"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+publishes:
+- trading.final_decision
+- execution.order.rejected
+- execution.gate.state
+subscribes:
+- execution.gate.state
+- execution.order.legal
+- emergency.halt
+- risk.kill_switch.reset_requested
+- allowed.symbols.state
+- feed.mt5.tick
+- execution.gate.command
+- market.symbol_specs
+- platform.account.state
+- execution.reconcile.state
+- reference.health.state
+- risk.exposure.state
+- risk.margin.validation.completed
+- execution.snapshot.state
+# ٢٠٢٦-١٠-٠٢ (ختم المالك «صلح كامل nq»): حالة الأصل من 519 — التجميد، وحكمُ ميزانيّة 518
+# منقولًا في صفّه — كي لا يُفتح أصلٌ مجمّد أو منفدة ميزانيّته من مسار 555 (كان يحجبهما
+# مسار 581 وحده). ولا اشتراك في `risk.asset_ledger.state` مباشرةً: يجعل 518⟷552 زوجًا
+# راجعًا في الاتّجاهين فيرفض مُجمِّع الخطّة الساخنة البناء (`hot/planner.py`).
+- asset.portfolio.state
+startup_mode: auto
+health:
+  interval_ms: 1000
+  timeout_ms: 500
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    enabled:
+      type: boolean
+    max_spread_points:
+      type: number
+      minimum: 0
+    spread_ttl_s:
+      type: number
+      minimum: 0.1
+      maximum: 300
+    min_reward_risk:
+      type: number
+      minimum: 0
+    risk_floor_frac:
+      type: number
+      minimum: 0
+      maximum: 1
+    risk_cap_frac:
+      type: number
+      exclusiveMinimum: 0
+    card_db_path:
+      type: string
+    # ٢٠٢٦-١٠-٠٢ (ختم المالك «صلح كامل nq»): بوّابتا الفتح الجديدتان — مطلوبتان بلا
+    # افتراض، فحذفُ أيٍّ منهما يُسقط البطاقة عند التحميل بدل أن يطفئ حارسًا صامتًا.
+    asset_freeze_gate:
+      type: boolean
+    pre_trade_exposure_cap:
+      type: boolean
+  required:
+  - enabled
+  - max_spread_points
+  - asset_freeze_gate
+  - pre_trade_exposure_cap
+  additionalProperties: false
+config:
+  enabled: true
+  max_spread_points: 2000.0
+  spread_ttl_s: 5.0
+  # 🔴 ٢٠٢٦-٠٩-١٨ (ختم NQ) — حكم المالك «١:٣ وأكبر»، مقيسًا هنا على
+  # الأرقام النهائيّة قبل الجسر مباشرةً. حرّاس النسبة كلّهم فوق (٥٥٥
+  # و٥٥١)، ثمّ يوسّع ٥٨٤ الوقفَ وحده فتنقلب بعد كل فحص. والمقيس على
+  # ١٩٥ أمرًا وصلت الوسيط: ١١٦ منها (٥٩٫٥٪) دون ١:٣ وثلاثٌ هدفُها
+  # أقصر من وقفها. صفر = تعطيل الحارس.
+  min_reward_risk: 3.0
+  # 🔴 ٢٠٢٦-٠٩-١٨ (ختم NQ) — «شوف باقي أزواج كلّها تنحسب صح؟». المقيس
+  # على ١٩٧ أمرًا وصلت الوسيط: ضمن ±٢٠٪ من المئة **٥٦ فقط (٢٨٫٤٪)**،
+  # والمدى من 0.20$ إلى 218.96$ وميزانيّةُ كلٍّ منها 100$.
+  #   BTCUSD 40/138 (29٪) · XAUUSD 10/33 (30٪) · USTEC 5/25 (20٪)
+  # فالمالُ المعرَّض يُقاس هنا على الأرقام النهائيّة ويُقارَن بميزانيّة
+  # الأمر نفسه. والحدّان بأمر المالك «مئة دولار ± ٥٪»، مع أرضيّةٍ أوسع
+  # لأنّ القصّ يقع تحت لا فوق: أقلُّ من نصف الميزانيّة ليس تحفّظًا بل
+  # حسابٌ على وقفٍ آخر. صفر في الأرضيّة = تعطيل الحارس.
+  risk_floor_frac: 0.5
+  risk_cap_frac: 1.0
+  # ٢٠٢٦-٠٩-١٨ (ختم المالك) — «صار يسلمك بطاقة وانت تكتب عليه: نفّذت
+  # بطاقة بحكم لوت ستوب هدف، ربحت خسرت انزلقت، كلّها بهل بطاقة. بالأخير
+  # أنا لما بدي أراجع صفقة بسحب بطاقتها». هذه البوّابة تكتب حكمها وأرقام
+  # الأمر كما تُرسل فعلًا؛ و٥٦٣ يكتب النتيجة. مسارٌ فارغ = لا كتابة.
+  card_db_path: 'var/store\trade_cards.db'
+  # ٢٠٢٦-١٠-٠٢ (ختم المالك «صلح كامل nq»): تجميدُ الأصل (519) ونفادُ ميزانيّته (518،
+  # منقولًا في صفّ 519) يردّان أمر الفتح هنا كما يردّه مسار 581 (`PORTFOLIO_FROZEN`). كان
+  # طلب 555 يعبر فوقهما (تدقيق ح-3). والمجهول يُرفض (`ASSET_STATE_UNKNOWN`) — الخروج لا يُمسّ.
+  asset_freeze_gate: true
+  # ٢٠٢٦-١٠-٠٢ (ختم المالك «صلح كامل nq»): حدّ المالك في 508 (`max_exposure_pct`)
+  # يُطبَّق **قبل** الأمر: (التعرّض الإجماليّ من حالة 508 + اسميّ الأمر) ÷ الحقوق يبقى
+  # دون الحدّ، وإلّا يُقصّ الحجم إلى الأدنى على خطوة الرمز، وما دون أصغر لوت يُرفض.
+  # كان 508 يكتشف الخرق بعد التنفيذ فيُقفَل القاطع ويُفكّ حتّى 83 مرّة يوميًّا (ح-2).
+  # حالة 508 أقدم من 10 ث أو ناقصة ⟸ رفض لأمر الفتح وحده.
+  pre_trade_exposure_cap: true
+metadata:
+  max_idle_s: 60

@@ -1,0 +1,41 @@
+id: 159
+name: "Time Effect Analyzer"
+version: "2.5.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "analysis.time.state"
+  - "analysis.setting.changed"
+
+subscribes:
+  - "market_data.candle_closed"
+
+  - "market.tick.validated"
+  - "analysis.settings.command"
+  - "SYS_SECOND"
+
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+# ٢٠٢٦-١٠-٠٩ (ختم المالك «NQ» — الوقت من مصدرٍ واحد): نُزع فرق الساعة (0 = غرينتش) ويوما افتتاح الأسبوع
+# وإغلاقه (الاثنين 0 · الجمعة 4). اليوم الآن يوم الوسيط، وافتتاح الأسبوع وإغلاقه أوّل يوم تداولٍ فيه وآخره —
+# من `shared/market_clock` ولا رقم هنا.
+config_schema:
+  type: object
+  properties: {}
+  additionalProperties: false
+
+config: {}
+metadata:
+  max_idle_s: 301

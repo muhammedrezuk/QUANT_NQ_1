@@ -1,0 +1,41 @@
+id: 207
+name: "Trend State"
+version: "1.3.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "structure.trend.state"
+
+subscribes:
+  - "structure.mss.state"
+  - "analysis.trend.state"
+
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    trend151_flat_slope_pct:
+      type: number
+    trend151_flat_distance_pct:
+      type: number
+  additionalProperties: false
+
+# 2026-10-18: copies of 151's flat_slope_pct / flat_distance_pct -- 151's rule rebuilt from its published numbers.
+config:
+  trend151_flat_slope_pct: 0.015
+  trend151_flat_distance_pct: 0.04
+metadata:
+  max_idle_s: 301

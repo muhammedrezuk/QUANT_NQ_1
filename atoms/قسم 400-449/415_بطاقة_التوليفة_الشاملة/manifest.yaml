@@ -1,0 +1,43 @@
+id: 415
+name: Comprehensive Combination Card
+version: "1.3.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+publishes:
+- strategy.setup.proposed
+- decision.approved.state
+subscribes:
+- market_data.candle_closed
+- market.tick.validated
+- platform.account.state
+- platform.positions.state
+- structure.external.state
+- structure.dow.state
+startup_mode: auto
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    symbols:
+      type: array
+      items:
+        type: string
+    send_drift_fraction:
+      type: number
+    seed_history:
+      type: boolean
+  additionalProperties: false
+config:
+  symbols: ["USTEC", "US30", "US500", "XAUUSD", "BTCUSD", "EURUSD", "GBPUSD"]
+  send_drift_fraction: 0.10
+metadata:
+  max_idle_s: 1800
+  name_ar: "بطاقة التوليفة الشاملة"

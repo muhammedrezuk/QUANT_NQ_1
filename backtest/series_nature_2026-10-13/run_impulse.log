@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\NQ\QUANT_NQ\backtest\series_nature_2026-10-13\impulse_persistence.py", line 136, in <module>
+    main()
+  File "C:\Users\NQ\QUANT_NQ\backtest\series_nature_2026-10-13\impulse_persistence.py", line 92, in main
+    per = {p: R[(R[:, 0] >= a) & (R[:, 0] < b)] for p, a, b in PERIODS}
+                 ~^^^^^^
+IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+انتهى 10.7 ث

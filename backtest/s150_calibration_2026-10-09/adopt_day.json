@@ -1,0 +1,445 @@
+[
+ {
+  "atom": "151",
+  "name": "151_الاتجاه",
+  "cfg": "ema_fast×4",
+  "score": 121.5,
+  "london": 39.5,
+  "ny": 82.0,
+  "live_london": 39.5,
+  "live_ny": 0.5,
+  "changes": {}
+ },
+ {
+  "atom": "152",
+  "name": "152_الزخم",
+  "cfg": "all×10",
+  "score": 124.1,
+  "london": 69.8,
+  "ny": 54.3,
+  "live_london": 16.5,
+  "live_ny": 5.8,
+  "changes": {}
+ },
+ {
+  "atom": "153",
+  "name": "153_التذبذب",
+  "cfg": "all×10",
+  "score": 137.8,
+  "london": 39.5,
+  "ny": 98.3,
+  "live_london": 5.8,
+  "live_ny": 57.2,
+  "changes": {}
+ },
+ {
+  "atom": "155",
+  "name": "155_السبريد",
+  "cfg": "all×4",
+  "score": 86.0,
+  "london": 18.1,
+  "ny": 67.9,
+  "live_london": 8.2,
+  "live_ny": 45.3,
+  "changes": {}
+ },
+ {
+  "atom": "156",
+  "name": "156_الشموع",
+  "cfg": "live",
+  "score": 55.0,
+  "london": 5.5,
+  "ny": 49.5,
+  "live_london": 5.5,
+  "live_ny": 49.5,
+  "changes": {}
+ },
+ {
+  "atom": "157",
+  "name": "157_الفجوات",
+  "cfg": "live",
+  "score": 65.8,
+  "london": 39.5,
+  "ny": 26.3,
+  "live_london": 39.5,
+  "live_ny": 26.3,
+  "changes": {}
+ },
+ {
+  "atom": "162",
+  "name": "162_السرعة",
+  "cfg": "all×0.25",
+  "score": 92.8,
+  "london": 2.2,
+  "ny": 90.6,
+  "live_london": 4.9,
+  "live_ny": 67.9,
+  "changes": {}
+ },
+ {
+  "atom": "163",
+  "name": "163_التسارع",
+  "cfg": "live",
+  "score": 130.1,
+  "london": 39.5,
+  "ny": 90.6,
+  "live_london": 39.5,
+  "live_ny": 90.6,
+  "changes": {}
+ },
+ {
+  "atom": "165",
+  "name": "165_الضوضاء",
+  "cfg": "all×10",
+  "score": 157.1,
+  "london": 66.5,
+  "ny": 90.6,
+  "live_london": 36.0,
+  "live_ny": 72.4,
+  "changes": {}
+ },
+ {
+  "atom": "201",
+  "name": "201_القمم_والقيعان",
+  "cfg": "all×2",
+  "score": 151.6,
+  "london": 53.3,
+  "ny": 98.3,
+  "live_london": 4.9,
+  "live_ny": 90.0,
+  "changes": {}
+ },
+ {
+  "atom": "255",
+  "name": "255_الفجوة_FVG",
+  "cfg": "live",
+  "score": -18.1,
+  "london": -22.3,
+  "ny": 4.2,
+  "live_london": -22.3,
+  "live_ny": 4.2,
+  "changes": {}
+ },
+ {
+  "atom": "301",
+  "name": "301_المتوسط",
+  "cfg": "all×300",
+  "score": 22.3,
+  "london": 8.6,
+  "ny": 13.7,
+  "live_london": 4.7,
+  "live_ny": 9.4,
+  "changes": {
+   "window_size": [
+    20,
+    6000
+   ]
+  }
+ },
+ {
+  "atom": "302",
+  "name": "302_الوسيط",
+  "cfg": "all×300",
+  "score": -125.7,
+  "london": -67.7,
+  "ny": -58.0,
+  "live_london": -68.8,
+  "live_ny": -60.4,
+  "changes": {
+   "window_size": [
+    20,
+    6000
+   ]
+  }
+ },
+ {
+  "atom": "303",
+  "name": "303_المنوال",
+  "cfg": "all×300",
+  "score": 13.8,
+  "london": 24.5,
+  "ny": -10.7,
+  "live_london": 6.9,
+  "live_ny": -10.7,
+  "changes": {
+   "window_size": [
+    20,
+    6000
+   ]
+  }
+ },
+ {
+  "atom": "304",
+  "name": "304_الانحراف_المعياري",
+  "cfg": "all×30",
+  "score": 3.9,
+  "london": -3.6,
+  "ny": 7.5,
+  "live_london": -4.4,
+  "live_ny": 0.7,
+  "changes": {
+   "window_size": [
+    20,
+    600
+   ]
+  }
+ },
+ {
+  "atom": "305",
+  "name": "305_التباين",
+  "cfg": "all×30",
+  "score": 3.9,
+  "london": -3.6,
+  "ny": 7.5,
+  "live_london": -4.4,
+  "live_ny": 0.7,
+  "changes": {
+   "window_size": [
+    20,
+    600
+   ]
+  }
+ },
+ {
+  "atom": "306",
+  "name": "306_معامل_الاختلاف",
+  "cfg": "all×30",
+  "score": 5.8,
+  "london": -3.3,
+  "ny": 9.1,
+  "live_london": -5.2,
+  "live_ny": 4.0,
+  "changes": {
+   "window_size": [
+    20,
+    600
+   ]
+  }
+ },
+ {
+  "atom": "308",
+  "name": "308_الانحدار_الخطي",
+  "cfg": "live",
+  "score": 12.0,
+  "london": 1.2,
+  "ny": 10.8,
+  "live_london": 1.2,
+  "live_ny": 10.8,
+  "changes": {}
+ },
+ {
+  "atom": "309",
+  "name": "309_معامل_التحديد",
+  "cfg": "all×100",
+  "score": 1.3,
+  "london": -0.4,
+  "ny": 1.7,
+  "live_london": -1.9,
+  "live_ny": -2.0,
+  "changes": {
+   "window_size": [
+    20,
+    2000
+   ]
+  }
+ },
+ {
+  "atom": "310",
+  "name": "310_درجة_Z",
+  "cfg": "live",
+  "score": 8.2,
+  "london": 0.6,
+  "ny": 7.6,
+  "live_london": 0.6,
+  "live_ny": 7.6,
+  "changes": {}
+ },
+ {
+  "atom": "311",
+  "name": "311_الالتواء",
+  "cfg": "all×300",
+  "score": 33.3,
+  "london": 11.8,
+  "ny": 21.5,
+  "live_london": 6.9,
+  "live_ny": 7.8,
+  "changes": {
+   "window_size": [
+    20,
+    6000
+   ]
+  }
+ },
+ {
+  "atom": "312",
+  "name": "312_التفلطح",
+  "cfg": "all×300",
+  "score": 18.5,
+  "london": 29.1,
+  "ny": -10.6,
+  "live_london": -0.3,
+  "live_ny": 5.4,
+  "changes": {
+   "window_size": [
+    20,
+    6000
+   ]
+  }
+ },
+ {
+  "atom": "313",
+  "name": "313_كاشف_الشذوذ",
+  "cfg": "all×300",
+  "score": -120.8,
+  "london": -66.7,
+  "ny": -54.1,
+  "live_london": -68.8,
+  "live_ny": -60.1,
+  "changes": {
+   "window_size": [
+    20,
+    6000
+   ]
+  }
+ },
+ {
+  "atom": "314",
+  "name": "314_التوزيع",
+  "cfg": "bin_count×0.5",
+  "score": 12.1,
+  "london": 5.1,
+  "ny": 7.0,
+  "live_london": 3.7,
+  "live_ny": 7.4,
+  "changes": {
+   "bin_count": [
+    10,
+    5
+   ]
+  }
+ },
+ {
+  "atom": "315",
+  "name": "315_المدى",
+  "cfg": "low_band×0.5",
+  "score": 20.3,
+  "london": 4.7,
+  "ny": 15.6,
+  "live_london": 3.7,
+  "live_ny": 14.1,
+  "changes": {
+   "low_band": [
+    0.2,
+    0.1
+   ]
+  }
+ },
+ {
+  "atom": "318",
+  "name": "318_مقارنة_الفترات",
+  "cfg": "all×300",
+  "score": 27.7,
+  "london": 14.0,
+  "ny": 13.7,
+  "live_london": 3.6,
+  "live_ny": 9.1,
+  "changes": {
+   "window_size": [
+    20,
+    6000
+   ]
+  }
+ },
+ {
+  "atom": "351",
+  "name": "351_نموذج_الاتجاه",
+  "cfg": "ema_fast×3",
+  "score": 14.0,
+  "london": 6.2,
+  "ny": 7.8,
+  "live_london": 4.9,
+  "live_ny": 7.8,
+  "changes": {
+   "ema_fast": [
+    20,
+    60
+   ]
+  }
+ },
+ {
+  "atom": "352",
+  "name": "352_نموذج_الانعكاس",
+  "cfg": "live",
+  "score": 15.1,
+  "london": 4.9,
+  "ny": 10.2,
+  "live_london": 4.9,
+  "live_ny": 10.2,
+  "changes": {}
+ },
+ {
+  "atom": "353",
+  "name": "353_نموذج_الاختراق",
+  "cfg": "all×3",
+  "score": 44.6,
+  "london": 4.9,
+  "ny": 39.7,
+  "live_london": 4.9,
+  "live_ny": 36.8,
+  "changes": {
+   "tick_window": [
+    32,
+    96
+   ]
+  }
+ },
+ {
+  "atom": "354",
+  "name": "354_نموذج_الارتداد",
+  "cfg": "live",
+  "score": 15.1,
+  "london": 4.9,
+  "ny": 10.2,
+  "live_london": 4.9,
+  "live_ny": 10.2,
+  "changes": {}
+ },
+ {
+  "atom": "355",
+  "name": "355_نموذج_الزخم",
+  "cfg": "live",
+  "score": 12.7,
+  "london": 4.9,
+  "ny": 7.8,
+  "live_london": 4.9,
+  "live_ny": 7.8,
+  "changes": {}
+ },
+ {
+  "atom": "356",
+  "name": "356_نموذج_المدى",
+  "cfg": "all×3",
+  "score": 15.5,
+  "london": 4.9,
+  "ny": 10.6,
+  "live_london": 4.9,
+  "live_ny": 7.8,
+  "changes": {
+   "tick_window": [
+    32,
+    96
+   ]
+  }
+ },
+ {
+  "atom": "358",
+  "name": "358_معامل_هيرست",
+  "cfg": "live",
+  "score": 12.7,
+  "london": 4.9,
+  "ny": 7.8,
+  "live_london": 4.9,
+  "live_ny": 7.8,
+  "changes": {}
+ }
+]

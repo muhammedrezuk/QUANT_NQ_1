@@ -1,0 +1,184 @@
+id: 465
+name: "Trade Card Ledger"
+version: "1.33.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "decision.card.state"
+  - "decision.card.opened"
+  - "decision.card.closed"
+  - "decision.card.changed"
+  # ٢٠٢٦-١٠-٠٢ (ختم المالك «صلح كامل nq»): `decision.card.reversed` خرج من هنا — كان
+  # يُنشر بلا مستمع (27,963 نداءً)، والمستمع مؤجَّلٌ بأمر المالك ٢٠٢٦-٠٩-١٨. صار عدّادًا
+  # في الصحّة (`reversals`) وسطرًا على البطاقة، ويعود بختمٍ يُسمّي مستلمه.
+
+subscribes:
+  - "SYS_SECOND"
+  - "decision.approved.state"
+  - "decision.gate.passed"
+  - "decision.gate.blocked"
+  # ٢٠٢٦-١٠-٠٧ (ختم المالك «NQ»): خرج الاشتراك في decision.scored/filtered/resolved.state
+  # وdecision.filter.confidence/conditions/timing/position.state وstrategy.aggregate.state —
+  # ناشروها (453/454/458/460–463/413) أُرشفوا مع فكّ الأقسام عن القرار.
+  - "decision.filter.freshness.state"
+  - "decision.filter.asset.state"
+  - "strategy.setup.proposed"
+  # ٢٠٢٦-١٠-٠٧ (ختم المالك «NQ»): بطاقة استمرار الاتّجاه (414) — حكمها يُختم رأيًا على البطاقة عند الميلاد.
+  - "strategy.card.state"
+  # ختم `NQ` ٢٠٢٦-٠٩-١٩ — آراء المحلّلين الأفراد بأمر المالك:
+  # «كلّه بده يكون موجود بالبطاقة… أيّ محلّل قال شراء وأيّ قال بيع».
+  # سبعون قناة، تُقرأ بإسنادٍ واحدٍ لكلّ حدث وتُكتب مرّةً عند الميلاد.
+  - "analysis.trend.state"
+  - "analysis.momentum.state"
+  - "analysis.volatility.state"
+  - "analysis.volume.state"
+  - "analysis.spread.state"
+  - "analysis.candle.state"
+  - "analysis.gap.state"
+  - "analysis.session.state"
+  - "analysis.time.state"
+  - "analysis.correlation.state"
+  - "analysis.relative_strength.state"
+  - "analysis.velocity.state"
+  - "analysis.acceleration.state"
+  - "analysis.volume_quality.state"
+  - "analysis.noise.state"
+  - "structure.swing.state"
+  - "structure.external.state"
+  - "structure.internal.state"
+  - "structure.bos.state"
+  - "structure.choch.state"
+  - "structure.mss.state"
+  - "liquidity.pool.state"
+  - "liquidity.buyside.state"
+  - "liquidity.sellside.state"
+  - "liquidity.sweep.state"
+  - "liquidity.fvg.state"
+  # ٢٠٢٦-١٠-٠٧ (ختم المالك «nq»): الدلتا والتراكميّ والامتصاص (256–258) أُرشفت مع شريط الصفقات 107
+  # — لا شريط صفقات عند الوسيط، فلم تنشر يومًا. الأرشيف: سطح المكتب/أرشيف QUANT_NQ.
+  - "liquidity.depth.state"
+  - "liquidity.microprice.state"
+  - "liquidity.ofi.state"
+  - "liquidity.price_impact.state"
+  - "stats.mean.state"
+  - "stats.median.state"
+  - "stats.mode.state"
+  - "stats.std.state"
+  - "stats.variance.state"
+  - "stats.cv.state"
+  - "stats.correlation.state"
+  - "stats.regression.state"
+  - "stats.r_squared.state"
+  - "stats.zscore.state"
+  - "stats.skewness.state"
+  - "stats.kurtosis.state"
+  - "stats.distribution.state"
+  - "stats.range.state"
+  - "stats.period_compare.state"
+  - "probability.trend.state"
+  - "probability.reversal.state"
+  - "probability.breakout.state"
+  - "probability.pullback.state"
+  - "probability.momentum.state"
+  - "probability.range.state"
+  # ٢٠٢٦-١٠-٠٧ (ختم المالك «NQ»): خرج probability.merged.state وprobability.confidence.state — ناشراهما (357/359) أُرشفا.
+  - "probability.hurst.state"
+  - "learning.model.active.state"
+  - "learning.model.drift.state"
+  - "strategy.entry_quality.state"
+  - "strategy.invalidation_quality.state"
+  # ٢٠٢٦-١٠-٠٧ (ختم المالك «NQ»): خرج strategy.trend/reversal/breakout/pullback/momentum/range/liquidity.state
+  # — ناشروها (404–410) أُرشفوا مع فكّ الأقسام عن القرار.
+  - "strategy.news.state"
+  - "strategy.session.state"
+  # ٢٠٢٦-١٠-٠٨ (ختم المالك «NQ» — المعرفة أوّلًا): حقائق المعرفة تُختم على كلّ صفقة لحظة ولادتها.
+  - "knowledge.time.state"
+  - "knowledge.monetary.state"
+  - "knowledge.seasonal.state"
+  - "knowledge.news.state"
+  - "knowledge.fed_pricing.state"
+  - "knowledge.companies.state"
+  - "market.outcome.realized"
+  - "execution.command.ack"
+  - "market.tick.validated"
+  - "structure.trend.state"
+  - "structure.phase.state"
+  - "stats.outlier.state"
+  - "stats.quality.state"
+  # ٢٠٢٦-١٠-٠٧ (ختم المالك «NQ»): خرج market.liquidity.updated — ناشره (260) أُرشف مع فكّ الأقسام عن القرار.
+  - "news.trading_window.state"
+
+startup_mode: auto
+
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 2000
+
+config_schema:
+  type: object
+  properties:
+    store_path:
+      type: string
+      minLength: 1
+    dead_target_ttl_s:
+      type: number
+      minimum: 0
+    max_open_age_s:
+      type: number
+      minimum: 60
+    max_dispatch_age_s:
+      type: number
+      minimum: 60
+    min_rr:
+      type: number
+      minimum: 0
+    reversal_cooldown_s:
+      type: number
+      minimum: 1
+    flush_every_s:
+      type: number
+      minimum: 1
+  required:
+    - store_path
+    - dead_target_ttl_s
+    - max_open_age_s
+    - max_dispatch_age_s
+    - min_rr
+    - reversal_cooldown_s
+    - flush_every_s
+  additionalProperties: false
+
+config:
+  store_path: "var/store/trade_cards.db"
+  # 🔄 ختم `NQ` ٢٠٢٦-٠٩-١٩ — نقضُ أمرٍ سابق بنصّ المالك:
+  #
+  #   «مو كل شوي بتخلقوا بطاقة بتكتبوا فيها بتبعتوها، ما زبطت انكبّت
+  #    جبنا بطاقة جديدة — هذا الحكي ما بيزبط. نحن عم نبني بطاقة وبنضل
+  #    عم نبني فيها وبنزبطها لحتى تزبط، فلما بتزبط بنمررها.»
+  #
+  # فالبطاقة المفتوحة **لا تُرمى بعمر**: تبقى تُبنى ويُزبَّط فيها حتّى
+  # تبلغ شرطها فتُمرَّر. وكان ٣٠ دقيقة فتُرمى — أي إلغاءُ تحليلٍ لم
+  # يكتمل بعدُ، وخلقُ غيره من الصفر، وضياعُ ما جُمع فيه.
+  #
+  # ⛔ والعمر يبقى حارسًا أخيرًا لا مقصًّا: **أربع وعشرون ساعة** — ما
+  # جاوزها فكرةٌ من يومٍ مضى لا بطاقةٌ تُبنى. و`DISPATCHED` وحدها تُقصّ
+  # بربع ساعة (`max_dispatch_age_s`) لأنّ انتظار التنفيذ غير انتظار
+  # الاكتمال — وتلك علّة البطاقة ٢٨ التي حبست بتكوين ثلاث عشرة ساعة.
+  # عمر حظر الهدف الميّت — من عمر الفكرة المقيس (٧٩ دقيقة وسيطًا).
+  dead_target_ttl_s: 4740.0
+  max_open_age_s: 86400.0
+  max_dispatch_age_s: 900.0
+  min_rr: 3.0
+  reversal_cooldown_s: 30.0
+  flush_every_s: 5.0
+
+metadata:
+  max_idle_s: 90

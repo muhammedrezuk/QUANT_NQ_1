@@ -1,0 +1,47 @@
+fetched: (18, '2014-01-02', '2014-02-20', 226)
+Core CPI                                           n=4    cons=4    t=08:30
+CPI                                                n=4    cons=4    t=08:30
+Cleveland CPI                                      n=2    cons=0    t=11:30
+Private Nonfarm Payrolls                           n=2    cons=2    t=08:30
+Nonfarm Payrolls                                   n=2    cons=2    t=08:30
+Unemployment Rate                                  n=2    cons=2    t=08:30
+U6 Unemployment Rate                               n=2    cons=0    t=08:30
+Jobless Claims 4-Week Avg.                         n=8    cons=0    t=08:30
+Initial Jobless Claims                             n=8    cons=8    t=08:30
+Continuing Jobless Claims                          n=8    cons=8    t=08:30
+Retail Sales                                       n=2    cons=2    t=08:30
+Core Retail Sales                                  n=2    cons=2    t=08:30
+PPI                                                n=4    cons=4    t=08:30
+Core PPI                                           n=4    cons=4    t=08:30
+GDP Price Index                                    n=1    cons=1    t=08:30
+GDP                                                n=1    cons=1    t=08:30
+Core PCE Price Index                               n=1    cons=1    t=08:30
+ISM Non-Manufacturing Prices                       n=2    cons=1    t=10:00
+ISM Non-Manufacturing PMI                          n=2    cons=2    t=10:00
+ISM Non-Manufacturing New Orders                   n=2    cons=0    t=10:00
+ISM Non-Manufacturing Employment                   n=2    cons=0    t=10:00
+ISM Manufacturing Prices                           n=2    cons=2    t=10:00
+ISM Manufacturing PMI                              n=2    cons=2    t=10:00
+ISM Manufacturing Employment                       n=2    cons=2    t=10:00
+Fed Interest Rate Decision                         n=1    cons=1    t=14:00
+== CPI
+    ('2014-01-16|08:30|CPI', 1389879000.0, '1.5%', '1.5%', '1.2%')
+    ('2014-01-16|08:30|CPI#2', 1389879000.0, '0.3%', '0.3%', '0.0%')
+    ('2014-02-20|08:30|CPI', 1392903000.0, '0.1%', '0.1%', '0.2%')
+    ('2014-02-20|08:30|CPI#2', 1392903000.0, '1.6%', '1.6%', '1.5%')
+== Core CPI
+    ('2014-01-16|08:30|Core CPI', 1389879000.0, '0.1%', '0.1%', '0.2%')
+    ('2014-01-16|08:30|Core CPI#2', 1389879000.0, '1.7%', '1.7%', '1.7%')
+    ('2014-02-20|08:30|Core CPI', 1392903000.0, '0.1%', '0.1%', '0.1%')
+    ('2014-02-20|08:30|Core CPI#2', 1392903000.0, '1.6%', '1.6%', '1.7%')
+== Retail Sales
+    ('2014-01-14|08:30|Retail Sales', 1389706200.0, '0.2%', '0.1%', '0.4%')
+    ('2014-02-13|08:30|Retail Sales', 1392298200.0, '-0.4%', '0.3%', '-0.1%')
+== ISM Non-Manufacturing PMI
+    ('2014-01-06|10:00|ISM Non-Manufacturing PMI', 1389020400.0, '53.0', '54.5', '53.9')
+    ('2014-02-05|10:00|ISM Non-Manufacturing PMI', 1391612400.0, '54.0', '53.7', '53.0')
+== Nonfarm Payrolls
+    ('2014-01-10|08:30|Nonfarm Payrolls', 1389360600.0, '74K', '196K', '241K')
+    ('2014-02-07|08:30|Nonfarm Payrolls', 1391779800.0, '113K', '185K', '75K')
+== Fed Interest Rate Decision
+    ('2014-01-29|14:00|Fed Interest Rate Decision', 1391022000.0, '0.25%', '0.25%', '0.25%')

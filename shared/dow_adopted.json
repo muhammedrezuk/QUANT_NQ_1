@@ -1,0 +1,15 @@
+{
+ "adopted_at": "2026-10-17",
+ "owner_words": "اعتمد ثانوي على اتفاق معا واعتمد 4 ساعات ... الثلاثة متفقة 56 في 6 أيام اعتمدها نطورها مع الوقت NQ",
+ "symbol_measured": "USTEC",
+ "ask_window_ny": ["09:45", "15:45"],
+ "horizon": "session_close_16:00_ny",
+ "readings": {
+  "secondary_agree": {"frames": ["1m", "5m", "15m"],
+                      "measured": {"months": ["2024-04-01", "2024-09-30"], "right": 144, "wrong": 114, "days": 85, "market_rose_pct": 55.3}},
+  "four_hours": {"frames": ["4h"],
+                 "measured": {"months": ["2024-04-01", "2024-09-30"], "right": 1197, "wrong": 755, "days": 84, "market_rose_pct": 55.3}},
+  "primary_agree": {"frames": ["1d", "1w", "1mo"],
+                    "measured": {"months": ["2024-04-01", "2024-09-30"], "right": 84, "wrong": 66, "days": 6, "market_rose_pct": 55.3}}
+ }
+}

@@ -1,0 +1,305 @@
+{
+ "months": [
+  "2024-04-01",
+  "2024-09-30"
+ ],
+ "asks": 3150,
+ "days": 126,
+ "states_per_ask": {
+  "1m": {
+   "rising": 990,
+   "none": 1294,
+   "falling": 866
+  },
+  "5m": {
+   "none": 1401,
+   "rising": 885,
+   "falling": 864
+  },
+  "15m": {
+   "none": 1521,
+   "falling": 745,
+   "rising": 884
+  },
+  "30m": {
+   "falling": 607,
+   "none": 1670,
+   "rising": 873
+  },
+  "1h": {
+   "falling": 546,
+   "none": 1874,
+   "rising": 730
+  },
+  "4h": {
+   "none": 1198,
+   "falling": 613,
+   "rising": 1339
+  },
+  "1d": {
+   "none": 1425,
+   "rising": 925,
+   "falling": 800
+  },
+  "1w": {
+   "rising": 725,
+   "none": 2425
+  },
+  "1mo": {
+   "rising": 3150
+  },
+  "secondary_all_same": {
+   "none": 2892,
+   "rising": 148,
+   "falling": 110
+  },
+  "sub_all_same": {
+   "none": 2995,
+   "rising": 130,
+   "falling": 25
+  },
+  "primary_all_same": {
+   "none": 3000,
+   "rising": 150
+  },
+  "all_nine_same": {
+   "none": 3150
+  }
+ },
+ "base": {
+  "15m": {
+   "up": 1624,
+   "down": 1518,
+   "flat": 8
+  },
+  "60m": {
+   "up": 1424,
+   "down": 1343,
+   "flat": 5
+  },
+  "close": {
+   "up": 1741,
+   "down": 1409,
+   "flat": 0
+  }
+ },
+ "tally": {
+  "1m|15m": {
+   "right": 964,
+   "wrong": 886,
+   "flat": 6,
+   "days": 126
+  },
+  "30m|15m": {
+   "right": 755,
+   "wrong": 720,
+   "flat": 5,
+   "days": 116
+  },
+  "1h|15m": {
+   "right": 640,
+   "wrong": 635,
+   "flat": 1,
+   "days": 94
+  },
+  "1w|15m": {
+   "right": 350,
+   "wrong": 373,
+   "flat": 2,
+   "days": 29
+  },
+  "1mo|15m": {
+   "right": 1624,
+   "wrong": 1518,
+   "flat": 8,
+   "days": 126
+  },
+  "1m|60m": {
+   "right": 830,
+   "wrong": 802,
+   "flat": 3,
+   "days": 126
+  },
+  "30m|60m": {
+   "right": 641,
+   "wrong": 628,
+   "flat": 1,
+   "days": 116
+  },
+  "1h|60m": {
+   "right": 541,
+   "wrong": 553,
+   "flat": 2,
+   "days": 94
+  },
+  "1w|60m": {
+   "right": 287,
+   "wrong": 350,
+   "flat": 1,
+   "days": 29
+  },
+  "1mo|60m": {
+   "right": 1424,
+   "wrong": 1343,
+   "flat": 5,
+   "days": 126
+  },
+  "1m|close": {
+   "right": 928,
+   "wrong": 928,
+   "flat": 0,
+   "days": 126
+  },
+  "30m|close": {
+   "right": 758,
+   "wrong": 722,
+   "flat": 0,
+   "days": 116
+  },
+  "1h|close": {
+   "right": 646,
+   "wrong": 630,
+   "flat": 0,
+   "days": 94
+  },
+  "1w|close": {
+   "right": 329,
+   "wrong": 396,
+   "flat": 0,
+   "days": 29
+  },
+  "1mo|close": {
+   "right": 1741,
+   "wrong": 1409,
+   "flat": 0,
+   "days": 126
+  },
+  "5m|15m": {
+   "right": 886,
+   "wrong": 860,
+   "flat": 3,
+   "days": 126
+  },
+  "5m|60m": {
+   "right": 776,
+   "wrong": 755,
+   "flat": 2,
+   "days": 126
+  },
+  "5m|close": {
+   "right": 919,
+   "wrong": 830,
+   "flat": 0,
+   "days": 126
+  },
+  "15m|15m": {
+   "right": 805,
+   "wrong": 819,
+   "flat": 5,
+   "days": 125
+  },
+  "15m|60m": {
+   "right": 696,
+   "wrong": 688,
+   "flat": 3,
+   "days": 125
+  },
+  "15m|close": {
+   "right": 816,
+   "wrong": 813,
+   "flat": 0,
+   "days": 125
+  },
+  "secondary_all_same|15m": {
+   "right": 122,
+   "wrong": 136,
+   "flat": 0,
+   "days": 85
+  },
+  "secondary_all_same|60m": {
+   "right": 121,
+   "wrong": 102,
+   "flat": 0,
+   "days": 78
+  },
+  "secondary_all_same|close": {
+   "right": 144,
+   "wrong": 114,
+   "flat": 0,
+   "days": 85
+  },
+  "4h|15m": {
+   "right": 1042,
+   "wrong": 906,
+   "flat": 4,
+   "days": 84
+  },
+  "4h|60m": {
+   "right": 927,
+   "wrong": 793,
+   "flat": 4,
+   "days": 84
+  },
+  "4h|close": {
+   "right": 1197,
+   "wrong": 755,
+   "flat": 0,
+   "days": 84
+  },
+  "1d|15m": {
+   "right": 862,
+   "wrong": 857,
+   "flat": 6,
+   "days": 69
+  },
+  "primary_all_same|15m": {
+   "right": 72,
+   "wrong": 77,
+   "flat": 1,
+   "days": 6
+  },
+  "1d|60m": {
+   "right": 730,
+   "wrong": 784,
+   "flat": 4,
+   "days": 69
+  },
+  "primary_all_same|60m": {
+   "right": 52,
+   "wrong": 79,
+   "flat": 1,
+   "days": 6
+  },
+  "1d|close": {
+   "right": 869,
+   "wrong": 856,
+   "flat": 0,
+   "days": 69
+  },
+  "primary_all_same|close": {
+   "right": 84,
+   "wrong": 66,
+   "flat": 0,
+   "days": 6
+  },
+  "sub_all_same|15m": {
+   "right": 75,
+   "wrong": 80,
+   "flat": 0,
+   "days": 27
+  },
+  "sub_all_same|60m": {
+   "right": 53,
+   "wrong": 69,
+   "flat": 0,
+   "days": 27
+  },
+  "sub_all_same|close": {
+   "right": 85,
+   "wrong": 70,
+   "flat": 0,
+   "days": 27
+  }
+ },
+ "seconds": 46.0
+}

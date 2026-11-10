@@ -1,0 +1,12 @@
+@echo off
+rem —Õ·… «·»ÿ«ﬁ… ó ﬂÌ›  ı»‰Ï Ê„ Ï  „—¯ ⁄·Ï 555 À„¯ «·Ã”— À„¯ «·„Œ«“‰
+cd /d "%~dp0\..\.."
+set PYTHONUTF8=1
+if exist "vendor\python\runtime\python.exe" (
+  "vendor\python\runtime\python.exe" governance\scripts\card_journey.py
+) else if exist "venv\Scripts\python.exe" (
+  "venv\Scripts\python.exe" governance\scripts\card_journey.py
+) else (
+  py -3 governance\scripts\card_journey.py
+)
+pause

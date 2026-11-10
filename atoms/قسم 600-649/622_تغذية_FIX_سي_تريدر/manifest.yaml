@@ -1,0 +1,95 @@
+id: 622
+name: cTrader FIX Price Feed
+version: "1.10.0"
+core_version: '>=1.0.0,<2.0.0'
+critical: false
+entrypoint: atom:Atom
+dependencies: []
+publishes:
+- feed.ctrader.raw
+- market.ctrader.symbol_specs
+- feed.ctrader.heartbeat
+- feed.ctrader.state
+subscribes:
+- SYS_SECOND
+- market.symbol_specs
+startup_mode: auto
+health:
+  interval_ms: 10000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+config_schema:
+  type: object
+  properties:
+    host: {type: string}
+    port: {type: integer, minimum: 1}
+    use_tls: {type: boolean}
+    sender_comp_id: {type: string}
+    target_comp_id: {type: string}
+    sub_id: {type: string}
+    username: {type: string}
+    identity_account_id: {type: string}
+    broker: {type: string}
+    password_secret_key: {type: string}
+    symbols: {type: array, items: {type: string}}
+    market_depth: {type: integer, minimum: 0}
+    heartbeat_s: {type: integer, minimum: 1}
+    poll_interval_s: {type: number, minimum: 0}
+    reconnect_backoff_s: {type: number, minimum: 0}
+    tick_stale_after_s: {type: number, minimum: 1}
+    depth_stale_after_s: {type: number, minimum: 1}
+    specs_stale_after_s: {type: number, minimum: 1}
+    dead_after_s: {type: number, minimum: 1}
+    resubscribe_every_s: {type: number, minimum: 0}
+  required: [host, port, use_tls, sender_comp_id, target_comp_id, sub_id, username,
+    broker, password_secret_key, symbols, market_depth, heartbeat_s, poll_interval_s,
+    reconnect_backoff_s, tick_stale_after_s, depth_stale_after_s, specs_stale_after_s,
+    dead_after_s]
+  additionalProperties: false
+config:
+  host: live-uk-eqx-01.p.c-trader.com
+  port: 5211
+  use_tls: true
+  sender_comp_id: live4.icmarkets.6175701
+  target_comp_id: cServer
+  sub_id: QUOTE
+  username: '6175701'
+  identity_account_id: '52992818'
+  broker: Raw Trading Ltd
+  password_secret_key: ctrader_fix_password
+  symbols: [BTCUSD, XAUUSD, EURUSD, GBPUSD, US30, USTEC, US500]
+  # ٠ = الدفتر الكامل. جُرّب ١ (أعلى السوق) حيًّا ٢٠٢٦-٠٩-٠٩ فأسقط
+  # البناء كلّه: `deepest=0` وصفر عمق و**رفض 112 مئة بالمئة** و106
+  # توقّف — لقطات أعلى السوق لا تحمل ما يبني منه 624 سلّمًا. رُجع فورًا.
+  market_depth: 0
+  # ٦٠ بدل ٣٠ — أمر المالك ٢٠٢٦-٠٩-٠٩: «ما تنقطع».
+  # مقيس: الوصلة قُطعت **360 مرّة** في يوم واحد. والسبب ليس الشبكة —
+  # الوسيط يقطع من لا يسمع نبضه، وأيّ وقفة خلفنا تبتلع النبضة قبل أن
+  # تُرسل. بستّين يصير هامش الوسيط ~120 ثانية، فيبتلع الوقفة بدل أن
+  # يقطع التغذية. وكشفُ الصمت الحقيقيّ لا يضعف: `tick_stale_after_s`
+  # (30) و`dead_after_s` (120) يقيسان وصول التِكّة لا نبض الجلسة.
+  heartbeat_s: 60
+  poll_interval_s: 0.005
+  reconnect_backoff_s: 5
+  tick_stale_after_s: 30
+  depth_stale_after_s: 30
+  specs_stale_after_s: 600
+  dead_after_s: 120
+  # كل كم ثانية يُجدَّد طلب السلّم فتصل لقطة `W` جديدة — عيار المالك
+  # (٢٠٢٦-٠٩-٠٩، ختم NQ). صفر = لا تجديد (السلوك الذي كان).
+  # مشتقّ من قياس لا مخترع: بعد إقلاع نظيف احتاج الدفتر **عشرين دقيقة**
+  # ليصل من 14 مستوًى إلى 371 ويختلّ طرفاه (450 عرضًا مقابل 26 طلبًا)
+  # فيتقاطعا، ويصعد رفض 112 من ٢٪ إلى ١٦٪. خمس دقائق = رُبع ذلك الزمن،
+  # فلا يعيش انحراف حتى يؤذي. وكلفتها سبع رسائل كل خمس دقائق.
+  # ارفعه إن رأيت ضغطًا على الوصلة، واخفضه إن عاد التقاطع.
+  # ⛔ صفر — أُطفئ ٢٠٢٦-٠٩-٠٩ ١٨:٠x بعد قياس حيّ على نواة نظيفة:
+  # التجديد بالإلغاء‑ثمّ‑اشتراك ضاعف التدفّق بدل أن يستبدله. المقيس في
+  # دقائق: عمق الدفتر 143 ⟵ 1,724 · يتامى +38/ث · تقاطع +37/ث · ورفض 112
+  # من ٥.٨٪ إلى ٢٦٪. و`rs` تقدّم 2⟵3 في خمس عشرة ثانية والعتبة 300.
+  # لا يُعاد تشغيله إلا بعد أن يُقاس سببُ التواتر ويُثبَت أنّ اللقطة تأتي.
+  resubscribe_every_s: 0
+metadata:
+  max_idle_s: 60

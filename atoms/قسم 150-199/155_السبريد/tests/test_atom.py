@@ -1,0 +1,186 @@
+import asyncio
+import os
+import sys
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+from pathlib import Path as _Path
+sys.path.insert(0, str(_Path(__file__).resolve().parents[4]))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from core.contracts.atom import AtomContext, HealthState  # noqa: E402
+import importlib.util as _ilu  # noqa: E402
+
+_spec = _ilu.spec_from_file_location(
+    "_atom155", _Path(__file__).resolve().parents[1] / "atom.py")
+_mod = _ilu.module_from_spec(_spec)
+sys.modules["_atom155"] = _mod
+_spec.loader.exec_module(_mod)
+Atom = _mod.Atom
+EVENT_OUT = _mod.EVENT_OUT
+
+
+class _NullLogger:
+    def debug(self, *a): pass
+    def info(self, *a): pass
+    def warning(self, *a): pass
+    def error(self, *a): pass
+    def critical(self, *a): pass
+
+
+class FakeEventBus:
+    def __init__(self):
+        self.published = []
+
+    def subscribe(self, name, handler):
+        pass
+
+    async def publish(self, name, payload):
+        self.published.append((name, payload))
+
+    def make_context(self, config):
+        return AtomContext(atom_id=155, config=config, logger=_NullLogger(),
+                           publish=self.publish, subscribe=self.subscribe)
+
+
+CFG = {"baseline_window": 12, "exp_short": 3, "exp_long": 6, "exp_mult": 1.3,
+       "wide_mult": 1.5, "narrow_mult": 0.6, "min_candles": 6}
+
+
+def _candle(rng, symbol="NQ100", tf="60s", i=0):
+    return {"symbol": symbol, "high": 100.0 + rng, "low": 100.0, "close": 100.0,
+            "timeframe": tf, "period_start": i * 60.0, "timestamp": i * 60.0}
+
+
+# ١٠-١٢: السبريد الحقيقيّ من التِّكّ — كلّ قيمةٍ في الاختبار صارت سبريد تِكّةٍ (الطلب − العرض) داخل شمعتها.
+def _tick(spread, symbol="NQ100", i=0):
+    return {"symbol": symbol, "bid": 100.0, "ask": 100.0 + spread, "source_timestamp": i * 60.0 + 1.0}
+
+
+async def _run(ranges, cfg=None):
+    bus = FakeEventBus()
+    atom = Atom()
+    await atom.initialize(bus.make_context(cfg or dict(CFG)))
+    await atom.start()
+    for i, r in enumerate(ranges):
+        await atom._on_tick(_tick(r, i=i))
+        await atom._on_candle(_candle(r, i=i))
+    return atom, bus, [p for n, p in bus.published if n == EVENT_OUT]
+
+
+async def test_warmup_insufficient():
+    print("\n--- test_warmup_insufficient ---")
+    _a, _b, out = await _run([2.0, 2.0, 2.0])
+    assert out and out[-1]["status"] == "insufficient_data"
+    print("OK — الإحماء: insufficient_data")
+
+
+async def test_expansion():
+    print("\n--- test_expansion ---")
+    _a, _b, out = await _run([1.0] * 6 + [3.0, 4.0, 5.0])  # مدى يتوسّع
+    last = out[-1]
+    assert last["status"] == "ok" and last["signal"] == "expansion", last
+    assert last["metadata"]["expansion_ratio"] > 1.3
+    print(f"OK — توسّع: signal={last['signal']} ratio={last['metadata']['expansion_ratio']}")
+
+
+async def test_contraction():
+    print("\n--- test_contraction ---")
+    _a, _b, out = await _run([5.0] * 6 + [3.0, 2.0, 1.0])  # مدى ينكمش
+    last = out[-1]
+    assert last["signal"] == "contraction", last["signal"]
+    print(f"OK — انكماش: signal={last['signal']} ratio={last['metadata']['expansion_ratio']}")
+
+
+async def test_stable():
+    print("\n--- test_stable ---")
+    _a, _b, out = await _run([2.0] * 9)
+    last = out[-1]
+    assert last["signal"] == "stable", last["signal"]
+    print(f"OK — مستقرّ: signal={last['signal']} ratio={last['metadata']['expansion_ratio']}")
+
+
+async def test_contract_shape():
+    print("\n--- test_contract_shape ---")
+    _a, _b, out = await _run([1.0] * 6 + [2.0, 3.0, 4.0])
+    last = out[-1]
+    # ٢٠٢٦-١٠-٠٧ (عقد الحقائق، ختم المالك «NQ»): الحقول المطلوبة صارت ختم الحقيقة، وحقول الحكم ممنوعة.
+    for f in ("symbol", "id", "cycle_id", "status", "signal", "warnings", "metadata",
+              "as_of", "computed_on", "section_id", "atom_id", "contract"):
+        assert f in last, f"حقل ناقص بالعقد: {f}"
+    for judged in ("score", "confidence", "quality"):
+        assert judged not in last, f"حقل حكمٍ ظهر: {judged}"
+    for f in ("method", "spread", "baseline_spread", "spread_max", "spread_pips", "expansion_ratio", "size"):
+        assert f in last["metadata"], f"metadata ناقص: {f}"
+    assert last["id"] == "spread"
+    assert last["contract"] == "facts.v1"
+    assert last["section_id"] == "150" and last["atom_id"] == "155"
+    print("OK — عقد الحقائق كامل + توسّع/انكماش + wide/narrow")
+
+
+async def test_health_states():
+    print("\n--- test_health_states ---")
+    bus = FakeEventBus()
+    atom = Atom()
+    await atom.initialize(bus.make_context(dict(CFG)))
+    assert (await atom.health_check()).state == HealthState.UNHEALTHY
+    await atom.start()
+    assert (await atom.health_check()).state == HealthState.DEGRADED
+    await atom._on_tick(_tick(2.0))
+    await atom._on_candle(_candle(2.0))
+    assert (await atom.health_check()).state == HealthState.HEALTHY
+    print("OK — الصحة: UNHEALTHY→DEGRADED→HEALTHY")
+
+
+async def test_state_survives_restart():
+    print("\n--- test_state_survives_restart ---")
+    ranges = [2.0] * 8
+    atom, _bus, out = await _run(ranges)
+    assert out[-1]["status"] == "ok", out[-1]["status"]
+    key = ("NQ100", "60s")
+    before = list(atom._ranges[key])
+    saved = await atom.snapshot()
+    assert "live_analysis" in saved, "الغلاف الحيّ لازم يبقى محفوظًا"
+    assert "atom" in saved, "سلسلة المديات لازم تُحفظ بجانبه — لا تُدهَس"
+
+    revived = Atom()
+    bus2 = FakeEventBus()
+    await revived.initialize(bus2.make_context(dict(CFG)))
+    await revived.restore(saved)
+    await revived.start()
+    after = list(revived._ranges[key])
+    assert after == before, (after, before)
+    assert revived._candles_seen == atom._candles_seen
+
+    await revived._on_tick(_tick(2.0, i=99))
+    await revived._on_candle(_candle(2.0, i=99))
+    fresh = [p for n, p in bus2.published if n == EVENT_OUT]
+    assert fresh and fresh[-1]["status"] != "insufficient_data", fresh[-1]["status"]
+    print(f"OK — تاريخ المديات نجا الإقلاع: ranges={len(after)} بلا إحماء جديد")
+
+
+async def main():
+    tests = [test_warmup_insufficient, test_expansion, test_contraction,
+             test_stable, test_contract_shape, test_health_states,
+             test_state_survives_restart]
+    failed = []
+    for t in tests:
+        try:
+            await t()
+        except AssertionError as e:
+            failed.append((t.__name__, str(e)))
+            print(f"FAILED: {t.__name__}: {e}")
+        except Exception as e:
+            failed.append((t.__name__, repr(e)))
+            print(f"ERROR: {t.__name__}: {e!r}")
+    print("\n" + "=" * 60)
+    if failed:
+        print(f"فشل {len(failed)} من أصل {len(tests)}")
+        sys.exit(1)
+    print(f"نجح كل الاختبارات ({len(tests)}/{len(tests)})")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

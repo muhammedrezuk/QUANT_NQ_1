@@ -1,0 +1,74 @@
+{
+ "ny_3R": {
+  "taken": 41,
+  "skipped": 64,
+  "train": {
+   "n": 30,
+   "R": 0.121,
+   "old_R_same": 0.213,
+   "t3%": 0.133,
+   "risk_med": 37.0
+  },
+  "test": {
+   "n": 11,
+   "R": 0.201,
+   "old_R_same": 0.349,
+   "t3%": 0.182,
+   "risk_med": 35.8
+  }
+ },
+ "ny_level": {
+  "taken": 41,
+  "skipped": 64,
+  "train": {
+   "n": 30,
+   "R": -0.085,
+   "old_R_same": 0.213,
+   "t3%": 0.033,
+   "risk_med": 37.0
+  },
+  "test": {
+   "n": 11,
+   "R": 0.298,
+   "old_R_same": 0.349,
+   "t3%": 0.182,
+   "risk_med": 35.8
+  }
+ },
+ "london_3R": {
+  "taken": 107,
+  "skipped": 29,
+  "train": {
+   "n": 75,
+   "R": 0.049,
+   "old_R_same": 0.161,
+   "t3%": 0.16,
+   "risk_med": 28.7
+  },
+  "test": {
+   "n": 32,
+   "R": 0.156,
+   "old_R_same": 0.334,
+   "t3%": 0.156,
+   "risk_med": 26.6
+  }
+ },
+ "london_level": {
+  "taken": 105,
+  "skipped": 31,
+  "train": {
+   "n": 74,
+   "R": 0.182,
+   "old_R_same": 0.177,
+   "t3%": 0.122,
+   "risk_med": 28.6
+  },
+  "test": {
+   "n": 31,
+   "R": 0.185,
+   "old_R_same": 0.378,
+   "t3%": 0.065,
+   "risk_med": 26.1
+  }
+ }
+}

@@ -1,0 +1,105 @@
+id: 523
+name: "Dial Engine"
+version: "2.6.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "dial.profile.state"
+  # ٢٠٢٦-١٠-٠٩ (ختم المالك «NQ» — إلغاء مفاتيح السرعة إلى الأرشيف): خرج "horizon.profile.state" (ظلّ شخصيّة الأفق).
+
+subscribes:
+  - "risk.asset_ledger.state"
+  - "dial.command"
+  - "platform.account.state"
+  # ٢٠٢٦-١٠-٠٧ (ختم المالك «NQ»): خرج الاشتراك في decision.settings.state — ناشره أُرشف مع فكّ الأقسام عن القرار.
+  # ٢٠٢٦-١٠-٠٩ (ختم المالك «NQ» — إلغاء مفاتيح السرعة إلى الأرشيف): خرج "SYS_SECOND" — عمله الوحيد كان التقاط تغيّر مفتاح الأفق.
+
+startup_mode: auto
+
+health:
+  interval_ms: 60000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    dials:
+      type: object
+    default_dial:
+      type: number
+      minimum: 0
+      maximum: 100
+    horizon_min_s:
+      type: number
+      minimum: 0
+    horizon_max_s:
+      type: number
+      minimum: 0
+    horizon_shape:
+      type: number
+      minimum: 0
+    filter_min:
+      type: number
+    filter_max:
+      type: number
+    stop_min_frac:
+      type: number
+      minimum: 0
+    stop_max_frac:
+      type: number
+      minimum: 0
+    stop_bounds_by_symbol:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          min: {type: number, minimum: 0}
+          max: {type: number, minimum: 0}
+        required: [min, max]
+        additionalProperties: false
+    cadence_fast_s:
+      type: number
+      minimum: 0
+    cadence_slow_s:
+      type: number
+      minimum: 0
+  additionalProperties: false
+
+config:
+  dials: {}
+  default_dial: 50.0
+  horizon_min_s: 180.0
+  horizon_max_s: 14400.0
+  horizon_shape: 1.0
+  filter_min: 0.2
+  filter_max: 0.9
+  stop_min_frac: 0.001
+  stop_max_frac: 0.01
+  # حكم المالك ٢٠٢٦-٠٩-١٠: «كل رمز لازم يشتغل بنطاق تحليل رمز وستوب يناسب
+  # رمز — مو معقول تعطي يورو ٢٠ نقطة وذهب ٢٠ نقطة، هيك صلب».  الحدّان
+  # أعلاه صارا الافتراضَ العامّ لمن لا مدى له، وهنا مدى كل رمز على حدة.
+  # اليورو بأمره المباشر: من ٧ إلى ١٠ نقاط عند 1.1636 ⇒ 0.0006 و0.00086.
+  stop_bounds_by_symbol:
+    EURUSD: {min: 0.0006, max: 0.00086}
+    # حكم المالك ٢٠٢٦-٠٩-١٠: «٤٤ أقصى؟ ١٠ — سكالبينج. ٤٤ دولار من سعره
+    # بدّه يومين لا يتحرّكها». فالأقصى ١٠$ عند 4411 ⇒ 0.00227، والأدنى
+    # يبقى حيث كان على العامّ (٤٫٤١$) لأنّه لم يُشتكَ منه.
+    XAUUSD: {min: 0.001, max: 0.00227}
+    # أرقام المالك ٢٠٢٦-٠٩-١٠: «ناسدك أقصى ٦٠ · باوند ٢٠ · بتكوين ١٠٠».
+    # الكسور محسوبة على أسعار مقيسة من ٧٠١ لا مقدَّرة: USTEC 29,389.6 ·
+    # GBPUSD 1.35568 · BTCUSD 78,318.56. والأدنى يبقى حيث كان على العامّ.
+    USTEC:  {min: 0.001, max: 0.00204}
+    GBPUSD: {min: 0.001, max: 0.00148}
+    BTCUSD: {min: 0.001, max: 0.00128}
+  cadence_fast_s: 5.0
+  cadence_slow_s: 60.0
+metadata:
+  max_idle_s: 3600

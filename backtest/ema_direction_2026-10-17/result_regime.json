@@ -1,0 +1,1191 @@
+{
+ "asks": 6125,
+ "days": 245,
+ "frames": {
+  "1m": {
+   "er_thirds": [
+    0.124,
+    0.276
+   ],
+   "rows": {
+    "all|all|ahead5": {
+     "n": 4440,
+     "right_pct": 48.9,
+     "market_rose_pct": 53.2,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "all|all|close": {
+     "n": 4452,
+     "right_pct": 49.8,
+     "market_rose_pct": 54.5,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|trend|ahead5": {
+     "n": 2126,
+     "right_pct": 51.9,
+     "market_rose_pct": 53.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|trend|close": {
+     "n": 2130,
+     "right_pct": 50.5,
+     "market_rose_pct": 54.6,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|trend|ahead5": {
+     "n": 1913,
+     "right_pct": 49.5,
+     "market_rose_pct": 53.2,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "efficiency|trend|close": {
+     "n": 1915,
+     "right_pct": 49.3,
+     "market_rose_pct": 53.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow|not|ahead5": {
+     "n": 1568,
+     "right_pct": 49.0,
+     "market_rose_pct": 50.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow|not|close": {
+     "n": 1574,
+     "right_pct": 50.6,
+     "market_rose_pct": 52.7,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|other|ahead5": {
+     "n": 1753,
+     "right_pct": 48.4,
+     "market_rose_pct": 50.7,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|other|close": {
+     "n": 1759,
+     "right_pct": 50.7,
+     "market_rose_pct": 54.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|ahead5": {
+     "n": 1460,
+     "right_pct": 48.7,
+     "market_rose_pct": 53.7,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|middle|close": {
+     "n": 1465,
+     "right_pct": 51.5,
+     "market_rose_pct": 54.7,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "ordered|not|ahead5": {
+     "n": 2314,
+     "right_pct": 46.0,
+     "market_rose_pct": 53.2,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "ordered|not|close": {
+     "n": 2322,
+     "right_pct": 49.1,
+     "market_rose_pct": 54.5,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|chop|ahead5": {
+     "n": 1067,
+     "right_pct": 47.9,
+     "market_rose_pct": 52.6,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|chop|close": {
+     "n": 1072,
+     "right_pct": 48.3,
+     "market_rose_pct": 56.5,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|ahead5": {
+     "n": 2872,
+     "right_pct": 48.8,
+     "market_rose_pct": 54.8,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|close": {
+     "n": 2878,
+     "right_pct": 49.4,
+     "market_rose_pct": 55.5,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|same|ahead5": {
+     "n": 2687,
+     "right_pct": 49.2,
+     "market_rose_pct": 54.9,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|same|close": {
+     "n": 2693,
+     "right_pct": 49.2,
+     "market_rose_pct": 54.7,
+     "quarters_beat": 0,
+     "quarters": 4
+    }
+   }
+  },
+  "5m": {
+   "er_thirds": [
+    0.127,
+    0.284
+   ],
+   "rows": {
+    "all|all|ahead5": {
+     "n": 4459,
+     "right_pct": 50.9,
+     "market_rose_pct": 52.7,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "all|all|close": {
+     "n": 4466,
+     "right_pct": 51.0,
+     "market_rose_pct": 54.2,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|ahead5": {
+     "n": 2317,
+     "right_pct": 50.7,
+     "market_rose_pct": 53.0,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|close": {
+     "n": 2322,
+     "right_pct": 51.2,
+     "market_rose_pct": 53.6,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|trend|ahead5": {
+     "n": 1874,
+     "right_pct": 49.8,
+     "market_rose_pct": 52.1,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "efficiency|trend|close": {
+     "n": 1873,
+     "right_pct": 50.8,
+     "market_rose_pct": 53.5,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow|trend|ahead5": {
+     "n": 2677,
+     "right_pct": 48.8,
+     "market_rose_pct": 52.0,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|close": {
+     "n": 2680,
+     "right_pct": 50.3,
+     "market_rose_pct": 55.2,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|same|ahead5": {
+     "n": 2485,
+     "right_pct": 48.5,
+     "market_rose_pct": 51.5,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|same|close": {
+     "n": 2487,
+     "right_pct": 50.1,
+     "market_rose_pct": 54.8,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|trend|ahead5": {
+     "n": 2142,
+     "right_pct": 51.2,
+     "market_rose_pct": 52.4,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "ordered|trend|close": {
+     "n": 2144,
+     "right_pct": 50.7,
+     "market_rose_pct": 54.8,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|ahead5": {
+     "n": 1530,
+     "right_pct": 51.4,
+     "market_rose_pct": 53.1,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|close": {
+     "n": 1534,
+     "right_pct": 50.7,
+     "market_rose_pct": 54.4,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|chop|ahead5": {
+     "n": 1055,
+     "right_pct": 52.1,
+     "market_rose_pct": 53.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|chop|close": {
+     "n": 1059,
+     "right_pct": 51.7,
+     "market_rose_pct": 55.1,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow|not|ahead5": {
+     "n": 1782,
+     "right_pct": 54.1,
+     "market_rose_pct": 53.8,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow|not|close": {
+     "n": 1786,
+     "right_pct": 52.1,
+     "market_rose_pct": 52.7,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|other|ahead5": {
+     "n": 1974,
+     "right_pct": 54.1,
+     "market_rose_pct": 54.2,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow_same_way|other|close": {
+     "n": 1979,
+     "right_pct": 52.2,
+     "market_rose_pct": 53.4,
+     "quarters_beat": 2,
+     "quarters": 4
+    }
+   }
+  },
+  "15m": {
+   "er_thirds": [
+    0.131,
+    0.301
+   ],
+   "rows": {
+    "all|all|ahead5": {
+     "n": 4836,
+     "right_pct": 51.9,
+     "market_rose_pct": 52.8,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "all|all|close": {
+     "n": 4837,
+     "right_pct": 51.0,
+     "market_rose_pct": 55.2,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|ahead5": {
+     "n": 2549,
+     "right_pct": 50.5,
+     "market_rose_pct": 52.7,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|close": {
+     "n": 2549,
+     "right_pct": 49.4,
+     "market_rose_pct": 55.2,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|trend|ahead5": {
+     "n": 2120,
+     "right_pct": 52.8,
+     "market_rose_pct": 52.4,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "efficiency|trend|close": {
+     "n": 2121,
+     "right_pct": 53.1,
+     "market_rose_pct": 55.2,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow|not|ahead5": {
+     "n": 1815,
+     "right_pct": 53.5,
+     "market_rose_pct": 55.9,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow|not|close": {
+     "n": 1814,
+     "right_pct": 49.7,
+     "market_rose_pct": 56.0,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|other|ahead5": {
+     "n": 1938,
+     "right_pct": 53.2,
+     "market_rose_pct": 55.2,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow_same_way|other|close": {
+     "n": 1937,
+     "right_pct": 48.8,
+     "market_rose_pct": 56.2,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|ahead5": {
+     "n": 3021,
+     "right_pct": 50.9,
+     "market_rose_pct": 51.0,
+     "quarters_beat": 3,
+     "quarters": 4
+    },
+    "dow|trend|close": {
+     "n": 3023,
+     "right_pct": 51.7,
+     "market_rose_pct": 54.7,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|same|ahead5": {
+     "n": 2898,
+     "right_pct": 51.0,
+     "market_rose_pct": 51.3,
+     "quarters_beat": 3,
+     "quarters": 4
+    },
+    "dow_same_way|same|close": {
+     "n": 2900,
+     "right_pct": 52.4,
+     "market_rose_pct": 54.6,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|trend|ahead5": {
+     "n": 2287,
+     "right_pct": 53.4,
+     "market_rose_pct": 53.0,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "ordered|trend|close": {
+     "n": 2288,
+     "right_pct": 52.8,
+     "market_rose_pct": 55.2,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|ahead5": {
+     "n": 1668,
+     "right_pct": 50.1,
+     "market_rose_pct": 51.9,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|close": {
+     "n": 1668,
+     "right_pct": 48.6,
+     "market_rose_pct": 55.5,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|chop|ahead5": {
+     "n": 1048,
+     "right_pct": 52.8,
+     "market_rose_pct": 55.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|chop|close": {
+     "n": 1048,
+     "right_pct": 50.5,
+     "market_rose_pct": 55.0,
+     "quarters_beat": 2,
+     "quarters": 4
+    }
+   }
+  },
+  "30m": {
+   "er_thirds": [
+    0.139,
+    0.327
+   ],
+   "rows": {
+    "all|all|ahead5": {
+     "n": 4726,
+     "right_pct": 50.9,
+     "market_rose_pct": 54.7,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "all|all|close": {
+     "n": 4724,
+     "right_pct": 50.6,
+     "market_rose_pct": 55.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|ahead5": {
+     "n": 2981,
+     "right_pct": 51.2,
+     "market_rose_pct": 55.0,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|close": {
+     "n": 2980,
+     "right_pct": 50.7,
+     "market_rose_pct": 55.4,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|trend|ahead5": {
+     "n": 1960,
+     "right_pct": 53.8,
+     "market_rose_pct": 53.9,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "efficiency|trend|close": {
+     "n": 1959,
+     "right_pct": 53.1,
+     "market_rose_pct": 55.5,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|not|ahead5": {
+     "n": 2006,
+     "right_pct": 50.3,
+     "market_rose_pct": 56.7,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|not|close": {
+     "n": 2005,
+     "right_pct": 50.8,
+     "market_rose_pct": 54.0,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|other|ahead5": {
+     "n": 2104,
+     "right_pct": 50.0,
+     "market_rose_pct": 56.9,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|other|close": {
+     "n": 2103,
+     "right_pct": 50.7,
+     "market_rose_pct": 54.4,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|ahead5": {
+     "n": 2720,
+     "right_pct": 51.4,
+     "market_rose_pct": 53.3,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow|trend|close": {
+     "n": 2719,
+     "right_pct": 50.5,
+     "market_rose_pct": 56.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|same|ahead5": {
+     "n": 2622,
+     "right_pct": 51.6,
+     "market_rose_pct": 53.0,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow_same_way|same|close": {
+     "n": 2621,
+     "right_pct": 50.6,
+     "market_rose_pct": 56.0,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|trend|ahead5": {
+     "n": 1745,
+     "right_pct": 50.5,
+     "market_rose_pct": 54.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|trend|close": {
+     "n": 1744,
+     "right_pct": 50.4,
+     "market_rose_pct": 55.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|ahead5": {
+     "n": 1663,
+     "right_pct": 47.8,
+     "market_rose_pct": 56.1,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|middle|close": {
+     "n": 1662,
+     "right_pct": 47.0,
+     "market_rose_pct": 57.4,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|chop|ahead5": {
+     "n": 1103,
+     "right_pct": 50.5,
+     "market_rose_pct": 54.1,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "efficiency|chop|close": {
+     "n": 1103,
+     "right_pct": 51.7,
+     "market_rose_pct": 51.9,
+     "quarters_beat": 1,
+     "quarters": 4
+    }
+   }
+  },
+  "1h": {
+   "er_thirds": [
+    0.156,
+    0.351
+   ],
+   "rows": {
+    "all|all|ahead5": {
+     "n": 4349,
+     "right_pct": 50.7,
+     "market_rose_pct": 57.1,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "all|all|close": {
+     "n": 4346,
+     "right_pct": 50.9,
+     "market_rose_pct": 55.0,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|trend|ahead5": {
+     "n": 1512,
+     "right_pct": 49.9,
+     "market_rose_pct": 51.6,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|trend|close": {
+     "n": 1511,
+     "right_pct": 46.1,
+     "market_rose_pct": 49.2,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "efficiency|chop|ahead5": {
+     "n": 1369,
+     "right_pct": 55.6,
+     "market_rose_pct": 54.9,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "efficiency|chop|close": {
+     "n": 1368,
+     "right_pct": 52.0,
+     "market_rose_pct": 55.3,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|ahead5": {
+     "n": 2124,
+     "right_pct": 49.1,
+     "market_rose_pct": 58.7,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|close": {
+     "n": 2121,
+     "right_pct": 47.1,
+     "market_rose_pct": 53.2,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|same|ahead5": {
+     "n": 2035,
+     "right_pct": 48.9,
+     "market_rose_pct": 58.6,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|same|close": {
+     "n": 2032,
+     "right_pct": 47.1,
+     "market_rose_pct": 53.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|ahead5": {
+     "n": 2837,
+     "right_pct": 51.2,
+     "market_rose_pct": 60.0,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "ordered|not|close": {
+     "n": 2835,
+     "right_pct": 53.4,
+     "market_rose_pct": 58.1,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|ahead5": {
+     "n": 1314,
+     "right_pct": 48.6,
+     "market_rose_pct": 60.5,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|middle|close": {
+     "n": 1314,
+     "right_pct": 53.1,
+     "market_rose_pct": 58.1,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow|not|ahead5": {
+     "n": 2225,
+     "right_pct": 52.3,
+     "market_rose_pct": 55.5,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow|not|close": {
+     "n": 2225,
+     "right_pct": 54.5,
+     "market_rose_pct": 56.8,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|other|ahead5": {
+     "n": 2314,
+     "right_pct": 52.3,
+     "market_rose_pct": 55.7,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|other|close": {
+     "n": 2314,
+     "right_pct": 54.2,
+     "market_rose_pct": 56.6,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|trend|ahead5": {
+     "n": 1666,
+     "right_pct": 48.4,
+     "market_rose_pct": 56.1,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|trend|close": {
+     "n": 1664,
+     "right_pct": 48.2,
+     "market_rose_pct": 52.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    }
+   }
+  },
+  "4h": {
+   "er_thirds": [
+    0.16,
+    0.358
+   ],
+   "rows": {
+    "all|all|ahead5": {
+     "n": 4539,
+     "right_pct": 49.3,
+     "market_rose_pct": 55.6,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "all|all|close": {
+     "n": 4548,
+     "right_pct": 50.2,
+     "market_rose_pct": 53.4,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|ahead5": {
+     "n": 2208,
+     "right_pct": 48.0,
+     "market_rose_pct": 53.7,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|close": {
+     "n": 2208,
+     "right_pct": 46.0,
+     "market_rose_pct": 49.8,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|chop|ahead5": {
+     "n": 1074,
+     "right_pct": 47.9,
+     "market_rose_pct": 57.2,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|chop|close": {
+     "n": 1087,
+     "right_pct": 45.6,
+     "market_rose_pct": 55.6,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|ahead5": {
+     "n": 3008,
+     "right_pct": 50.8,
+     "market_rose_pct": 55.8,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|close": {
+     "n": 3018,
+     "right_pct": 50.2,
+     "market_rose_pct": 54.2,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|other|ahead5": {
+     "n": 1709,
+     "right_pct": 46.0,
+     "market_rose_pct": 54.8,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|other|close": {
+     "n": 1721,
+     "right_pct": 49.6,
+     "market_rose_pct": 51.8,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|ahead5": {
+     "n": 1714,
+     "right_pct": 52.5,
+     "market_rose_pct": 53.2,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|close": {
+     "n": 1712,
+     "right_pct": 51.2,
+     "market_rose_pct": 49.9,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow_same_way|same|ahead5": {
+     "n": 2830,
+     "right_pct": 51.3,
+     "market_rose_pct": 56.1,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow_same_way|same|close": {
+     "n": 2827,
+     "right_pct": 50.5,
+     "market_rose_pct": 54.3,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "ordered|trend|ahead5": {
+     "n": 2331,
+     "right_pct": 50.5,
+     "market_rose_pct": 57.4,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "ordered|trend|close": {
+     "n": 2340,
+     "right_pct": 54.2,
+     "market_rose_pct": 56.8,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow|not|ahead5": {
+     "n": 1531,
+     "right_pct": 46.3,
+     "market_rose_pct": 55.3,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|not|close": {
+     "n": 1530,
+     "right_pct": 50.1,
+     "market_rose_pct": 51.8,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|trend|ahead5": {
+     "n": 1751,
+     "right_pct": 47.0,
+     "market_rose_pct": 57.0,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|trend|close": {
+     "n": 1749,
+     "right_pct": 52.0,
+     "market_rose_pct": 55.4,
+     "quarters_beat": 1,
+     "quarters": 4
+    }
+   }
+  },
+  "1d": {
+   "er_thirds": [
+    0.13,
+    0.327
+   ],
+   "rows": {
+    "all|all|ahead5": {
+     "n": 4825,
+     "right_pct": 61.7,
+     "market_rose_pct": 62.7,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "all|all|close": {
+     "n": 4823,
+     "right_pct": 51.6,
+     "market_rose_pct": 54.3,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "ordered|trend|ahead5": {
+     "n": 2725,
+     "right_pct": 63.3,
+     "market_rose_pct": 66.1,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|trend|close": {
+     "n": 2725,
+     "right_pct": 47.3,
+     "market_rose_pct": 49.9,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|chop|ahead5": {
+     "n": 825,
+     "right_pct": 72.7,
+     "market_rose_pct": 60.6,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|chop|close": {
+     "n": 825,
+     "right_pct": 54.5,
+     "market_rose_pct": 54.1,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "dow|trend|ahead5": {
+     "n": 3450,
+     "right_pct": 60.9,
+     "market_rose_pct": 68.1,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|trend|close": {
+     "n": 3449,
+     "right_pct": 52.1,
+     "market_rose_pct": 53.9,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|same|ahead5": {
+     "n": 3325,
+     "right_pct": 61.7,
+     "market_rose_pct": 69.2,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|same|close": {
+     "n": 3324,
+     "right_pct": 52.5,
+     "market_rose_pct": 54.3,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|middle|ahead5": {
+     "n": 2150,
+     "right_pct": 61.6,
+     "market_rose_pct": 59.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "efficiency|middle|close": {
+     "n": 2148,
+     "right_pct": 52.2,
+     "market_rose_pct": 53.0,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|trend|ahead5": {
+     "n": 1850,
+     "right_pct": 56.8,
+     "market_rose_pct": 67.6,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|trend|close": {
+     "n": 1850,
+     "right_pct": 49.5,
+     "market_rose_pct": 55.9,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|not|ahead5": {
+     "n": 1375,
+     "right_pct": 63.6,
+     "market_rose_pct": 49.1,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow|not|close": {
+     "n": 1374,
+     "right_pct": 50.1,
+     "market_rose_pct": 55.4,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|other|ahead5": {
+     "n": 1500,
+     "right_pct": 61.7,
+     "market_rose_pct": 48.3,
+     "quarters_beat": 2,
+     "quarters": 4
+    },
+    "dow_same_way|other|close": {
+     "n": 1499,
+     "right_pct": 49.5,
+     "market_rose_pct": 54.3,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "ordered|not|ahead5": {
+     "n": 2100,
+     "right_pct": 59.5,
+     "market_rose_pct": 58.3,
+     "quarters_beat": 1,
+     "quarters": 4
+    },
+    "ordered|not|close": {
+     "n": 2098,
+     "right_pct": 57.1,
+     "market_rose_pct": 60.1,
+     "quarters_beat": 0,
+     "quarters": 4
+    }
+   }
+  },
+  "1w": {
+   "er_thirds": [
+    0.175,
+    0.312
+   ],
+   "rows": {
+    "all|all|ahead5": {
+     "n": 5500,
+     "right_pct": 69.5,
+     "market_rose_pct": 80.5,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "all|all|close": {
+     "n": 5496,
+     "right_pct": 53.1,
+     "market_rose_pct": 54.6,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "ordered|not|ahead5": {
+     "n": 2550,
+     "right_pct": 76.5,
+     "market_rose_pct": 100.0,
+     "quarters_beat": 0,
+     "quarters": 3
+    },
+    "ordered|not|close": {
+     "n": 2549,
+     "right_pct": 49.7,
+     "market_rose_pct": 52.8,
+     "quarters_beat": 0,
+     "quarters": 3
+    },
+    "efficiency|middle|ahead5": {
+     "n": 1875,
+     "right_pct": 42.7,
+     "market_rose_pct": 61.3,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|middle|close": {
+     "n": 1874,
+     "right_pct": 49.3,
+     "market_rose_pct": 51.2,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|not|ahead5": {
+     "n": 4125,
+     "right_pct": 77.0,
+     "market_rose_pct": 91.5,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow|not|close": {
+     "n": 4122,
+     "right_pct": 49.7,
+     "market_rose_pct": 51.6,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|other|ahead5": {
+     "n": 4250,
+     "right_pct": 77.6,
+     "market_rose_pct": 91.8,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "dow_same_way|other|close": {
+     "n": 4247,
+     "right_pct": 50.3,
+     "market_rose_pct": 52.2,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|chop|ahead5": {
+     "n": 2425,
+     "right_pct": 84.5,
+     "market_rose_pct": 94.8,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "efficiency|chop|close": {
+     "n": 2424,
+     "right_pct": 51.5,
+     "market_rose_pct": 53.3,
+     "quarters_beat": 0,
+     "quarters": 4
+    },
+    "ordered|trend|ahead5": {
+     "n": 2950,
+     "right_pct": 63.6,
+     "market_rose_pct": 63.6,
+     "quarters_beat": 0,
+     "quarters": 3
+    },
+    "ordered|trend|close": {
+     "n": 2947,
+     "right_pct": 56.2,
+     "market_rose_pct": 56.2,
+     "quarters_beat": 0,
+     "quarters": 3
+    },
+    "efficiency|trend|ahead5": {
+     "n": 1200,
+     "right_pct": 81.2,
+     "market_rose_pct": 81.2,
+     "quarters_beat": 0,
+     "quarters": 3
+    },
+    "efficiency|trend|close": {
+     "n": 1198,
+     "right_pct": 62.4,
+     "market_rose_pct": 62.4,
+     "quarters_beat": 0,
+     "quarters": 3
+    },
+    "dow|trend|ahead5": {
+     "n": 1375,
+     "right_pct": 47.3,
+     "market_rose_pct": 47.3,
+     "quarters_beat": 0,
+     "quarters": 3
+    },
+    "dow|trend|close": {
+     "n": 1374,
+     "right_pct": 63.6,
+     "market_rose_pct": 63.6,
+     "quarters_beat": 0,
+     "quarters": 3
+    },
+    "dow_same_way|same|ahead5": {
+     "n": 1250,
+     "right_pct": 42.0,
+     "market_rose_pct": 42.0,
+     "quarters_beat": 0,
+     "quarters": 2
+    },
+    "dow_same_way|same|close": {
+     "n": 1249,
+     "right_pct": 62.9,
+     "market_rose_pct": 62.9,
+     "quarters_beat": 0,
+     "quarters": 2
+    }
+   }
+  }
+ },
+ "seconds": 9.3
+}

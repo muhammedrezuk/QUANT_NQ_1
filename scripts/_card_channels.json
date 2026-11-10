@@ -1,0 +1,282 @@
+{
+ "analysis.trend.state": {
+  "atom": "151",
+  "name": "الاتجاه"
+ },
+ "analysis.momentum.state": {
+  "atom": "152",
+  "name": "الزخم"
+ },
+ "analysis.volatility.state": {
+  "atom": "153",
+  "name": "التذبذب"
+ },
+ "analysis.volume.state": {
+  "atom": "154",
+  "name": "الحجم"
+ },
+ "analysis.spread.state": {
+  "atom": "155",
+  "name": "السبريد"
+ },
+ "analysis.candle.state": {
+  "atom": "156",
+  "name": "الشموع"
+ },
+ "analysis.gap.state": {
+  "atom": "157",
+  "name": "الفجوات"
+ },
+ "analysis.session.state": {
+  "atom": "158",
+  "name": "الجلسات"
+ },
+ "analysis.time.state": {
+  "atom": "159",
+  "name": "أثر الوقت"
+ },
+ "analysis.correlation.state": {
+  "atom": "160",
+  "name": "الارتباط"
+ },
+ "analysis.relative_strength.state": {
+  "atom": "161",
+  "name": "القوة النسبية"
+ },
+ "analysis.velocity.state": {
+  "atom": "162",
+  "name": "السرعة"
+ },
+ "analysis.acceleration.state": {
+  "atom": "163",
+  "name": "التسارع"
+ },
+ "analysis.volume_quality.state": {
+  "atom": "164",
+  "name": "جودة الحجم"
+ },
+ "analysis.noise.state": {
+  "atom": "165",
+  "name": "الضوضاء"
+ },
+ "structure.swing.state": {
+  "atom": "201",
+  "name": "القمم والقيعان"
+ },
+ "structure.external.state": {
+  "atom": "202",
+  "name": "الهيكل الخارجي"
+ },
+ "structure.internal.state": {
+  "atom": "203",
+  "name": "الهيكل الداخلي"
+ },
+ "structure.bos.state": {
+  "atom": "204",
+  "name": "كاشف BOS"
+ },
+ "structure.choch.state": {
+  "atom": "205",
+  "name": "كاشف CHoCH"
+ },
+ "structure.mss.state": {
+  "atom": "206",
+  "name": "تحول الهيكل MSS"
+ },
+ "liquidity.pool.state": {
+  "atom": "251",
+  "name": "مجمعات السيولة"
+ },
+ "liquidity.buyside.state": {
+  "atom": "252",
+  "name": "سيولة الشراء"
+ },
+ "liquidity.sellside.state": {
+  "atom": "253",
+  "name": "سيولة البيع"
+ },
+ "liquidity.sweep.state": {
+  "atom": "254",
+  "name": "كنس السيولة"
+ },
+ "liquidity.fvg.state": {
+  "atom": "255",
+  "name": "الفجوة FVG"
+ },
+ "liquidity.delta.state": {
+  "atom": "256",
+  "name": "محلل الدلتا"
+ },
+ "liquidity.cvd.state": {
+  "atom": "257",
+  "name": "محلل CVD"
+ },
+ "liquidity.absorption.state": {
+  "atom": "258",
+  "name": "كاشف الامتصاص"
+ },
+ "liquidity.depth.state": {
+  "atom": "261",
+  "name": "محلل العمق"
+ },
+ "liquidity.microprice.state": {
+  "atom": "262",
+  "name": "محلل الميكرو سعر"
+ },
+ "liquidity.ofi.state": {
+  "atom": "263",
+  "name": "تدفق الأوامر OFI"
+ },
+ "liquidity.price_impact.state": {
+  "atom": "264",
+  "name": "أثر السعر بالدفتر"
+ },
+ "stats.mean.state": {
+  "atom": "301",
+  "name": "المتوسط"
+ },
+ "stats.median.state": {
+  "atom": "302",
+  "name": "الوسيط"
+ },
+ "stats.mode.state": {
+  "atom": "303",
+  "name": "المنوال"
+ },
+ "stats.std.state": {
+  "atom": "304",
+  "name": "الانحراف المعياري"
+ },
+ "stats.variance.state": {
+  "atom": "305",
+  "name": "التباين"
+ },
+ "stats.cv.state": {
+  "atom": "306",
+  "name": "معامل الاختلاف"
+ },
+ "stats.correlation.state": {
+  "atom": "307",
+  "name": "الارتباط الإحصائي"
+ },
+ "stats.regression.state": {
+  "atom": "308",
+  "name": "الانحدار الخطي"
+ },
+ "stats.r_squared.state": {
+  "atom": "309",
+  "name": "معامل التحديد"
+ },
+ "stats.zscore.state": {
+  "atom": "310",
+  "name": "درجة Z"
+ },
+ "stats.skewness.state": {
+  "atom": "311",
+  "name": "الالتواء"
+ },
+ "stats.kurtosis.state": {
+  "atom": "312",
+  "name": "التفلطح"
+ },
+ "stats.distribution.state": {
+  "atom": "314",
+  "name": "التوزيع"
+ },
+ "stats.range.state": {
+  "atom": "315",
+  "name": "المدى"
+ },
+ "stats.period_compare.state": {
+  "atom": "318",
+  "name": "مقارنة الفترات"
+ },
+ "probability.trend.state": {
+  "atom": "351",
+  "name": "نموذج الاتجاه"
+ },
+ "probability.reversal.state": {
+  "atom": "352",
+  "name": "نموذج الانعكاس"
+ },
+ "probability.breakout.state": {
+  "atom": "353",
+  "name": "نموذج الاختراق"
+ },
+ "probability.pullback.state": {
+  "atom": "354",
+  "name": "نموذج الارتداد"
+ },
+ "probability.momentum.state": {
+  "atom": "355",
+  "name": "نموذج الزخم"
+ },
+ "probability.range.state": {
+  "atom": "356",
+  "name": "نموذج المدى"
+ },
+ "probability.merged.state": {
+  "atom": "357",
+  "name": "دمج النماذج"
+ },
+ "probability.hurst.state": {
+  "atom": "358",
+  "name": "معامل هيرست"
+ },
+ "probability.confidence.state": {
+  "atom": "359",
+  "name": "مجمّع الثقة"
+ },
+ "learning.model.active.state": {
+  "atom": "367",
+  "name": "learning registry"
+ },
+ "learning.model.drift.state": {
+  "atom": "368",
+  "name": "learning drift"
+ },
+ "strategy.entry_quality.state": {
+  "atom": "401",
+  "name": "قواعد الدخول"
+ },
+ "strategy.invalidation_quality.state": {
+  "atom": "402",
+  "name": "قواعد الخروج"
+ },
+ "strategy.trend.state": {
+  "atom": "404",
+  "name": "استراتيجية الاتجاه"
+ },
+ "strategy.reversal.state": {
+  "atom": "405",
+  "name": "استراتيجية الانعكاس"
+ },
+ "strategy.breakout.state": {
+  "atom": "406",
+  "name": "استراتيجية الاختراق"
+ },
+ "strategy.pullback.state": {
+  "atom": "407",
+  "name": "استراتيجية الارتداد"
+ },
+ "strategy.momentum.state": {
+  "atom": "408",
+  "name": "استراتيجية الزخم"
+ },
+ "strategy.range.state": {
+  "atom": "409",
+  "name": "استراتيجية المدى"
+ },
+ "strategy.liquidity.state": {
+  "atom": "410",
+  "name": "استراتيجية السيولة"
+ },
+ "strategy.news.state": {
+  "atom": "411",
+  "name": "استراتيجية الأخبار"
+ },
+ "strategy.session.state": {
+  "atom": "412",
+  "name": "استراتيجية الجلسة"
+ }
+}

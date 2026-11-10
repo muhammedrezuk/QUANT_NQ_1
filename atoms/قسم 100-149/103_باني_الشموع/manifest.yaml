@@ -1,0 +1,65 @@
+id: 103
+name: "Candle Builder"
+version: "5.5.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "market_data.candle_closed"
+
+subscribes:
+  - "market.tick.validated"
+  - "SYS_SECOND"
+
+startup_mode: auto
+
+health:
+  interval_ms: 30000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    timeframes:
+      type: array
+      items:
+        type: string
+      minItems: 1
+    price_source:
+      type: string
+      enum: [bid, mid]
+    close_grace_s:
+      type: number
+      minimum: 0
+  required:
+    - timeframes
+  additionalProperties: false
+
+config:
+  timeframes:
+    - "10s"
+    - "30s"
+    - "1m"
+    - "2m"
+    - "3m"
+    - "4m"
+    - "5m"
+    - "10m"
+    - "15m"
+    - "30m"
+    - "1h"
+    - "4h"
+    - "12h"
+    - "1d"
+  # ٢٠٢٦-١٠-١٢ (نقاش المالك البند 10): سعر الشمعة العرض كشارت سي‑تريدر، والإغلاق في وقته على نبض الثانية.
+  price_source: "bid"
+  close_grace_s: 1.0
+metadata:
+  max_idle_s: 301

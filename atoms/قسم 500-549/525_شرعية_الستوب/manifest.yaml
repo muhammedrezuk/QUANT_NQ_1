@@ -1,0 +1,86 @@
+id: 525
+name: "Stop Legality"
+version: "2.5.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "execution.order.legal"
+  - "execution.order.rejected"
+
+subscribes:
+  - "execution.order.built"
+  - "market.symbol_specs"
+
+startup_mode: auto
+
+health:
+  interval_ms: 10000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    stop_buffer:
+      type: number
+      minimum: 0
+    reward_risk:
+      type: number
+      minimum: 0
+    hard_floor_points:
+      type: number
+      minimum: 0
+    stop_floor_by_symbol:
+      type: object
+      additionalProperties:
+        type: number
+        exclusiveMinimum: 0
+  required:
+    - stop_buffer
+    - reward_risk
+    - hard_floor_points
+  additionalProperties: false
+
+config:
+  # 🔴 ٢٠٢٦-٠٩-١٨ (ختم NQ) — أرضيّةُ الوقف لكل رمزٍ بوحدة سعره، بأمر
+  # المالك. وكان الحدّ رقمًا واحدًا بالنقاط (`hard_floor_points: 200`
+  # + `stop_buffer: 20`) يُضرب في `point` — و`point` هي 0.01 لخمسة رموز
+  # و0.00001 لليورو، فالرقم نفسه يعطي 220$ للّوت على الذهب و2.20$ على
+  # البتكوين، ويختلف أثرُه بين اليورو والبتكوين **سبعةً وستّين ضعفًا**.
+  #
+  #   «دهب ما في أقلّ من 2 دولار على حركة ستوب — دهب عنيف»
+  #   «ناسداك: أيّ صفقة أقلّ من 15 دولار من حركة ناسداك تُرفض»
+  #   «يورو: أيّ صفقة أقلّ من 5 بيب تُرفض»
+  #
+  # والقيم بوحدة السعر كما يرسلها الوسيط (`digits`/`point`):
+  #   XAUUSD 2.00   في سعر الأونصة  = 200$ للّوت (tick_value/tick_size=100)
+  #   USTEC  15.00  في حركة الناسداك =  15$ للّوت (=1)
+  #   EURUSD 0.0005 = خمس بيبات      =  50$ للّوت (=100000)
+  # وما لا أرضيّة له هنا يحكمه سبريدُه وانزلاقُه المقيسان في
+  # `shared/execution_costs.py` (البتكوين مثالًا: 18.66).
+  stop_floor_by_symbol:
+    XAUUSD: 2.0
+    USTEC: 15.0
+    EURUSD: 0.0005
+  # وسادةٌ فوق حدّ الوسيط (`stops_level`/`freeze_level`) — لا فوق أرضيّة
+  # الرمز. صفّرتُها فأمسكني حارس `check_execution_safety`: «لا وسادة أمان
+  # فوق حد الوسيط». وهي لا تدهس شيئًا: 20 × point = 0.20 على الذهب مقابل
+  # أرضيّته 2.00، و0.0002 على اليورو مقابل 0.0005 — الأرضيّة أكبر دائمًا.
+  stop_buffer: 20.0
+  # حكم المالك ٢٠٢٦-٠٩-١٠: «ربح صفقة لا يقلّ عن ٣ أضعاف حجم ستوب — ١/٣
+  # risk reward». وكان ٢٫٠ هنا بينما ٥٢٦ يحمل ٣٫٠ منذ ٢٠٢٦-٠٩-٠٧،
+  # فالمسار المباشر ينقض حكمًا يطبّقه المسار الكامل. مقيس على المركز
+  # المفتوح: وقف ٣٨٨٫٩٥ وهدف ٧٩١٫٧٥ = نسبة ٢٫٠٤.
+  reward_risk: 3.0
+  # صُفّرت: حلّت محلّها أرضيّةُ كل رمزٍ أعلاه. وكانت 200 نقطة عمياء
+  # تدهس الحساب المشتقّ في ثلاثة رموزٍ من أربعة.
+  hard_floor_points: 0.0
+metadata:
+  max_idle_s: 3600

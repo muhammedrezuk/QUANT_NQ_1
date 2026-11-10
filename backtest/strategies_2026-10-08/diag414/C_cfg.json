@@ -1,0 +1,7 @@
+[
+ {"name": "الحاليّة", "b": 0.0, "n": 2.0, "c": 1.5, "filter": "True", "verdict": true, "cost": "fixed", "min_stop_bps": 3.0},
+ {"name": "الحاليّة_بلا_أرضيّة_الوقف_كالمسطرة", "b": 0.0, "n": 2.0, "c": 1.5, "filter": "True", "verdict": true, "cost": "fixed", "min_stop_bps": 0.0},
+ {"name": "للعلم_شراء_وبيع_تحت50|ن3.0|ج1.0|ب0.0", "b": 0.0, "n": 3.0, "c": 1.0, "filter": "buy or (not above50)", "verdict": true, "cost": "fixed", "min_stop_bps": 3.0},
+ {"name": "الحاليّة_كلفة_نسبيّة_للعلم", "b": 0.0, "n": 2.0, "c": 1.5, "filter": "True", "verdict": true, "cost": "prop", "min_stop_bps": 3.0},
+ {"name": "للعلم_شراء_وبيع_تحت50|ن3.0|ج1.0|ب0.0_كلفة_نسبيّة", "b": 0.0, "n": 3.0, "c": 1.0, "filter": "buy or (not above50)", "verdict": true, "cost": "prop", "min_stop_bps": 3.0}
+]

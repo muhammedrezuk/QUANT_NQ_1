@@ -1,0 +1,40 @@
+id: 623
+name: "cTrader Tick Maker"
+version: "2.3.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "feed.ctrader.tick"
+  - "feed.relay.state"
+
+subscribes:
+  - "market.depth"
+
+startup_mode: auto
+
+health:
+  interval_ms: 10000
+  timeout_ms: 5000
+  failure_threshold: 3
+  restart_on_failure: true
+  max_restarts: 5
+  restart_backoff_ms: 1000
+
+config_schema:
+  type: object
+  properties:
+    state_every: {type: integer, minimum: 1}
+  required: [state_every]
+  additionalProperties: false
+
+config:
+  state_every: 1000
+
+metadata:
+  role: "tick"
+  upstream: "624"
+  downstream: "613 · 621 · 116 · 521 · 582"

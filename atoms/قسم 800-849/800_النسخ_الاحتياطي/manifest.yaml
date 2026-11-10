@@ -1,0 +1,85 @@
+id: 800
+name: "Backup Manager"
+version: "2.9.0"
+core_version: ">=1.0.0,<2.0.0"
+critical: false
+entrypoint: "atom:Atom"
+
+dependencies: []
+
+publishes:
+  - "tools.backup.completed"
+  - "tools.backup.failed"
+
+subscribes:
+  - "SYS_DAY"
+  - "SYS_SECOND"
+
+startup_mode: auto
+
+health:
+  interval_ms: 3600000
+  timeout_ms: 10000
+  failure_threshold: 3
+  restart_on_failure: false
+  max_restarts: 3
+  restart_backoff_ms: 5000
+
+config_schema:
+  type: object
+  properties:
+    backup_dir:
+      type: string
+    source_dirs:
+      type: array
+      items:
+        type: string
+    keep_last_n:
+      type: integer
+      minimum: 1
+    interval_days:
+      type: integer
+      minimum: 1
+    min_source_bytes:
+      type: integer
+      minimum: 1
+    exclude_patterns:
+      type: array
+      items:
+        type: string
+    staging_dir:
+      type: string
+    full_check_max_bytes:
+      type: integer
+      minimum: 1
+  required: [backup_dir, source_dirs, keep_last_n, interval_days, min_source_bytes]
+  additionalProperties: false
+
+config:
+  backup_dir: 'var/backups'
+  source_dirs:
+    - 'var/store'
+    - 'config'
+  keep_last_n: 7
+  interval_days: 1
+  # عتبةُ «هذه ليست نسخة». المقيس ٢٠٢٦-٠٩-١٩: المخزن الحيّ ١٥٫١ جيجابايت،
+  # والشجرة الشبحيّة التي كانت تُنسخ ١٫٠ ميغابايت — بينهما أربع مراتب. العتبة
+  # جيجابايتٌ واحد: تكشف الشبح بيقين، ولا تعضّ انكماشًا مشروعًا. وهي عيارٌ
+  # في الورقة لا رقمٌ في الكود، فالمالك يخفضها بيده إن أراد.
+  min_source_bytes: 1000000000
+  # ما لا يُنسَخ. مقيس ٢٠٢٦-٠٩-٢٣: `var/store` ٢٦٫٤ ج.ب منها **١٠٫٤٨ في اثني
+  # عشر ملفّ `archive.closed.*`** — أرشيفٌ **مغلق لا يتغيّر**، فنسخُه كلّ يوم
+  # تكرارٌ بلا فائدة. وكلفتُه ليست قرصًا فقط: تزاحمُ النسخة مع المخازن رفع
+  # `sqlite` إلى ٤٫٨ ثانية للإدراج الواحد فأُسقط **١٬٣٤٩ قرارًا** من بفر ٧٠٧.
+  # والاستثناء يُنشر في اللقطة (`last_excluded`) فلا يكون صامتًا.
+  exclude_patterns:
+    - '*/archive.closed.*'
+    - 'archive.closed.*'
+  # ٢٠٢٦-١٠-٠٢ (ختم المالك «صلح كامل nq»): التدريج في مجلّدٍ معلَن لا في مؤقّتات
+  # النظام — ثلاث تشغيلاتٍ قُتلت يوم ٠٩-٢٥ تركت 48.6 ج.ب في `%TEMP%` بلا أثر. كلّ
+  # تشغيلة في `run-<الزمن>` هنا؛ وما لم يكتمل يُنحّى `incomplete-<الزمن>` ولا يُمسح.
+  staging_dir: 'var/backups/staging'
+  # ما دون هذا الحجم يُفحص `integrity_check` كاملًا، وما فوقه `quick_check`.
+  full_check_max_bytes: 268435456
+metadata:
+  max_idle_s: 60

@@ -1,0 +1,1 @@
+[{"name": "للعلم_شراء_وبيع_تحت50|ن3.0|ج1.0|ب0.0_كلفة_نسبيّة", "b": 0.0, "n": 3.0, "c": 1.0, "filter": "buy or (not above50)", "verdict": true, "cost": "prop", "min_stop_bps": 3.0}]
